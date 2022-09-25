@@ -1,0 +1,36 @@
+\begin{normalsize}
+
+\section{Простые числа}
+
+\begin{defn}
+    Число $p \in \mathZ$ называется простым, если $p \notin \{-1, 0, 1\}$ и все делители $p$ --- это $\pm 1$ и $p$.
+\end{defn}
+
+\begin{prop}
+    \begin{enumerate}
+        \item $p$ --- простое $\iff -p$ --- простое.
+        \item $p$ --- простое, $a \in \mathZ \implies p | a$ или $p \bot a$.
+        \item $p, q$ --- простые $\implies p, q$ --- ассоциированны или $p \bot q$.
+        \item $p \mid ab \implies p \mid a$ или $p \mid b$. 
+    \end{enumerate}
+\end{prop}
+
+\begin{theorem-non}
+    $\letus a \neq \pm 1$, тогда существует простое число $p : p \mid a$.
+\end{theorem-non}
+
+\begin{proof}
+    $a = 0 \implies p = 239$\\
+    $a = 1 \implies a > 0$\\
+    Индукция по $a$:\\
+    $a$ --- простое $\implies p = a, p \mid a$\\
+    $a$ --- не простое, $\exists d : 1 < d < a, d \mid a$\\
+    $a = dd'$, тогда по индукционному переходу существует простое число $p : p \mid d$\\
+    $p \mid d, d \mid a \implies p \mid a$\\
+\end{proof}
+
+\begin{defn}
+    Составное число --- это число отличное от 0, и не являющееся простым.
+\end{defn}
+
+\end{normalsize}

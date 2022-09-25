@@ -1,0 +1,102 @@
+\documentclass[12pt, letterpaper]{report}
+\usepackage [utf8] {inputenc}
+\usepackage [T2A] {fontenc}
+\usepackage {amsfonts}
+\usepackage{amssymb, amsthm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+\usepackage{comment}
+\usepackage{cmap}
+\usepackage[pdftex]{graphicx}
+\usepackage[unicode=true, colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\usepackage{epstopdf}
+\usepackage{stackengine}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{indentfirst}
+\usepackage[russian]{babel}
+
+\pagestyle{plain}
+
+\usepackage{fullpage}
+
+\setlength\parindent{0em}
+\renewcommand\thesection{\arabic{section}}
+
+\newcommand{\mathZ}{\mathbb{Z}}
+\newcommand{\mathN}{\mathbb{N}}
+\newcommand{\mathR}{\mathbb{R}}
+\newcommand{\mathQ}{\mathbb{Q}}
+\newcommand{\mathK}{\mathbb{K}}
+\newcommand{\mathC}{\mathbb{C}}
+\newcommand{\mathP}{\mathbb{P}}
+\def\letus{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+             \hbox{\kern 0.125\wd0%
+                   \vbox to \ht0{%
+                      \hrule width 0.75\wd0%
+                      \vfill%
+                      \hrule width 0.75\wd0}%
+                   \vrule height \ht0%
+                   \kern 0.125\wd0}%
+           }%
+}
+
+\newcommand{\equivm}[1]{\underset{#1}{\equiv}}
+
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{theorem-non}{Предложение}
+\newtheorem*{lemma}{Лемма}
+\theoremstyle{definition}
+\newtheorem*{defn}{Определение}
+
+\newcommand{\follow}{\textbf{\textit{Следствие:}} }
+\newcommand{\notice}{\underline{\textit{Замечание:}} }
+\newcommand{\prop}{\underline{Свойства:} }
+\newcommand{\example}{\underline{Пример:} }
+\newcommand{\examples}{\underline{Примеры:} }
+\renewenvironment{proof}[1][\proofname]{\textbf{Доказательство.} }
+
+\title{Конспект лекций по алгебре}
+\author{Лектор: Игорь Борисович Жуков}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\pagestyle{plain}
+
+\tableofcontents
+
+\newpage
+\begin{normalsize}
+
+\chapter*{Элементы теории чисел}
+\addcontentsline{toc}{chapter}{Элементы теории чисел}
+
+\import{sections/}{par1.tex}
+$ $
+\import{sections/}{par2.tex}
+$ $
+\import{sections/}{par3.tex}
+$ $
+\import{sections/}{par4.tex}
+$ $
+\import{sections/}{par5.tex}
+$ $
+\import{sections/}{par6.tex}
+$ $
+\import{sections/}{par7.tex}
+$ $
+\import{sections/}{par8.tex}
+$ $
+
+\end{normalsize}
+\end{document} 

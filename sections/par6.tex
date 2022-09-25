@@ -1,0 +1,37 @@
+\begin{normalsize}
+
+\section{Взаимно простые числа}
+
+\begin{defn}
+    Числа $a$ и $b$ называются взаимно простыми, если $\gcd(a, b) = 1$.
+\end{defn}
+
+\begin{theorem-non}~
+    \begin{enumerate}
+        \item $\letus a, b \in \mathZ$, тогда $a \bot b \iff \exists m, n \in \mathZ: am + bn = 1$.
+        \item $a_1 \bot b, a_2 \bot b \implies a_1a_2 \bot b$.
+        \item $a_1, \ldots, a_m, b_1, \ldots, b_n \in \mathZ$ и $\forall i, j: a_i \bot b_j \implies a_1 \ldots a_m \bot b_1 \ldots b_n$.
+        \item $a \mid bc,~a \bot b \implies a \mid c$.
+        \item $ax \equivm{m} ay,~a \bot m \implies x \equivm{m} y$.
+        \item $\gcd(a, b) = d \implies a = da',~b = db', a' \bot b'$.
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $m$ и $n$ существуют согласно линейному представлению НОД.\\
+        $d = \gcd(a, b), d \mid a, d \mid b \implies d \mid (am + bn) = 1 \implies d \mid 1 \implies d = 1$.
+        \item $1 = a_1m_1 + bn_1, 1 = a_2m_2 + bn_2 \implies 1 = a_1a_2(m_1m_2) + b(a_1m_1n_2 + a_2m_2n_1+bn_1n_2) \implies a_1a_2 \bot b$.
+        \item $a_1 \bot b, \ldots,~a_n \bot b \implies a_1 \ldots a_n \bot b$\\
+        $a_1 \ldots a_n \bot b_1, \ldots,~a_1 \ldots a_n \bot b_n \implies a_1 \ldots a_n \bot b_1 \ldots b_n$
+        \item $1 = am + bn, c = acm + bcn$\\
+        $a \mid acm,~a \mid bcn \implies a \mid c$.
+        \item $m \mid (ax - ay), a \bot m \implies m \mid (x - y) \implies x \equivm{m} y$.
+        \item $d \mid a, d \mid b \implies a = da',~b=db': a', b' \in \mathZ$\\
+        $d = am + bn,~m, n \in \mathZ$\\
+        $d = 0 \implies a' = b' = 1 = da'm + db'm$\\
+        $d \neq 0 \implies 1 = a'm + b'n \implies a' \bot b'$.
+    \end{enumerate}
+\end{proof}
+
+\end{normalsize}
