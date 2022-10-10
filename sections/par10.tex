@@ -1,0 +1,92 @@
+\begin{normalsize}
+
+\section{Китайская теорема об остатках}
+
+\begin{theorem}
+    Пусть $(m_1, m_2) = 1$; $a_1, a_2 \in \mathZ$.\\
+    \begin{enumerate}
+        \item $\exists x \in \mathZ$: 
+        $\begin{cases}
+            x_0 \equivm{m_1} a_1 \\
+            x_0 \equivm{m_2} a_2
+        \end{cases}$
+        \item $\letus x_0$ удовлетворяет системе выше\\
+        Тогда для $x \in \mathZ$: $x$ удовлетворяет системе выше $\iff$ $x \equivm{m_1 m_2} x_0$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $x_0 = a_1 + km_1 = a_2 + lm_2 \implies km_1 - lm_2 = a_2 - a_1$ --- линейное диофантово уравнение с дыумя неизвестными $k, l$\\
+        $(m_1, m_2) = 1 \implies$ у него есть решение $(k_0, l_0)$\\
+        $x_0 = a_1 + k_0 m_1$ --- искомое
+
+        \item 
+        "$\Rightarrow$"\\
+        $x \equivm{m_1m_2} x_0 \implies 
+        \begin {cases} 
+            x \equivm{m_1} x_0 \\
+            x \equivm{m_2} x_0
+        \end{cases} \implies
+        \begin{cases}
+            x \equivm{m_1} a_1 \\
+            x \equivm{m_2} a_2
+        \end{cases}$\\
+        "$\Leftarrow$"\\
+        $x$ удовлетворяет системе из теоремы $\implies
+        \begin {cases} 
+            x \equivm{m_1} x_0 \\
+            x \equivm{m_2} x_0
+        \end{cases} \implies
+        \begin{cases}
+            m_1 \mid (x - x_0)\\
+            m_2 \mid (x - x_0)
+        \end{cases} \implies m_1m_2 \mid (x - x_0)$
+    \end{enumerate}
+\end{proof}
+
+\begin{defn}
+    $\letus R, S$ --- кольца с единицей. Отображение $\varphi: R \to S$ называется изоморфизмом колец, если: $\varphi$ биекция.\\
+    \begin{enumerate}
+        \item $\forall r_1, r_2: \varphi(r_1 + r_2) = \varphi(r_1) + \varphi(r_2)$
+        \item $\forall r_1, r_2: \varphi(r_1 r_2) = \varphi(r_1) \varphi(r_2)$
+    \end{enumerate}
+\end{defn}
+
+\begin{theorem-non}
+    $\letus (m_1, m_2) = 1$ \\
+    Тогда существует изоморфизм \\
+    $\mathZ/m_1m_2\mathZ \to \mathZ/m_1\mathZ \times \mathZ/m_2\mathZ$\\
+    $[a]_{m_1m_2} \mapsto ([a]_{m_1}, [a]_{m_2})$
+\end{theorem-non}
+
+\begin{proof}
+    Проверим корректность:
+    $\letus [a]_{m_1m_2} = [a']_{m_1m_2} \implies$\\
+    $a \equivm{m_1m_2} a' \implies$\\
+    $\begin{cases}
+        a \equivm{m_1} a' \\
+        a \equivm{m_2} a'
+    \end{cases} \implies$
+    $([a]_{m_1}, [a]_{m_2}) = ([a']_{m_1}, [a']_{m_2})$\\
+    $\varphi([a]_{m_1m_2} + [b]_{m_1m_2}) = \varphi([a + b]_{m_1m_2}) = \varphi([a+b]_{m_1}, [a+b]_{m_2}) = $\\
+    $\varphi([a]_{m_1} + [a]_{m_2}) + \varphi([b]_{m_1} + [b]_{m_2}) = \varphi([a]_{m_1m_2}) + \varphi([b]_{m_1m_2})$\\
+    Для умножения аналогично.\\
+    Проверим сюръективность $\varphi$\\
+    $X = ([a_1]_{m_1}, [a_2]_{m_2})$\\
+    По китайской теореме об остатках $\exists a \in \mathZ: 
+    \begin{cases}
+        a \equivm{m_1} a_1 \\
+        a \equivm{m_2} a_2
+    \end{cases}$\\
+
+    про сюръективность $\implies$ биекция:\\
+    $|Y| = |Z| < \infty$\\
+    $\varphi: Y \to Z$\\
+    Тогда $\varphi$ инъективна $\iff$ $\varphi$ сюръективна\\
+    что-то про принцип дирихле и готово)
+\end{proof}
+
+\end{normalsize}
+
+

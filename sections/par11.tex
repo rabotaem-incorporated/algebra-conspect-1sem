@@ -1,0 +1,183 @@
+\begin{normalsize}
+
+\section{Функция Эйлера}
+
+\begin{theorem-non}
+    $\letus m \in \mathN;~a \in \mathZ$\\
+    $[a]_m \in (\mathZ/m\mathZ)^* \iff (a, m) = 1$
+\end{theorem-non}
+
+\begin{proof}
+    $[a]_m \in (\mathZ/m\mathZ)^* \iff \exists [b]_m:~[a]_m \cdot [b]_m = [1]_m \iff$\\
+    $\exists b \in \mathZ:~ab \equivm{m} 1 \iff$\\
+    $\exists b, c \in \mathZ:~ab = 1 + mc \iff$\\
+    $\exists b, c \in \mathZ:~ab - mc = 1 \iff (a, m) = 1$\\
+\end{proof}
+
+\begin{follow}
+    $\mathZ/m\mathZ$ - поле $\iff m$ --- простое число.\\ 
+\end{follow}
+
+\begin{proof}
+    считаем $m \geq 1$\\
+    $m = 1$: $\mathZ/1\mathZ = \{\overline{0}\}$\\
+    $m$ --- простое: $(a, m) = 1$ для $\forall a \in \{1, 2, \ldots, m-1\} \implies$\\
+    $(\mathZ/m\mathZ)^* = \{\overline{1}, \overline{2}, \ldots, \overline{m-1}\}$\\
+    $m$ --- составное: $m = ab,~2 \leq a \leq m-1$\\
+    $(a, m) \neq 1 \implies \overline{a} \notin (\mathZ/m\mathZ)^*$\\
+\end{proof}
+
+\begin{defn}
+    $\mathF_{p^r}$ --- поле из $n$ элементов $\iff n = p^r,~p \in \mathP,~r \in \mathN$\\ 
+    (хз что это)
+\end{defn}
+
+\begin{defn}
+    $\letus m \in \mathN: \varphi(n) = |(\mathZ/m\mathZ)^*|$\\
+    Функция $\varphi \times \mathN \to \mathN$ --- функция Эйлера.\\
+\end{defn}
+
+\begin{theorem-non}
+    $\letus p \in \mathP,~r \in \mathN$.\\
+    Тогда $\varphi(p^r) = p^r - p^{r-1}$.
+\end{theorem-non}
+
+\begin{proof}
+    $\varphi(p^r) = |\{a \mid 0 \leq a \leq p^r-1,~(a, p^r) = 1\}| = $\\
+    $p^r -  |\{a \mid 0 \leq a \leq p^r-1,~(a, p) \neq 1\}| = $\\
+    $p^r - |\{a \mid 0 \leq a \leq p^r-1,~p \mid a\}| = p^r - p^{r-1}$
+\end{proof}
+
+\begin{theorem-non}
+    $\letus m, n \in \mathN,~(m, n) = 1$.\\
+    Тогда $\varphi(mn) = \varphi(m) \cdot \varphi(n)$.(Мультипликативность)
+\end{theorem-non}
+
+\begin{proof}
+    Построим отображение $\lambda: (\mathZ/mn\mathZ)^* \times (\mathZ/m\mathZ)^* \to (\mathZ/n\mathZ)^*$:\\
+    $[a]_{mn} = A \in (\mathZ/mn\mathZ)^* \mapsto ([a]_m, [a]_n)$\\
+    $[a]_{mn} \in (\mathZ/mn\mathZ)^* \implies (a, mn) = 1  \implies 
+    \begin{cases}
+        (a, m) = 1\\
+        (a,n) = 1\\
+    \end{cases}
+    \begin{cases}
+        [a]_m \in (\mathZ/m\mathZ)^*\\
+        [a]_n \in (\mathZ/n\mathZ)^*\\
+    \end{cases}$\\
+    Проверка корректности:\\
+    $[a]_{mn} = [a']_{mn} \implies ([a]_m, [a]_n) = ([a']_m, [a']_n)$?\\
+    $[a]_{mn} = [a']_{mn} \implies a \equivm{mn} a' \implies
+    \begin{cases}
+        a \equivm{m} a'\\
+        a \equivm{n} a'\\
+    \end{cases}
+    \begin{cases}
+        [a]_m = [a']_m\\
+        [a]_n = [a']_n\\
+    \end{cases}$\\
+    Проверим что $\lambda$ --- биекция:\\
+    Инъективность:\\
+    $\lambda([a]_{mn}) = \lambda([b]_{mn}) \implies
+    \begin{cases}
+        [a]_m = [b]_m\\
+        [a]_n = [b]_n\\
+    \end{cases}
+    \overset{chineese~theorem}{\implies} a \equivm{mn} b \implies [a]_{mn} = [b]_{mn}$\\
+    Сюръективность:\\
+    Рассмотрим $([b]_m, [c]_n) \in (\mathZ/m\mathZ)^* \times (\mathZ/n\mathZ)^*$.\\
+    $(m, n) = 1 \overset{chineese~theorem}{\implies} \exists a:
+    \begin{cases}
+        a \equivm{m} b\\
+        a \equivm{n} c\\
+    \end{cases}$\\
+    $\begin{cases}
+        (b, m) = 1 \implies (a, m) = 1\\
+        (c, m)=1 \implies (a, n) = 1\\
+    \end{cases}    
+    \implies (a, mn) = 1 \implies [a]_{mn} \in (\mathZ/mn\mathZ)^*$\\
+    $\lambda([a]_{mn}) = ([a]_m, [a]_n) = ([b]_m, [c]_n) \implies \lambda$ --- биекция.\\
+    $\lambda$ --- биекция $\implies |(\mathZ/mn\mathZ)^*| = |(\mathZ/m\mathZ)^* \times (\mathZ/n\mathZ)^*| \implies \varphi(mn) = \varphi(m) \cdot \varphi(n)$
+\end{proof}
+
+\begin{follow}
+    $\letus m_1, \ldots, m_k$ --- попарно взаимно простые числа.\\
+    Тогда $\varphi(\prod\limits_{i=1}^k m_i) = \prod\limits_{i=1}^k \varphi(m_i)$.
+\end{follow}
+
+\begin{proof}
+    Индукция по $k$.\\
+    База: $k = 1 \implies \varphi(m_1) = \varphi(m_1)$\\
+    Переход: $n-1 \to n$\\
+    $(m_n, m_1) = \ldots = (m_n, m_{n-1}) = 1 \implies (m_1, \ldots, m_n) = 1 \implies$\\
+    $\varphi(m_1 \ldots m_n) = \varphi(m_1 \ldots m_{n-1}) \varphi(m_n) = \varphi(m_1) \ldots \varphi(m_{n-1}) \varphi(m_n)$
+\end{proof}
+
+\begin{follow}
+    $\letus n = p_1^{r_1}, \ldots, p_s^{r_s}$ --- разложение числа $n$ на простые множители.\\
+    $\implies \varphi(n) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
+\end{follow}
+
+\begin{proof}
+    По следствию: $\varphi(n) = \varphi(\prod\limits_{i=1}^s p_i^{r_i}) = \prod\limits_{i=1}^s \varphi(p_i^{r_i}) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
+\end{proof}
+
+\begin{theorem}
+    $\letus m \in \mathN, a \in \mathZ, (a, m) = 1 \implies a^{\varphi(m)} \equivm{m} 1$ --- теорема Эйлера.
+\end{theorem}
+
+\begin{lemma}
+    Пусть $R$ --- ассоциативное кольцо с единицей.
+    \begin{enumerate}
+        \item $a, b \in R^* \implies ab \in R^*$
+        \item $a \in R^*,~x,y \in R \implies ax = ay \implies x = y,~xa = ya \implies x = y$
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $a'$ --- обратный к $a$ элемент, $b'$ --- обратный к $b$ элемент.\\
+        $(ab)(b'a') = a(bb')a' = aa' = 1$\\
+        $(b'a)(ab) = b'(aa')b = bb' = 1$
+        \item $a'$ --- обратный к $a$ элемент.\\
+        $ax = ay \implies a'ax = a'ay \implies x = y$\\
+        $xa = ya \implies xaa' = yaa' \implies x = y$
+    \end{enumerate}
+\end{proof}
+
+\begin{proof}(теоремы Эйлера)\\
+    $(\mathZ/m\mathZ)^* = \{A_1, A_2, \ldots, A_{\varphi(m)}\}$\\
+    $[a]_m, A_j \in (\mathZ/m\mathZ)^* \overset{lemma-1}{\implies}\\$
+    $[a]_m A_1, \ldots, [a]_m A_{\varphi(m)}$ --- различные элементы \\
+    $([a]_m A_j = [a]_m A_k \overset{lemma-2}{\implies} A_j = A_k) \implies$\\
+    $\{[a]_m A_1, \ldots, [a]_m A_{\varphi(m)}\} = (\mathZ/m\mathZ)^* \implies$\\
+    $[a]_m A_1 \cdot \ldots \cdot [a]_m A_{\varphi(m)} = A_1 A_2 \ldots A_{\varphi(m)} \implies$\\
+    $[a]_m^{\varphi(m)} A_1 A_2 \ldots A_{\varphi(m)} = [1]_m A_1 A_2 \ldots A_{\varphi(m)} \overset{lemma-2}{\implies}$\\
+    $[a]_m^{\varphi(m)} = [1]_m \implies [a^{\varphi(m)}]_m = [1]_m \implies a^{\varphi(m)} \equivm{m} 1$
+\end{proof}
+
+\begin{theorem}(Малая теорема Ферма)\\
+    $\letus p \in \mathP, a \in \mathZ \implies a^p \equivm{p} a$
+\end{theorem}
+
+\begin{proof}\\
+    $(a, p) = 1 \implies a^{p-1} \equivm{p} 1 \implies a^{p-1}a \equivm{p} 1a \implies a^p \equivm{p} a$\\
+    $(a, p) \neq 1 \implies a \equivm{p} 0 \implies a^p \equivm{p} 0 \implies a^p \equivm{p} a$
+\end{proof}
+
+\begin{theorem}(Теорема Вильсона)\\
+    $p \in \mathP \implies (p-1)! \equivm{p} -1$
+\end{theorem}
+
+\begin{proof}
+    В $(\mathZ/m\mathZ)^*$ \\
+    $\overline{(p-1)!} = \overline{1} \cdot \overline{2} \cdot \ldots \cdot \overline{p-1} = \prod\limits_{A \in (\mathZ/m\mathZ)^*} A = 
+    \prod\limits_{A^2 = \overline{1}} \cdot \prod\limits_{A^2 \neq \overline{1}} = \prod\limits_{A^2 = \overline{1}} \cdot (A_1 \cdot A_1' \cdot \ldots) = \prod\limits_{A^2 = \overline{1}} \cdot \overline{1} = \prod\limits_{A^2 = \overline{1}}$\\
+    $A^2 = \overline{1} \iff A^2 - \overline{1}^2 = \overline{0} \iff (A - \overline{1})(A + \overline{1}) = \overline{0} \overset{\mathZ/p\mathZ - field}{\iff} A - \overline{1} = \overline{0}, A + \overline{1} = \overline{0} = \prod\limits_{A^2 = \overline{1}}$
+    $p \neq 2 \implies \overline{1} \cdot \overline{-1} = \overline{-1}$\\
+    $p = 2 \implies \overline{1} = \overline{-1}$
+\end{proof}
+
+\end{normalsize}
+
+

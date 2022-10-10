@@ -1,0 +1,52 @@
+\begin{normalsize}
+
+\section{Построение поля комплексных чисел}
+
+\begin{defn}
+    $\mathC = \mathR \times \mathR = \{(a, b) \mid a, b \in \mathR\}$\\
+\end{defn}
+
+\begin{defn} \
+    \begin{itemize}
+        \item Сложение на $\mathC$: $(a_1, b_1) + (a_2, b_2) = (a_1 + a_2, b_1 + b_2)$
+        \item Умножение на $\mathC$: $(a_1, b_1) \cdot (a_2, b_2) = (a_1a_2 - b_1b_2, a_1b_2 + a_2b_1)$
+    \end{itemize}
+\end{defn}
+
+\begin{theorem-non}
+    $(\mathC, +, \cdot)$ - поле.
+\end{theorem-non}
+
+\begin{proof}
+    \begin{itemize}
+        \item Коммутативность сложения --- очевидно.
+        \item Ассоциативность сложения --- очевидно.
+        \item $(0, 0)$ --- нейтральный элемент сложения.
+        \item $(-a, -b)$ --- обратный элемент к $(a, b)$.
+        \item Коммутативность умножения --- очевидно.
+        \item Ассоциативность умножения --- проверяется.
+        \item Дистрибутивность --- проверяется.
+        \item $(1, 0)$ --- нейтральный элемент умножения.
+        \item $(a, b) z_1 z_2 = (1, 0):~z_1 = (a, -b),~z_2=\frac{1}{a^2+b^2}$
+    \end{itemize}
+\end{proof}
+
+\begin{defn}
+    $\mathC$ --- поле комплексных чисел.
+\end{defn}
+
+\begin{defn}
+    $c \in \mathC$ --- комплексное число.
+\end{defn}
+
+\begin{theorem-non}
+    $\mathR' = \{(a, 0) \mid a \in \mathR\}$\\
+    $R'$ замкнуто относительно сложения, вычитания, умножения, содержит единицу, то есть является подкольцом поля $\mathC$.\\
+    $\implies \mathR'$ --- само является кольцом относительно сложения, умножения, ограниченных на $\mathR'$. \\
+    $\mathR \overset{\varphi}{\to} \mathR'(a \mapsto (a, 0))$, $\varphi(a)$ --- изоморфизм колец, т.е. $\varphi$ --- биекция и $\varphi(a + b) = \varphi(a) + \varphi(b)$; $\varphi(ab) = \varphi(a)\varphi(b)$.\\
+    Отождествим $(a, 0)$ с вещественным числом $a$.\\
+    $(a, 0) \cdot (0, 1) = (0, a)$\\
+    $(a, b) = (a, 0) + (0, b) = (a, 0) + (b, 0) \cdot (0, 1) = a + b \cdot (0, 1) = a + bi$\\
+\end{theorem-non}
+
+\end{normalsize}
