@@ -1,5 +1,167 @@
 \begin{normalsize}
 
-\section{Temp}
+\section{Тригонометрическая форма комплексного числа}
+
+\begin{defn}
+    $a + bi = r(\cos\varphi + i\sin\varphi)$\\
+    $a = r\cos\varphi$\\
+    $b = r\sin\varphi$\\
+\end{defn}
+
+\begin{defn}
+    Модулем комплексного числа $z = a + bi \in \mathC$ назовем:\\
+    $|z| = \sqrt{a^2 + b^2}$\\
+\end{defn}
+
+\begin{theorem-non}\ 
+    \begin{enumerate}
+        \item $|z| \geq 0,~|z| = 0 \iff z = 0$
+        \item $|z_1 z_2| = |z_1||z_2|$
+        \item $|z_1 + z_2| \leq |z_1| + |z_2|$
+        \item $|\overline{z}| = |z|$
+        \item $z \overline{z} = |z|^2$
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item очевидно
+        
+        \item $z_1 = a_1 + b_1i,~z_2 = a_2 + b_2i$\\
+        $|z_1 z_2|^2 = (a_1 a_2 - b_1 b_2)^2 + (a_1 b_2 + a_2 b_1)^2 = a_1^2 a_2^2 + b_1^2 b_2^2 + a_1^2 b_2^2 + a_2^2 b_1^2 = $\\
+        $(a_1^2 + b_1^2)(a_2^2 + b_2^2) = |z_1|^2|z_2|^2$
+        
+        \item $\iff |z_1 + z_2|^2 \leq (|z_1| + |z_2|)^2$\\
+        $\iff (a_1 + a_2)^2 + (b_1 + b_2)^2 \leq a_1^2 + b_1^2 + a_2^2 + b_2^2 + 2|z_1||z_2|$\\
+        $\iff a_1a_2 + b_1b_2 \leq \sqrt{(a_1^2 + b_1^2)(a_2^2 + b_2^2)}$\\
+        $\Leftarrow |a_1 a_2 + b_1 b_2| \leq \sqrt{(a_1^2 + b_1^2)(a_2^2 + b_2^2)}$\\
+        $\iff a_1^2 a_2^2 + b_1^2 b_2^2 + 2a_1a_2b_1b_2 \leq (a_1^2 + b_1^2)(a_2^2 + b_2^2)$\\
+        $\iff 2a_1a_2b_1b_2 \leq b_1^2 a_2^2 + a_1^2 b_2^2$\\
+        $\iff (b_1 a_2 - b_2 a_1)^2 \geq 0$
+
+        \item очевидно
+        
+        \item $z = a + bi \implies \overline{z} = a - bi$\\
+        $z \overline{z} = (a + bi)(a - bi) = a^2 - (bi)^2 = a^2 + b^2 = |z|^2$
+    \end{enumerate}
+\end{proof}
+
+\begin{notice}
+    $z^{-1} = \frac{\overline{z}}{|z|^2} = \frac{a}{a^2 + b^2} - i\frac{b}{a^2 + b^2}$
+\end{notice}
+
+\begin{defn}
+    Пусть $z \in \mathC$. Аргументом $z$ назовем такое $\varphi \in \mathR$, \\
+    что $z = |z|(\cos\varphi + i\sin\varphi)$
+\end{defn}
+
+\begin{theorem-non}~
+    \begin{enumerate}
+        \item Если $z = 0$, то любой $\varphi \in \mathR$ - аргумент $z$
+        \item Если $z \neq 0$, то:
+        \begin{enumerate}
+            \item аргумент существует
+            \item если $\varphi_0$ - аргумент $z$, то $\varphi$ - аргумент $z \iff \varphi = \varphi_0 + 2 \pi k,~k \in \mathZ$\\
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item тривиально
+        
+        \item $z_0 = \frac{1}{|z|} \cdot z$ \\
+        $|z_0| = \left| \frac{1}{|z|} \right| \cdot |z| = \frac{1}{|z|} \cdot |z| = 1$\\
+        $z_0 = a_0 + ib_0,~|z_0| = a_0^2 + b_0^2 = 1 \implies \exists \varphi_0:
+        \begin{cases}
+            a_0 = \cos\varphi_0\\
+            b_0 = \sin\varphi_0
+        \end{cases}$\\
+        $z = |z| \cdot z_0 = |z|(\cos\varphi_0 + i\sin\varphi_0)$\\
+        $\varphi = \varphi_0 + 2 \pi k \implies
+        \begin{cases}
+            \cos\varphi = \cos\varphi_0\\
+            \sin\varphi = \sin\varphi_0
+        \end{cases} \implies \varphi$ - аргумент\\
+        $\varphi$ - аргумент $\implies z = |z|(\cos\varphi + i\sin\varphi) \implies
+        \begin{cases}
+            \cos\varphi = \cos\varphi_0\\
+            \sin\varphi = \sin\varphi_0
+        \end{cases} \implies \varphi - \varphi_0 = 2 \pi k,~k \in \mathZ$
+    
+    \end{enumerate}
+\end{proof}
+
+\begin{defn}
+    $arg(z) = \varphi$ означает $\varphi$ - один из аргументов $z$
+\end{defn}
+
+\begin{notice}
+    Предположим оказалось, что $z = r(\cos\varphi + i\sin\varphi)$ для некоторых $r \geq 0,~\varphi \in \mathR$.\\
+    Тогда $r = |z|,~\varphi = \arg z$
+\end{notice}
+
+\begin{proof}
+    $|z| = \sqrt{(r\cos\varphi)^2 + (r\sin\varphi)^2} = \sqrt{r^2} = r \implies \varphi$ - аргумент по определению\\
+\end{proof}
+
+\begin{theorem-non}~
+    \begin{enumerate}
+        \item $\arg \overline{z} = -\arg z$
+        \item $z \in \mathR \iff \arg z = k \pi,~k \in \mathZ$
+        \item $\arg(z_1 z_2) = \arg z_1 + \arg z_2$
+        \item $\letus z_2 \neq 0 \implies \arg \frac{z_1}{z_2} = \arg z_1 - \arg z_2$
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $\arg z = \varphi$\\
+        $z = |z|(\cos\varphi + i\sin\varphi)$\\
+        $\overline{z} = |z|(\cos\varphi - i\sin\varphi) = |\overline{z}|(\cos(-\varphi) + i\sin(-\varphi)) \implies$\\
+        $\arg \overline{z} = -\varphi$
+
+        \item 
+        "$\Rightarrow$":\\
+        $z > 0$: \\
+        $z = |z| \cdot 1 = |z|(\cos 0 + i\sin 0) \implies \arg z = 0$\\
+        $z < 0$: \\
+        $z = |z| \cdot (-1) = |z|(\cos \pi + i\sin \pi) \implies \arg z = \pi$\\
+        "$\Leftarrow$":\\
+        $\sin(k \pi) = 0$
+
+        \item $\arg z_1 = \varphi_1,~\arg z_2 = \varphi_2 \implies$\\
+        $(!)~\varphi_1 + \varphi_2 = \arg(z_1 z_2)$\\
+        $z_1 = |z_1|(\cos\varphi_1 + i\sin\varphi_1),~z_2 = |z_2|(\cos\varphi_2 + i\sin\varphi_2) \implies$\\
+        $z_1 z_2 = |z_1| \cdot |z_2|(\cos\varphi_1 \cdot \cos\varphi_2 - \sin\varphi_1 \cdot \sin\varphi_2 + i(\sin\varphi_1 \cdot \cos\varphi_2 + \cos\varphi_1 \cdot \sin\varphi_2)) =$\\
+        $|z_1 z_2|(\cos(\varphi_1 + \varphi_2) + i\sin(\varphi_1 + \varphi_2)) \implies \arg(z_1 z_2) = \varphi_1 + \varphi_2$
+
+        \item $z_1 = \frac{z_1}{z_2} \cdot z_2 \implies \arg z_1 = \arg \frac{z_1}{z_2} + \arg z_2 \implies \arg \frac{z_1}{z_2} = \arg z_1 - \arg z_2$
+
+    \end{enumerate}
+\end{proof}
+
+\begin{follow}(Формула Муавра)\\
+    Пусть $z \in \mathC,~|z| = r,~\arg z = \varphi,~n \in \mathZ$.\\
+    Тогда $z^n = r^n(\cos(n\varphi) + i\sin(n\varphi))$
+\end{follow}
+
+\begin{proof}
+
+    $n > 0$ --- индукция по $n$\\
+    \textsl{База}: $n = 1$ --- тривиально\\
+    \textsl{Переход}: $n - 1 \to n$\\
+    $z^n = z^{n-1} \cdot z = r^{n-1}(\cos((n-1)\varphi) + i\sin((n-1)\varphi)) \cdot z = $\\
+    $r^{n-1}(\cos((n-1)\varphi) + i\sin((n-1)\varphi)) \cdot r(\cos\varphi + i\sin\varphi) = $\\
+    $r^n(\cos((n-1)\varphi + \varphi) + i\sin((n-1)\varphi + \varphi)) = $\\
+    $r^n(\cos(n\varphi) + i\sin(n\varphi))$\\
+
+    $n = 0,~ 1 = r^0(\cos(0) + i\sin(0)) = 1$\\
+
+    $n < 0$: $n = -k,~k \in \mathN$\\
+    $z^n = \frac{1}{z^k}$\\
+    $|z^n| = \frac{1}{|z^k|} = \frac{1}{|z|^k} = |z|^{-k} = |z|^n$\\
+    $\arg z^n = \arg 1 - \arg z^k = 0 - k \varphi = n \varphi$
+\end{proof}
 
 \end{normalsize}

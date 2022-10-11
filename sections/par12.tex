@@ -49,4 +49,67 @@
     $(a, b) = (a, 0) + (0, b) = (a, 0) + (b, 0) \cdot (0, 1) = a + b \cdot (0, 1) = a + bi$\\
 \end{theorem-non}
 
+\begin{defn}
+    $z = a + bi$ --- комплексное число.
+    $a = Re(z)$, $b = Im(z)$ --- действительная и мнимая части комплексного числа $z$.
+    В геометрическом виде это вектор $z = (a, b)$.
+\end{defn}
+
+\begin{defn}
+    $z = a + bi$ --- комплексное число. 
+    $\overline{z} = a - bi$ --- сопряженное к $z$.
+\end{defn}
+
+\begin{defn}
+    Автоморфизм --- изоморфизм на себя.
+\end{defn}
+
+\subsection*{Отступление про отображения}
+
+\begin{defn}
+    $id_M: M \to M,~x \mapsto x$ --- тождественное отображение на $M$.
+\end{defn}
+
+\begin{defn}
+    $\letus \alpha: M \to N,~\beta: N \to P$ --- отображения\\
+    Тогда $\alpha \circ \beta: M \to P,~x \mapsto \alpha(\beta(x))$ --- композиция отображений.
+\end{defn}
+
+\begin{defn}
+    $\letus \alpha: M \to N$ --- отображение\\
+    Отображение $\beta: N \to M$ --- обратное к $\alpha$, если $\beta \circ \alpha = id_M$.
+\end{defn}
+
+\begin{theorem-non}
+    У отображения $\alpha: M \to N$ есть обратное отображение, если и только если $\alpha$ --- биекция.
+\end{theorem-non}
+
+
+\begin{proof}
+    "$\Rightarrow$":\\
+    Инъективность:\\
+    $\beta \circ \alpha = id_M,~\alpha(x) = \alpha(y) \implies \beta(\alpha(x)) = \beta(\alpha(y)) \implies x = y$\\
+    Сюръективность:\\
+    $y \in N,~y = \alpha(\beta(y)) \in Im(\alpha)$(Im это прообраз)\\
+    "$\Leftarrow$":\\
+    Пусть $\alpha$ --- биекция, назовем $\beta: N \to M$ --- обратныи, если $\forall y \in N \alpha^{-1}(y) = \{x\},~x \in M$\\
+    Положим $\beta(y) = x,~\alpha \circ \beta = id_N,~\beta \circ \alpha = id_M$
+\end{proof}
+
+\subsection*{Продолжение}
+
+\begin{theorem-non}
+    $\sigma: \mathC \to \mathC,~z \mapsto \overline{z}$ --- автоморфизм.
+\end{theorem-non}
+
+\begin{proof}
+    $\sigma$ --- биекция, т.к. $\sigma \circ \sigma = id_{\mathC}$\\
+    $\sigma(z_1 + z_2) = \sigma(z_1) + \sigma(z_2)$ --- очевидно\\
+    $\sigma(z_1 z_2) = \sigma(z_1) \sigma(z_2)$\\
+    $\sigma(1) = 1$ --- очевидно\\
+    $z_1 = a_1 + b_1i,~z_2 = a_2 + b_2i$\\
+    $\sigma(z_1 z_2) = \overline{a_1 a_2 - b_1 b_2 + i(a_1 b_2 + a_2 b_1)} = a_1 a_2 - b_1 b_2 + i(a_1 b_2 + a_2 b_1)$\\
+    $\sigma(z_1) \sigma(z_2) = \overline{(a_1 - i b_1) (a_2 - i b_2)} = a_1 a_2 - b_1 b_2 + i(a_1 b_2 + a_2 b_1)$\\
+\end{proof}
+
 \end{normalsize}
