@@ -1,0 +1,194 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{cmap}
+\usepackage[russian]{babel}
+\usepackage{xspace}
+\usepackage{centernot}
+
+
+\usepackage[
+  left=0.50in,
+  right=0.50in,
+  top=0.8in,
+  bottom=0.7in,
+  headheight=0.8in]{geometry}
+%\pagenumbering{gobble}
+
+
+\newcommand{\makefirstpages}{%
+  \pagestyle{empty}
+  \title{\CourseName}
+  \clearpage\maketitle
+  \thispagestyle{empty}
+  \pagebreak
+
+  \tableofcontents
+  \pagebreak
+  
+  \pagestyle{fancy}
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+}
+
+
+\usepackage{parskip}
+\usepackage{indentfirst}
+\setlength\parindent{0cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[L]{\CourseName}
+\fancyfoot[R]{\thepage}
+
+\usepackage{import}
+\usepackage{stackengine}
+
+\usepackage[pdftex]{graphicx}
+\graphicspath{ {images/} }
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% TODO
+\newcommand{\TODO}[1][]{
+  \vspace{0.2em}
+  \textbf{{\bf\color{red} TODO:} #1}
+  \vspace{0.2em}
+}
+
+
+\usepackage{amsmath,amsthm,amssymb,mathtext}
+\usepackage{thmtools}
+\usepackage{tikz}
+
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand{\N}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand{\R}{\ensuremath{\mathbb{R}}\xspace}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}\xspace}
+\newcommand{\F}{\ensuremath{\mathbb{F}}\xspace}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}\xspace} 
+\renewcommand{\P}{\ensuremath{\mathbb{P}}\xspace} 
+
+\DeclareRobustCommand{\divby}{%
+    \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+}
+\newcommand*{\ndivby}{\centernot\divby}
+\newcommand{\equivm}[1]{\underset{#1}{\equiv}}\newcommand\eps{\varepsilon}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\empysetold}{\emptyset}
+\renewcommand{\emptyset}{\varnothing}
+
+\let\Im\relax
+\let\Re\relax
+\DeclareMathOperator\Im{Im}
+\DeclareMathOperator\Re{Re}
+\DeclareMathOperator\id{id}
+\DeclareMathOperator*{\lcm}{lcm}
+\newcommand\vphi{\phi}
+\renewcommand\phi{\varphi}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\ideg}{indeg}
+\DeclareMathOperator{\odeg}{outdeg}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Adj}{Adj}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\grad}{grad}
+
+% letus symbol
+\def\letus{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+             \hbox{\kern 0.125\wd0%
+                   \vbox to \ht0{%
+                      \hrule width 0.75\wd0%
+                      \vfill%
+                      \hrule width 0.75\wd0}%
+                   \vrule height \ht0%
+                   \kern 0.125\wd0}%
+           }%
+}   
+
+\ifx\ThmSpacing\undefined
+\def\ThmSpacing{9pt}
+\fi
+
+\ifx\ThmNamespace\undefined
+\def\ThmNamespace{subsection}
+\fi
+
+\declaretheoremstyle[
+ spaceabove=\ThmSpacing, spacebelow=\ThmSpacing,
+ headfont=\slshape\bfseries,
+ bodyfont=\normalfont,
+ postheadspace=0.5em,
+]{thmstyle_def}
+
+\declaretheoremstyle[
+ spaceabove=\ThmSpacing, spacebelow=\ThmSpacing,
+ postheadspace=0.5em,
+]{thmstyle_thm}
+
+\declaretheoremstyle[
+ spaceabove=\ThmSpacing, spacebelow=\ThmSpacing,
+ headfont=\itshape\bfseries,
+ notefont=\itshape\bfseries, notebraces={}{},
+ bodyfont=\normalfont,
+ postheadspace=0.5em,
+]{thmstyle_cons}
+
+\declaretheoremstyle[
+ spaceabove=\ThmSpacing, spacebelow=\ThmSpacing,
+ headfont=\bfseries,
+ notefont=\bfseries, notebraces={}{},
+ bodyfont=\normalfont,
+ postheadspace=0.5em,
+]{thmstyle_examp}  
+
+\declaretheoremstyle[
+ spaceabove=\ThmSpacing, spacebelow=\ThmSpacing,
+ headfont=\ttfamily\itshape,
+ notefont=\ttfamily\itshape, notebraces={}{},
+ bodyfont=\normalfont,
+ postheadspace=0.5em,
+]{thmstyle_remark}
+
+\declaretheorem[parent=\ThmNamespace, name=Теорема, style=thmstyle_thm]{theorem}
+\declaretheorem[parent=\ThmNamespace, name=Предложение, style=thmstyle_thm]{theorem-non}
+\declaretheorem[parent=\ThmNamespace, name=Утверждение, style=thmstyle_thm]{statement}
+\declaretheorem[parent=\ThmNamespace, name=Определение, style=thmstyle_def]{defn}
+\declaretheorem[parent=\ThmNamespace, name=Лемма, style=thmstyle_thm]{lemma}
+\declaretheorem[numbered=no, name=Замечание, style=thmstyle_remark]{notice}
+\declaretheorem[numbered=no, name=Следствие, style=thmstyle_cons]{follow}
+\declaretheorem[numbered=no, name=Пример, style=thmstyle_examp]{example}
+\declaretheorem[numbered=no, name=Примеры, style=thmstyle_examp]{examples}
+\declaretheorem[numbered=no, name=Свойства, style=thmstyle_cons]{prop}
+\declaretheorem[numbered=no, name=Свойство, style=thmstyle_cons]{property}
+\declaretheorem[numbered=no, name=Упражнение, style=thmstyle_examp]{exerc}
+\renewcommand{\proof}[1][]{\textbf{Доказательство#1.} } 
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=blue,
+  urlcolor=blue
+}

@@ -1,5 +1,4 @@
-\begin{normalsize}
-\section {Отношение эквивалентности и разбиение на классы}
+\subsection{Отношение эквивалентности и разбиение на классы}
 
 \begin{defn}
     Отношение эквивалентности --- бинарное отношение, удовлетворяющее следующим свойствам: рефлексивность, симметричность, транзитивность.
@@ -13,9 +12,12 @@
     Пусть $M = \bigcup\limits_{i \in I} M_i$ --- разбиение на классы, тогда $a \sim b \iff \exists i : a, b \in M_i$.
 \end{theorem}
 
-\begin{proof}
-    рефлексивность, симметричность --- очевидны\\
-    транзитивность: $a \sim b, b \sim c \implies \exists i, j : a, b \in M_i$ и $b, c \in M_j$\\
+\begin{proof}~
+
+    рефлексивность, симметричность --- очевидны
+    
+    транзитивность: $a \sim b, b \sim c \implies \exists i, j : a, b \in M_i$ и $b, c \in M_j$
+    
     $b \in M_i \cap M_j \iff M_i \cap M_j \neq \emptyset \implies i = j \implies a, c \in M_i \implies a \sim c$
 \end{proof}
 
@@ -23,19 +25,29 @@
     $\letus \sim$ --- отношение эквивалентности на $M$. Значит $\exists$ разбиение на классы $M = \bigcup\limits_{i \in I} M_i$ такое, что $\forall a, b \in M: a \sim b \iff \exists i : a, b \in M_i$.
 \end{theorem}
 
-\begin{proof}
-    \\
-    $[a] = \{b \in M \mid a \sim b\}$ --- класс, $a \in M$\\
+\begin{proof}~
+    
+    $[a] = \{b \in M \mid a \sim b\}$ --- класс, $a \in M$
+    
     $\forall a_1, a_2 \in M : [a_1] \cap [a_2] = \emptyset$ или $[a_1] = [a_2]$
-    $\letus [a_1] \cap [a_2] \neq \emptyset \implies \exists x \in [a_1] \cap [a_2]$\\
-    $x \in [a_1], x \in [a_2] \implies x \sim a_1, x \sim a_2 \implies a_2 \sim a_1$\\
-    $[a_2] \subset [a_1], c \in [a_2] \implies c \sim a_2 \implies c \sim a_1 \implies c \in [a_1]$\\
-    $[a_1] \subset [a_2], c \in [a_1] \implies c \sim a_1 \implies c \sim a_2 \implies c \in [a_2]$\\
-    Значит $[a_1] = [a_2]$\\\\
-    $I = \{[a] \mid a \in M\}$\\
-    $\forall \mathfrak{A}, \mathfrak{B} \in I: \mathfrak{A} \cap \mathfrak{B} = \emptyset$\\
-    $a_1, a_2 \in \mathfrak{A} \implies [a_1] = \mathfrak{A} = [a_2] \implies a_2 \in [a_1] \implies a_2 \sim a_1$\\ 
-    $a_1 \in \mathfrak{A}, a_2 \in \mathfrak{B} \implies \neg(a_1 \sim a_2)$, так как иначе $a_1 \in [a_2] \implies \mathfrak{B} \in \mathfrak{A} \implies \mathfrak{A} \cap \mathfrak{B} \neq \emptyset$\\
+    
+    $\letus [a_1] \cap [a_2] \neq \emptyset \implies \exists x \in [a_1] \cap [a_2]$
+    
+    $x \in [a_1], x \in [a_2] \implies x \sim a_1, x \sim a_2 \implies a_2 \sim a_1$
+    
+    $[a_2] \subset [a_1], c \in [a_2] \implies c \sim a_2 \implies c \sim a_1 \implies c \in [a_1]$
+    
+    $[a_1] \subset [a_2], c \in [a_1] \implies c \sim a_1 \implies c \sim a_2 \implies c \in [a_2]$
+    
+    Значит $[a_1] = [a_2]$
+    
+    $I = \{[a] \mid a \in M\}$
+    
+    $\forall \mathfrak{A}, \mathfrak{B} \in I: \mathfrak{A} \cap \mathfrak{B} = \emptyset$
+    
+    $a_1, a_2 \in \mathfrak{A} \implies [a_1] = \mathfrak{A} = [a_2] \implies a_2 \in [a_1] \implies a_2 \sim a_1$\
+    
+    $a_1 \in \mathfrak{A}, a_2 \in \mathfrak{B} \implies \neg(a_1 \sim a_2)$, так как иначе $a_1 \in [a_2] \implies \mathfrak{B} \in \mathfrak{A} \implies \mathfrak{A} \cap \mathfrak{B} \neq \emptyset$
 \end{proof}
 
 \begin{defn}
@@ -43,7 +55,5 @@
 \end{defn}
 
 \begin{example}
-    $\mathZ/\sim = \{[z] \mid z \in \mathZ \} = \{[0], [1], [2], \dots\}$
+    $\Z/\sim = \{[z] \mid z \in \Z \} = \{[0], [1], [2], \dots\}$
 \end{example}
-
-\end{normalsize}

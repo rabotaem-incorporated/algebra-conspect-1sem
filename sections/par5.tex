@@ -1,10 +1,10 @@
-\begin{normalsize}
-
-\section{Наибольший общий делитель}
+\subsection{Наибольший общий делитель}
 
 \begin{defn}
-    $R$ --- коммутативное кольцо, $a, b \in R$.\\
-    Элемент $d$ называется наибольшим общим делителем, если:\\
+    $R$ --- коммутативное кольцо, $a, b \in R$.
+
+    Элемент $d$ называется наибольшим общим делителем, если:
+
     \begin{enumerate}
         \item $d \mid a, d \mid b$
         \item $d' \mid a, d' \mid b \implies d' \mid d$
@@ -14,6 +14,7 @@
 \begin{theorem-non}~
     \begin{enumerate}
         \item $d_1, d_2$ --- наибольшие общие делители, тогда $d_1, d_2$ --- ассоциированны.
+        
         \item $\letus d_1$ --- наибольший общий делитель, $d_2$ ассоциированн с $d_1$, тогда $d_2$ --- тоже наибольший общий делитель.
     \end{enumerate}
 \end{theorem-non}
@@ -21,57 +22,84 @@
 \begin{proof}
     \begin{enumerate}
         \item По свойству 2. $d_1 \mid d_2,~d_2 \mid d_1 \implies d_1,~d_2$ --- ассоциированны.
-        \item $d_2 \mid d_1,~d_1 \mid a,~d_1 \mid b \implies d_2 \mid a,~d_2 \mid b$\\
-        Пусть $d_2$ не наибольший, тогда $\exists d' > d_2$.\\
-        $d' \mid a,~d' \mid b \implies d' \mid d_1$\\
-        $d' \mid d_1,~d_1 \mid d_2 \implies d' \mid d_2$\\
+        
+        \item $d_2 \mid d_1,~d_1 \mid a,~d_1 \mid b \implies d_2 \mid a,~d_2 \mid b$
+        
+        Пусть $d_2$ не наибольший, тогда $\exists d' > d_2$.
+        
+        $d' \mid a,~d' \mid b \implies d' \mid d_1$
+        
+        $d' \mid d_1,~d_1 \mid d_2 \implies d' \mid d_2$
+        
         Противоречие
     \end{enumerate}
 \end{proof}
 
 \begin{theorem-non} 
-    $\letus a, b \in \mathZ \implies$
+    $\letus a, b \in \Z \implies$
+    
     \begin{enumerate}
-        \item $\exists d \in \mathZ:~a\mathZ + b\mathZ = d\mathZ$
+        \item $\exists d \in \Z:~a\Z + b\Z = d\Z$
+        
         \item при этом $d$ --- наибольший общий делитель $a, b$.
     \end{enumerate}
 \end{theorem-non}
 
-\begin{proof}
+\begin{proof}~
     \begin{enumerate}
-        \item $I = a\mathZ + b\mathZ$, заметим что $0 \in I$, так как $0a + 0b = 0$.\\
-        $I = \{0\} \implies I = 0\mathZ$\\
-        $I \neq \{0\} \implies c \in I \implies -c \in I$, так как $-(ax + by) = a \cdot -x + b \cdot -y$\\
-        То есть в $I$ есть положительные числа.\\
-        $d = \min\{ c \mid c \in I, c > 0 \}$, докажем что $a\mathZ + b\mathZ = d\mathZ$\\
-        "$\subset$":\\
-        $d \in I \implies d = ax_0 + by_0, x_0, y_0 \in \mathZ \implies$\\
-        $\forall z \in \mathZ: dz = a(x_0z) + b(y_0z) \in I$\\
-        "$\supset$":\\
-        $\letus c \in I, d \in \mathN \implies \exists q, r \in \mathZ: c = dq + r, 0 \leq r < d$\\
-        $c = ax_1 + by_1, x_1, y_1 \in \mathZ$\\
-        $d = ax_0 + by_0, x_0, y_0 \in \mathZ$\\
-        $r = c - dq = a(x_1 -x_0q) + b(y_1 - y_0q) \in I$\\
-        Но $r < d \overset{defn(d)}{\implies} r = 0 \implies c \in d\mathZ$
-        \item $a = a1 + b0 \in I = d\mathZ \implies d \mid a$\\
-        $b = a0 + b1 \in I = d\mathZ \implies d \mid b$\\
-        $\letus d' \mid a,~d' \mid b,~d=ax_0 + by_0$\\
+        \item $I = a\Z + b\Z$, заметим что $0 \in I$, так как $0a + 0b = 0$.
+        
+        $I = \{0\} \implies I = 0\Z$
+        
+        $I \neq \{0\} \implies c \in I \implies -c \in I$, так как $-(ax + by) = a \cdot -x + b \cdot -y$
+        
+        То есть в $I$ есть положительные числа.
+        
+        $d = \min\{ c \mid c \in I, c > 0 \}$, докажем что $a\Z + b\Z = d\Z$
+        
+        "$\subset$":
+        
+        $d \in I \implies d = ax_0 + by_0, x_0, y_0 \in \Z \implies$
+        
+        $\forall z \in \Z: dz = a(x_0z) + b(y_0z) \in I$
+        
+        "$\supset$":
+        
+        $\letus c \in I, d \in \N \implies \exists q, r \in \Z: c = dq + r, 0 \leq r < d$
+        
+        $c = ax_1 + by_1, x_1, y_1 \in \Z$
+        
+        $d = ax_0 + by_0, x_0, y_0 \in \Z$
+        
+        $r = c - dq = a(x_1 -x_0q) + b(y_1 - y_0q) \in I$
+        
+        Но $r < d \overset{defn(d)}{\implies} r = 0 \implies c \in d\Z$
+        
+        \item $a = a1 + b0 \in I = d\Z \implies d \mid a$
+        
+        $b = a0 + b1 \in I = d\Z \implies d \mid b$
+        
+        $\letus d' \mid a,~d' \mid b,~d=ax_0 + by_0$
+        
         $d' \mid ax_0,~d' \mid by_0 \implies d' \mid d$
     \end{enumerate}
 \end{proof}
 
 \begin{follow}~
     \begin{enumerate}
-        \item $a, b \in \mathZ$: Тогда наибольший общий делитель $a, b$ существует.
-        \item Если $d$ --- наибольший общий делитель $a, b$, то $\exists x, y \in \mathZ:~d = ax + by$(Линейное представление наибольшего общего делителя).
+        \item $a, b \in \Z$: Тогда наибольший общий делитель $a, b$ существует.
+        
+        \item Если $d$ --- наибольший общий делитель $a, b$, то $\exists x, y \in \Z:~d = ax + by$(Линейное представление наибольшего общего делителя).
     \end{enumerate}
 \end{follow}
 
 \begin{proof}
     \begin{enumerate}
         \item Доказали в двух частях предложения.
-        \item $\exists d_0$ --- наибольший общий делитель $a, b$, то есть $d_0 = ax_0 + by_0$\\
-        $d$ ассоциирован с $d_0 \implies d = d_0\mathZ, z \in \mathZ \implies d = a(x_0z) + b(y_0z)$
+        
+        \item $\exists d_0$ --- наибольший общий делитель $a, b$, то есть $d_0 = ax_0 + by_0$
+        
+        $d$ ассоциирован с $d_0 \implies d = d_0\Z, z \in \Z \implies d = a(x_0z) + b(y_0z)$
     \end{enumerate}
 \end{proof}
 
@@ -80,26 +108,35 @@
 \end{defn}
 
 \begin{theorem-non}
-    $\letus a_1, a_2, b \in \mathZ: a_1 \equivm{b} a_2$\\
+    $\letus a_1, a_2, b \in \Z: a_1 \equivm{b} a_2$
+    
     Тогда $\gcd(a_1, b)$ = $\gcd(a_2, b)$.
 \end{theorem-non}
 
 \begin{proof}
-    $(!)~\{c: c \mid a_1, c \mid b \} = \{c : c \mid a_2, c \mid b\}$\\ 
-    "$\subset$":\\
-    $a_2 - a_1 = bm \implies a_2 = a_1 + bm$\\
-    $c \mid a_1, c \mid b \implies c \mid a_2$\\
-    "$\supset$":\\
-    $a_1 - a_2 = bm \implies a_1 = a_2 + bm$\\
-    $c \mid a_2, c \mid b \implies c \mid a_1$\\
-    $\forall x \in \{c: c \mid a_1, c \mid b \}: x \mid \gcd(a_1, b)$\\
-    $\forall x \in \{c: c \mid a_2, c \mid b \}: x \mid \gcd(a_2, b)$\\
+    $(!)~\{c: c \mid a_1, c \mid b \} = \{c : c \mid a_2, c \mid b\}$
+    
+    "$\subset$":
+    
+    $a_2 - a_1 = bm \implies a_2 = a_1 + bm$
+    
+    $c \mid a_1, c \mid b \implies c \mid a_2$
+
+    "$\supset$":
+    
+    $a_1 - a_2 = bm \implies a_1 = a_2 + bm$
+
+    $c \mid a_2, c \mid b \implies c \mid a_1$
+    
+    $\forall x \in \{c: c \mid a_1, c \mid b \}: x \mid \gcd(a_1, b)$
+    
+    $\forall x \in \{c: c \mid a_2, c \mid b \}: x \mid \gcd(a_2, b)$
+    
     $\gcd(a_1, b) = \gcd(a_2, b)$
 \end{proof}
 
 \begin{defn} 
-    Алгоритм Евклида\\
-    $\gcd(a, b) = \gcd(b, a \mod b)$, если $b \neq 0$\\
-\end{defn}
+    Алгоритм Евклида
 
-\end{normalsize}
+    $\gcd(a, b) = \gcd(b, a \mod b)$, если $b \neq 0$
+\end{defn}

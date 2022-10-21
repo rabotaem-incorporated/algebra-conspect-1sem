@@ -1,16 +1,17 @@
-\begin{normalsize}
-
-\section{Простые числа}
+\subsection{Простые числа}
 
 \begin{defn}
-    Число $p \in \mathZ$ называется простым, если $p \notin \{-1, 0, 1\}$ и все делители $p$ --- это $\pm 1$ и $p$.
+    Число $p \in \Z$ называется простым, если $p \notin \{-1, 0, 1\}$ и все делители $p$ --- это $\pm 1$ и $p$.
 \end{defn}
 
 \begin{prop}
     \begin{enumerate}
         \item $p$ --- простое $\iff -p$ --- простое.
-        \item $p$ --- простое, $a \in \mathZ \implies p | a$ или $p \bot a$.
+        
+        \item $p$ --- простое, $a \in \Z \implies p | a$ или $p \bot a$.
+        
         \item $p, q$ --- простые $\implies p, q$ --- ассоциированны или $p \bot q$.
+        
         \item $p \mid ab \implies p \mid a$ или $p \mid b$. 
     \end{enumerate}
 \end{prop}
@@ -20,27 +21,36 @@
 \end{theorem-non}
 
 \begin{proof}
-    $a = 0 \implies p = 239$\\
-    $a = 1 \implies a > 0$\\
-    Индукция по $a$:\\
-    $a$ --- простое $\implies p = a, p \mid a$\\
-    $a$ --- не простое, $\exists d : 1 < d < a, d \mid a$\\
-    $a = dd'$, тогда по индукционному переходу существует простое число $p : p \mid d$\\
-    $p \mid d, d \mid a \implies p \mid a$\\
+    $a = 0 \implies p = 239$
+    
+    $a = 1 \implies a > 0$
+    
+    Индукция по $a$:
+    
+    $a$ --- простое $\implies p = a, p \mid a$
+    
+    $a$ --- не простое, $\exists d : 1 < d < a, d \mid a$
+    
+    $a = dd'$, тогда по индукционному переходу существует простое число $p : p \mid d$
+    
+    $p \mid d, d \mid a \implies p \mid a$
 \end{proof}
 
 \begin{defn}
     Составное число --- это число отличное от 0, и не являющееся простым.
 \end{defn}
 
-\subsection*{Решето Эратосфена}
+\subsubsection*{Решето Эратосфена}
 
 2, 3, 4, 5, 6, 7, 8, 9, $\ldots$, 100
 
 \begin{itemize}
     \item 2 --- простое, вычеркиваем все числа кратные 2
+    
     \item 3 --- простое, вычеркиваем все числа кратные 3
+    
     \item 4 --- составное, пропускаем
+    
     \item и.т.д.
 \end{itemize}
 
@@ -49,10 +59,11 @@
 \end{theorem}
 
 \begin{proof}
-    $\letus p_1, p_2, \ldots p_n$ --- все простые числа\\
-    $N = p_1 p_2 \ldots p_n + 1 \implies$\\
-    $\exists$ простое число $p : p \mid N, p > 0 \implies \exists j: p = p_j \implies p \mid (N - 1) \implies p \mid 1 \implies p = \pm 1$\\
+    $\letus p_1, p_2, \ldots p_n$ --- все простые числа
+    
+    $N = p_1 p_2 \ldots p_n + 1 \implies$
+    
+    $\exists$ простое число $p : p \mid N, p > 0 \implies \exists j: p = p_j \implies p \mid (N - 1) \implies p \mid 1 \implies p = \pm 1$
+    
     Противоречие 
 \end{proof}
-
-\end{normalsize}

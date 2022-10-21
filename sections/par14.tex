@@ -1,36 +1,34 @@
-\begin{normalsize}
+\subsection{Корни из комплексных чисел}
 
-\section{Корни из комплексных чисел}
-
-$z^n = w,~n \in \mathN,~w \in \mathC$
+$z^n = w,~n \in \N,~w \in \CC$
 
 $w = 0 \implies z = 0$
 
-$w \neq 0,~w = r (\cos \varphi + i \sin \varphi),~r > 0,~\varphi \in \mathR,~z = p (\cos \alpha + i \sin \alpha),~p > 0,~\alpha \in \mathR$
+$w \neq 0,~w = r (\cos \varphi + i \sin \varphi),~r > 0,~\varphi \in \R,~z = p (\cos \alpha + i \sin \alpha),~p > 0,~\alpha \in \R$
 
 $z^n = w \iff p^n (\cos n \alpha + i \sin n \alpha) = r (\cos \varphi + i \sin \varphi) \iff$
 $\begin{cases}
     p^n = r\\
-    n \alpha = \varphi + 2 \pi k,~k \in \mathZ
+    n \alpha = \varphi + 2 \pi k,~k \in \Z
 \end{cases} \iff$
 
 $\begin{cases}
     p = \sqrt[n]{r}\\
-    \alpha = \frac{\varphi + 2 \pi k}{n},~k \in \mathZ
+    \alpha = \frac{\varphi + 2 \pi k}{n},~k \in \Z
 \end{cases}$
 
-$z^n = w \iff z = \underbrace{\sqrt[n]{r} \left(\cos \frac{\varphi + 2 \pi k}{n} + i \sin \frac{\varphi + 2 \pi k}{n}\right)}_{z_k},~k \in \mathZ$
+$z^n = w \iff z = \underbrace{\sqrt[n]{r} \left(\cos \frac{\varphi + 2 \pi k}{n} + i \sin \frac{\varphi + 2 \pi k}{n}\right)}_{z_k},~k \in \Z$
 
 При каких $k, l: z_k = z_l$?
 
-$z_k = z_l \iff \frac{\varphi + 2 \pi k}{n} = \frac{\varphi + 2 \pi l}{n} + 2 \pi s,~s \in \mathZ \iff \frac{k}{n} + \frac{l}{n} + s,~s \in \mathZ \iff $  
+$z_k = z_l \iff \frac{\varphi + 2 \pi k}{n} = \frac{\varphi + 2 \pi l}{n} + 2 \pi s,~s \in \Z \iff \frac{k}{n} + \frac{l}{n} + s,~s \in \Z \iff $  
 
-$k = l + ns,~s \in \mathZ \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}\}$
+$k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}\}$
 
 Таким образом, мы доказали:
 
 \begin{theorem}
-    $\letus n \in \mathN,~w \in \mathC$
+    $\letus n \in \N,~w \in \CC$
 
     \begin{enumerate}
         \item Если $w = 0$, То уравнение $z^n = w$ имеет единственный корень $z = 0$.
@@ -42,7 +40,7 @@ $k = l + ns,~s \in \mathZ \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{
     \end{enumerate}
 \end{theorem}
 
-\subsection*{Изображение на окружности}
+\subsubsection*{Изображение на окружности}
 
 \begin{center}
     \includegraphics[width=0.3\textwidth]{images/complexroot.png}
@@ -81,19 +79,20 @@ $k = l + ns,~s \in \mathZ \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{
     \end{enumerate}
 \end{defn}
 
-\begin{examples}
+\begin{examples}~
+
     \begin{enumerate}
-        \item $(\mathZ, +)$
-        \item $((\mathZ/n\mathZ)^*, \cdot)$
+        \item $(\Z, +)$
+        \item $((\Z/n\Z)^*, \cdot)$
         \item Если $R$ --- ассоциативное кольцо с $1$, то $R^* = \{r \mid \exists s \in R : rs = sr = 1\}$ --- группа относительно умножения.
     \end{enumerate}
 \end{examples}
 
 Проверить замкнутость относительно умножения. 
 
-Зафиксируем $n \in \mathN$
+Зафиксируем $n \in \N$
 
-$\mu_n = \{ z \in \mathC \mid z^n = 1\} = \{ \underbrace{\cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n}}_{\xi_k} \mid k = 0, 1, \ldots, n-1 \}$ --- группа относительно умножения
+$\mu_n = \{ z \in \CC \mid z^n = 1\} = \{ \underbrace{\cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n}}_{\xi_k} \mid k = 0, 1, \ldots, n-1 \}$ --- группа относительно умножения
 
 $z, w \in \mu_n \implies zw \in \mu_n$ --- замкнутость относительно умножения
 
@@ -102,7 +101,7 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 Доказательство, что $\mu_n$ --- группа:
 
 \begin{itemize}
-    \item Ассоциативность --- так как есть ассоциативность в $\mathC$
+    \item Ассоциативность --- так как есть ассоциативность в $\CC$
     
     \item $1 \in \mu_n~(1 = \xi_0)$
     
@@ -118,7 +117,7 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 \end{proof}
 
 \begin{defn}
-    $G$ --- группа с операцией $*$, $g \in G,~n \in \mathZ$\\
+    $G$ --- группа с операцией $*$, $g \in G,~n \in \Z$\\
 
     $g^n = \begin{cases}
         g~*~g~*~\ldots~*~g & n > 0 \\
@@ -128,7 +127,7 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 \end{defn}
 
 \begin{defn}
-    Группа $G$ называется циклической, если $\exists g \in G : G = \{g^n \mid n \in \mathZ\}$
+    Группа $G$ называется циклической, если $\exists g \in G : G = \{g^n \mid n \in \Z\}$
 
     Пишут: $G = \langle g \rangle$
 \end{defn}
@@ -139,32 +138,32 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 
 \begin{examples}
     \begin{itemize}
-        \item $\mathZ = \langle 1 \rangle = \langle -1 \rangle$ (по сложению) $g^n = \begin{cases}
+        \item $\Z = \langle 1 \rangle = \langle -1 \rangle$ (по сложению) $g^n = \begin{cases}
             1 + 1 + \ldots + 1 & n > 0 \\
             0 & n = 0 \\
             -1 + -1 + \ldots + -1 & n < 0
         \end{cases}$
 
-        \item $\mathZ/5\mathZ = \langle \overline{1} \rangle = \langle \overline{2} \rangle = \langle \overline{3} \rangle = \langle \overline{4} \rangle$ (по сложению)
+        \item $\Z/5\Z = \langle \overline{1} \rangle = \langle \overline{2} \rangle = \langle \overline{3} \rangle = \langle \overline{4} \rangle$ (по сложению)
         
-        \item $\mathZ/6\mathZ = \langle \overline{1} \rangle = \langle \overline{5} \rangle$ (по сложению)
+        \item $\Z/6\Z = \langle \overline{1} \rangle = \langle \overline{5} \rangle$ (по сложению)
         
-        \item $(\mathZ/5\mathZ)^* = \langle \overline{2} \rangle = \langle \overline{3} \rangle$ (по умножению)
+        \item $(\Z/5\Z)^* = \langle \overline{2} \rangle = \langle \overline{3} \rangle$ (по умножению)
         
-        \item $(\mathZ/8\mathZ)^*$ --- не циклическая группа $g^2 = e \implies g^{2k} = e,~g^{2k+1} = g$
+        \item $(\Z/8\Z)^*$ --- не циклическая группа $g^2 = e \implies g^{2k} = e,~g^{2k+1} = g$
     \end{itemize}
 \end{examples}
 
 \begin{defn}
     $G$ --- группа, $g \in G$
 
-    Если $\forall n \in \mathN: g^n \neq e$, то говорят, что $g$ --- бесконечный порядок
+    Если $\forall n \in \N: g^n \neq e$, то говорят, что $g$ --- бесконечный порядок
 
-    Если $\exists n \in \mathN: g^n = e$, то минимальное такое $n$ называют порядком $g$ (пишут: $\ord g = n$)
+    Если $\exists n \in \N: g^n = e$, то минимальное такое $n$ называют порядком $g$ (пишут: $\ord g = n$)
 \end{defn}
 
 \begin{example}
-    $\mathZ/5\mathZ$
+    $\Z/5\Z$
 
     $\ord \overline{1} = 1$
 
@@ -194,7 +193,7 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 
     Предположим, $\ord g = m < n$
 
-    $G = \{ g^k \mid k \in \mathZ \} = \{ g^{mq + r} \mid q \in \mathZ,~0 \leq r < m \} = \{g^0, g^1, \ldots, g^{m-1}\}$ --- противоречие, так как $|G| \leq m < n$
+    $G = \{ g^k \mid k \in \Z \} = \{ g^{mq + r} \mid q \in \Z,~0 \leq r < m \} = \{g^0, g^1, \ldots, g^{m-1}\}$ --- противоречие, так как $|G| \leq m < n$
 
     "$\Leftarrow$":
 
@@ -208,7 +207,7 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 \end{proof}
 
 \begin{defn}
-    Первообразным корнем из $1$ степени $n$ называется такой элемент $z \in \mathC^*$, что $\ord z = n$
+    Первообразным корнем из $1$ степени $n$ называется такой элемент $z \in \CC^*$, что $\ord z = n$
 \end{defn}
 
 \begin{example}
@@ -218,6 +217,3 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 
     $\xi_2$ --- первообразный корень из $1$ степени $3$
 \end{example}
-
-
-\end{normalsize}

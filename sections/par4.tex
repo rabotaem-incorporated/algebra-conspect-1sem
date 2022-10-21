@@ -1,48 +1,64 @@
-\begin{normalsize}
-\section {Кольцо классов вычетов}
+\subsection{Кольцо классов вычетов}
 
 \begin{defn}
-    Множество классов вычетов по модулю $m$ --- это множество всех вычетов по модулю $m$.\\
-    Обозначается как $\mathZ/m\mathZ \iff \mathZ/m \iff \mathZ/\equivm{m}$
+    Множество классов вычетов по модулю $m$ --- это множество всех вычетов по модулю $m$.
+
+    Обозначается как $\Z/m\Z \iff \Z/m \iff \Z/\equivm{m}$
 \end{defn}
 
 \begin{theorem}
-    $\letus m \in \mathN$. Тогда 
+
+    $\letus m \in \N$. Тогда 
+    
     \begin{enumerate}
-        \item $\mathZ/m\mathZ = \{\overline{0}, \overline{1}, \ldots, \overline{m-1}\}$
-        \item $|\mathZ/m\mathZ| = m$ 
+        \item $\Z/m\Z = \{\overline{0}, \overline{1}, \ldots, \overline{m-1}\}$
+        \item $|\Z/m\Z| = m$ 
     \end{enumerate}
 \end{theorem}
 
-\begin{proof}
+\begin{proof}~
+
     \begin{enumerate}
-        \item $a \in \mathZ$ $(!) \overline{a} = \overline{r},~0 \leq r < m$
+        \item $a \in \Z$ $(!) \overline{a} = \overline{r},~0 \leq r < m$
         \begin{enumerate}
-            \item[a)] $a \geq 0$, $\letus r$ --- наименьшее число, такое что $r \geq 0, a \equivm{m} r$\\
-            $r \geq m \implies r - m \equivm{m} a, r - m \geq 0, r - m < r$. Противоречие с выбором $r$.\\
+            \item[a)] $a \geq 0$, $\letus r$ --- наименьшее число, такое что $r \geq 0, a \equivm{m} r$
+            
+            $r \geq m \implies r - m \equivm{m} a, r - m \geq 0, r - m < r$. Противоречие с выбором $r$.
+            
             Значит $r < m$, тоесть $r$ --- искомое.
-            \item[b)] $a < 0,~a' = a \pm (-a)m = a(1-m) \geq 0$\\
-            $\overline{a} = \overline{a'} = \overline{r},~0 \leq r < m$\\
+            
+            \item[b)] $a < 0,~a' = a \pm (-a)m = a(1-m) \geq 0$
+            
+            $\overline{a} = \overline{a'} = \overline{r},~0 \leq r < m$
         \end{enumerate}
-        \item предположим $\overline{r} = \overline{r'},~0 \leq r, r' < m$.\\
-        $|r' - r| < m \implies m \mid (r - r') \implies r' - r = 0$\\
+        
+        \item предположим $\overline{r} = \overline{r'},~0 \leq r, r' < m$.
+        
+        $|r' - r| < m \implies m \mid (r - r') \implies r' - r = 0$
     \end{enumerate}
 \end{proof}
 
-\begin{follow}
-    Теорема о делениии с остатком --- $\letus a \in \mathZ, b \in \mathN \implies \exists! q, r \in \mathZ$
+\begin{follow}~
+
+    Теорема о делениии с остатком --- $\letus a \in \Z, b \in \N \implies \exists! q, r \in \Z$
     \begin{enumerate}
         \item $a = bq + r,~0 \leq r < b$
         \item $0 \leq r < b$
     \end{enumerate}
 \end{follow}
 
-\begin{proof}\\
-    \textsl{Существование:}\\
-    В $\mathZ/b\mathZ$ рассмотрим $\overline{a} \in \{\overline{0}, \overline{1}, \ldots, \overline{b-1}\}$, тогда если $\overline{a} = \overline{r},~0 \leq r < b$\\
-    $a \equivm{b} r \iff a = bq + r,~q \in \mathZ$\\
-    \textsl{Единственность:}\\
-    $\letus a = bq + r = bq' + r',~0 \leq r, r' < b \iff \overline{bq+r} = \overline{bq'+r'} \iff \overline{r} = \overline{r'} \iff r = r' \implies bq = bq' \implies q = q'$\\
+\begin{proof}~
+
+    \textsl{Существование:}
+
+    В $\Z/b\Z$ рассмотрим $\overline{a} \in \{\overline{0}, \overline{1}, \ldots, \overline{b-1}\}$, тогда если $\overline{a} = \overline{r},~0 \leq r < b$
+
+    $a \equivm{b} r \iff a = bq + r,~q \in \Z$
+
+    \textsl{Единственность:}
+
+    $\letus a = bq + r = bq' + r',~0 \leq r, r' < b \iff \overline{bq+r} = \overline{bq'+r'} \iff \overline{r} = \overline{r'} \iff r = r' \implies bq = bq' \implies q = q'$
+
 \end{proof}
 
 \begin{defn}
@@ -53,18 +69,24 @@
     Операция на множестве $M$ --- бинарная операция $M \times M \to M$
 \end{defn}
 
-На $\mathZ/m\mathZ$ определим операцию сложения и умножения по модулю $m$:\\
+На $\Z/m\Z$ определим операцию сложения и умножения по модулю $m$:
+
 \begin{itemize}
     \item $\overline{a} + \overline{b} = \overline{a + b}$
+    
     \item $\overline{a} \cdot \overline{b} = \overline{a \cdot b}$
 \end{itemize}
 
-$(!)~\overline{a} = \overline{a'},~\overline{b} = \overline{b'} \implies \overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdot b'}$\\
-$\overline{a} = \overline{a'},~\overline{b} = \overline{b'} \implies a \equivm{m} a',~\implies b \equivm{m} b' \implies a + b \equivm{m} a' + b',~ a \cdot b \equivm{m} a' \cdot b' \implies\\ 
-\overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdot b'}$\\
+$(!)~\overline{a} = \overline{a'},~\overline{b} = \overline{b'} \implies \overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdot b'}$
 
-\example\\
-$m = 4, \mathZ/4\mathZ = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}$\\
+$\overline{a} = \overline{a'},~\overline{b} = \overline{b'} \implies a \equivm{m} a',~\implies b \equivm{m} b' \implies a + b \equivm{m} a' + b',~ a \cdot b \equivm{m} a' \cdot b' \implies$
+
+$\overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdot b'}$
+
+\begin{example}
+    $m = 4, \Z/4\Z = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}$
+\end{example}
+
 \[
 \begin{tabular}{c|cccc}
     $+$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$\\
@@ -90,18 +112,26 @@ $m = 4, \mathZ/4\mathZ = \{\overline{0}, \overline{1}, \overline{2}, \overline{3
 \end{defn}
 
 \begin{theorem-non}
-    Операции сложения и умножения на $\mathZ/m\mathZ$ обладают следующими свойствами:
+    Операции сложения и умножения на $\Z/m\Z$ обладают следующими свойствами:
 \end{theorem-non}
 
 \begin{enumerate}
     \item $A + B = B + A$ --- коммутативность сложения
+    
     \item $(A + B) + C = A + (B + C)$ --- ассоциативность сложения
+    
     \item $A + \overline{0} = A$--- существование нейтрального элемента относительно сложения
+    
     \item $A + A' = \overline{0}$ --- существование обратного элемента относительно сложения
+    
     \item $AB = BA$ --- коммутативность умножения
+    
     \item $(AB)C = A(BC)$ --- ассоциативность умножения
+    
     \item $A \cdot \overline{1} = A$ --- существование нейтрального элемента относительно умножения
+    
     \item $A \cdot (B + C) = A \cdot B + A \cdot C$ --- дистрибутивность умножения относительно сложения.
+    
     \item $(B + C) \cdot A = B \cdot A + C \cdot A$ --- дистрибутивность сложения относительно умножения.
 \end{enumerate}
 
@@ -122,7 +152,7 @@ $m = 4, \mathZ/4\mathZ = \{\overline{0}, \overline{1}, \overline{2}, \overline{3
 \end{defn}
 
 \begin{defn}
-    $\forall x \in \mathR \exists y \in \mathR: x + y = n \implies n$ --- нейтральный элемент относительно сложения.
+    $\forall x \in \R \exists y \in \R: x + y = n \implies n$ --- нейтральный элемент относительно сложения.
 \end{defn}    
 
 \begin{notice}
@@ -141,8 +171,11 @@ $m = 4, \mathZ/4\mathZ = \{\overline{0}, \overline{1}, \overline{2}, \overline{3
     В любом кольце $0 \cdot a = 0$.
 \end{lemma}
 \begin{proof}
-    $0 + 0 = 0 \implies (0 + 0) \cdot a = 0 \cdot a \implies 0 \cdot a + 0 \cdot a = 0 \cdot a$\\
-    $\letus 0 \cdot A \neq 0 \implies \exists b: b + 0 \cdot A = 0$\\
+
+    $0 + 0 = 0 \implies (0 + 0) \cdot a = 0 \cdot a \implies 0 \cdot a + 0 \cdot a = 0 \cdot a$
+
+    $\letus 0 \cdot A \neq 0 \implies \exists b: b + 0 \cdot A = 0$
+    
     $0 = b + 0 \cdot a = b + (0 \cdot a + 0 \cdot a) = (b + 0 \cdot a) + (0 \cdot a) = 0 + (0 \cdot a) = (0 \cdot a)$
 \end{proof}
 
@@ -152,15 +185,13 @@ $m = 4, \mathZ/4\mathZ = \{\overline{0}, \overline{1}, \overline{2}, \overline{3
 
 \begin{examples}
     \begin{itemize}
-        \item $\mathR^* = \mathR \setminus \{0\}$
-        \item $\mathZ^* = \{-1, 1\}$
-        \item $(\mathZ/4\mathZ)^* = \{\overline{1}, \overline{3}\}$
-        \item $(\mathZ/5\mathZ)^* = \{\overline{1}, \overline{2}, \overline{3}, \overline{4}\}$
+        \item $\R^* = \R \setminus \{0\}$
+        \item $\Z^* = \{-1, 1\}$
+        \item $(\Z/4\Z)^* = \{\overline{1}, \overline{3}\}$
+        \item $(\Z/5\Z)^* = \{\overline{1}, \overline{2}, \overline{3}, \overline{4}\}$
     \end{itemize}
 \end{examples}
 
 \begin{defn}
     Полем называется коммутативное кольцо $F$, такое что $F^* = F \setminus \{0\}$.
 \end{defn}
-
-\end{normalsize}
