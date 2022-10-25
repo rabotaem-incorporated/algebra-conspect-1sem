@@ -1,0 +1,55 @@
+\subsection{Деление с остатком}
+
+\begin{theorem}[о делении с остатком для многочленов]
+
+    $R$ --- ОЦ.
+    
+    Пусть $f, g \in R[x],~g \neq 0$ и старший коэффициент $g$ обратим.
+
+    Тогда $\exists!~q, r \in R[x]$:
+
+    \begin{enumerate}
+        \item $f = gq + r$
+    
+        \item $\deg r < \deg g$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    $\deg g = d,~g = b_dX^d + \ldots$
+
+    \begin{enumerate}
+        \item Существование $q$ и $r$
+        
+        Индукция по $\deg f$: $\deg f < d \implies$ подходит $q = 0, r = f$
+
+        Пусть $\deg f = n \geq d$
+
+        $f_1 = f - g \cdot a_n \cdot b_d^{-1} \cdot X^{n-d}$, где $b_d$ --- старший коэффициент $g$
+
+        $g \cdot a_n \cdot b_d^{-1} \cdot X^{n-d} = (b_d X^d + \ldots) \cdot a_n \cdot b_d^{-1} \cdot X^{n-d} = a_nX^n + \ldots \implies \deg f_1 < n$
+
+        По индукционному предположению $\exists q_1, r_1 \in R[x]$ такие, что:
+        \begin{enumerate}
+            \item $f_1 = gq_1 + r_1$
+            \item $\deg r_1 < d$
+        \end{enumerate}
+
+        $f = g \cdot a_n \cdot b_d^{-1} \cdot X^{n - d} + f_1 = g \underbrace{(a_n \cdot b_d^{-1} \cdot X^{n - d} + q_1)}_{q} + \underbrace{r_1}_{r}$
+
+
+        \item Предположим $f = g \cdot q_1 + r_1 = g \cdot q_2 + r_2,~\deg r_1 < d, \deg r_2 < d$ 
+        
+        $g(q_1 - q_2) = r_2 - r_1$
+
+        Предположим $q_1 \neq q_2 \implies \deg g \cdot (q_1 - q_2) = \underbrace{\deg g}_{d} + \underbrace{\deg{q_1 - q_2}}_{\geq 0} \geq d,~\deg(r_2 - r_1) < d$
+    \end{enumerate}
+\end{proof}
+
+\begin{notice}
+    Условие $R$ --- ОЦ не существенно.
+
+    $g = b_d X^d + \ldots,~b_d \in R^*$
+
+    $b_d \cdot a = 0 \implies b_d^{-1}(b_d a) = 0 \implies a = 0$ (что это значит?)
+\end{notice}

@@ -1,0 +1,99 @@
+\subsection{Свойства степени}
+
+\begin{theorem-non}
+    $f, g \in R[x],~\deg f = m,~\deg g = n$
+
+    \begin{enumerate}
+        \item $\deg(f + g) \leq \max(m, n)$
+        
+        При этом: $m \neq n \implies \deg(f + g) = \max(m, n)$
+
+        
+        \item $\deg(fg) \leq m + n$
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $f = \sum\limits_{i = 0}^m a_i X^i,~g = \sum\limits_{i = 0}^n b_i X^i,~d = \max(m, n)$
+        
+        $f = \sum\limits_{i = 0}^d a_i X^i,~g = \sum\limits_{i = 0}^d b_i X^i$
+
+        $f + g = \sum\limits_{i = 0}^d (a_i + b_i) X^i \implies \deg(f + g) \leq d$
+
+        $m \neq n \implies \begin{cases}
+            a_d = 0\\
+            b_d \neq 0
+        \end{cases}$ или $\begin{cases}
+            a_d \neq 0\\
+            b_d = 0
+        \end{cases} \implies a_d + b_d \neq 0 \implies \deg(f + g) = d$
+
+
+        \item $\left( \sum\limits_{i = 0}^m a_iX^i \right) \left( \sum\limits_{j = 0}^n b_jX^j \right) = a_0b_0 + (a_0b_1 + a_1b_0)X + \ldots + a_mb_nX^{m+n} \implies \deg fg \leq m + n$
+    \end{enumerate}
+\end{proof}
+
+\begin{notice}
+    $\deg fg < m + n$, если $a_m \neq 0$ или $b_n \neq 0$ и $a_m b_n = 0$
+\end{notice}
+
+\begin{notice}
+    Будем считать, что $\deg 0 = -\infty$
+\end{notice}
+
+\begin{defn}
+    Область целостности (целостное кольцо, область) --- коммутативное ассоциативное кольцо с $1 \neq 0$ и без делителей нуля.
+
+    \[ a \neq 0 \text{ так чтобы } \exists b \neq 0 : ab = 0 \]
+\end{defn}
+
+\begin{theorem-non}
+    Пусть $R$ --- ОЦ(область целостности). 
+
+    \begin{enumerate}
+        \item $\forall f,g \in R[x]: \deg(fg) \leq \deg f + \deg g$
+        
+        \item $R[x]$ --- ОЦ
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item В предыдущем доказательстве $\begin{cases}
+            a_m \neq 0\\
+            b_n \neq 0
+        \end{cases} \implies a_m b_n \neq 0 \implies \deg(fg) = m + n$
+
+        \item $f \neq 0 \implies \deg f \geq 0,~g \neq 0 \implies \deg g \geq 0 \implies \deg(fg) \geq 0 \implies fg \neq 0$
+    \end{enumerate}
+\end{proof}
+
+\begin{follow}
+    Пусть $R$ --- ОЦ: тогда $R[x]^* = R^*$
+\end{follow}
+
+\begin{proof}
+    Очевидно $R^* \subset R[x]^*$
+
+    Обратно, пусть $f \in R[x]^* \implies$
+
+    $\exists g \in R[x]: f \cdot g = 1 (\implies f, g \neq 0)$
+
+    $\deg(fg) = 0 = \deg f + \deg g \implies \deg f = \deg g = 0 \implies f  \in R^*$
+\end{proof}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item $\Z[x]^* = \{\pm 1\}$
+        
+        \item $\R[x]^* = \R \setminus \{0\}$
+    
+        \item $(\Z/4\Z)[x]^*$ --- бесконечное множество
+    \end{enumerate}
+\end{examples}
+
+\begin{exerc}
+    $R[[x]]^* = \{ \sum\limits_{i = 0}^{\infty} a_iX^i \mid a_0 \in R^* \}$    
+\end{exerc}
