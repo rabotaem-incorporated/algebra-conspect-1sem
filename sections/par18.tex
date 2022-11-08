@@ -1,1 +1,233 @@
-\subsection{Temp}
+\subsection{Гомоморфизм подстановки}
+
+\begin{defn}
+    Пусть $R, S$ -- кольца. Гомоморфизм из кольца $R$ в кольцо $S$ называется отображение $\phi: R \to S$ так что:
+
+    \begin{enumerate}
+        \item $\phi(a + b) = \phi(a) + \phi(b)$, $\forall a, b \in R$;
+        
+        \item $\phi(ab) = \phi(a) \phi(b)$
+        
+        \item $\phi(1_R) = 1_S$
+    \end{enumerate}
+\end{defn}
+
+\begin{theorem-non} [свойства гомоморфизма]~
+
+    \begin{enumerate}    
+        \item $\phi(0_R) = 0_S$
+        
+        \item $\forall a \in R: \phi(-a) = -\phi(a)$
+        
+        \item $\forall a, b \in R: \phi(a - b) = \phi(a) - \phi(b)$ 
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $0_R = 0_R + 0_R \implies \phi(0_R) = \phi(0_R) + \phi(0_R) \implies \underbrace{\phi(0_R) + (-\phi(0_R))}_{0_S} = \phi(0_R) + \underbrace{\phi(0_R) + (-\phi(0_R))}_{0_S} \implies 0_S = \phi(0_R) + 0_S \implies \phi(0_R) = 0_S$
+
+        \item $a + (-a) = 0_R \implies \phi(a) + \phi(-a) = \phi(0_R) = 0_S \implies \phi(-a) = -\phi(a)$
+        
+        \item $\phi(a - b) = \phi(a) + \phi(-b) = \phi(a) - \phi(b)$
+    \end{enumerate}
+\end{proof}
+
+\begin{defn}
+    Пусть $S$-кольцо, $R \subset S$. $R$ называется подкольцом $S$, если:
+
+    \begin{enumerate}
+        \item $\forall a, b \in R: a - b \in R$
+        
+        \item $\forall a, b \in R: ab \in R$
+        
+        \item $1_S \in R$
+    \end{enumerate}
+\end{defn}
+
+\begin{notice} Этих условий достаточно (остальные выражаются)
+
+    $1 \in R \implies 0 = 1 - 1 \in R$
+
+    $a \in R \implies -a = 0 + (-a) = 0 - a \in R$
+
+    $a, b \in R \implies a + (-(-b)) = a - (-b) \in R$
+    
+\end{notice}
+
+\begin{examples}~
+    
+    \begin{enumerate}
+        \item Пусть $R$ --- подкольцо в $S$. Тогда $i_R: R \to S$ --- гомоморфизм, $a \mapsto a$.
+        
+        \item $\Z \to \Z/n\Z$ --- гомоморфизм, $a \mapsto \oln{a}$
+        
+        \item $\CC \to \CC$ --- гомоморфизм, $z \mapsto \oln{z}$
+    \end{enumerate}
+
+\end{examples}
+
+\begin{theorem}
+    Пусть $B$ - кольцо, $A$ - подкольцо такое что, $\forall a \in A~\forall b \in B: ab = ba$
+    
+    Зафиксируем $b \in B$. Тогда отображение $\phi_b: A[x] \to B$
+
+    $a_n X^n + \ldots + a_1X + a_0 \mapsto a_n b^n + \ldots + a_1 b + a_0$ является гомоморфизмом колец.
+\end{theorem}
+
+\begin{proof}
+
+    Если $f = a_n X^n + \ldots + a_1 X + a_0$, то $f(b) = a_n b^n + \ldots + a_1 b + a_0 = \phi_b(f)$
+
+    Нужно проверить: $(f + g)(b) = f(b) + g(b)$
+
+    $(fg)(b) = f(b)g(b)$
+
+    $1(b) = 1$ --- тривиально
+
+    $(f + g)(b) = f(b) + g(b)$ --- очевидно из определения $f + g$.
+
+    $f = \sum\limits_{i = 0}^n a_i X^i, g = \sum\limits_{i = 0}^m c_i X^i$
+
+    $fg = \sum\limits_{k = 0}^{n + m} d_k X^k, d_k = \sum\limits_{i + j = k} a_i c_j$
+
+    $(fg)(b) = \sum\limits_{k=0}^{n + m} d_k b^k$
+
+    $f(b) g(b) = \left( \sum\limits_{i = 0}^n a_i b^i \right) \left( \sum\limits_{j = 0}^m c_j b^j \right) = \sum\limits_{i = 0}^n \sum\limits_{j = 0}^m a_i b^i c_j b^j \overset{\text{коммут.}}{=}$ 
+    
+    $\sum\limits_{i = 0}^n \sum\limits_{j = 0}^m a_i c_j b^{i + j} = \sum\limits_{k = 0}^{n + m} \underbrace{\left( \sum\limits_{i, j \geq 0, i + j = k} (a_i c_j) \right)}_{d_k} b^k = (fg)(b)$
+\end{proof}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item 
+        $A$ --- любое коммутативное кольцо, $B = A[x]$
+        
+        $A$ - подкольцо в $B = A[x] \implies$ можно рассмотреть $f(g)$, где $f, g \in A[x]$
+
+        \item $\R[x] \overset{\phi}{\lto} \R[x]$, $f \mapsto f(5)$
+        
+        $\Im \phi = \R \neq \R[x]$
+
+        \item $A \to A$
+        
+        $f \overset{\alpha}{\lmapsto} f(x_2, x_3, x_4, \ldots)$ --- инъективный, но не сюръективный 
+
+        $f \overset{\beta}{\lmapsto} f(0, x_1, x_2, x_3, \ldots)$ --- сюръективный, но не инъективный
+    \end{enumerate}
+
+\end{examples}
+
+\begin{exerc}~
+
+    \begin{enumerate}
+        \item Найти все автоморфизмы $\Q$
+        
+        \item Найти все автоморфизмы $\R$
+        
+        \item Найти все автоморфизмы $\R[x]$
+    \end{enumerate}
+\end{exerc}
+
+\begin{theorem} [Безу]
+
+    Пусть $f \in R[X],~c \in R$. Тогдаа остаток при делении $f$ на $X - c$ есть $f(c)$.    
+\end{theorem}
+
+\begin{proof}
+
+    $f = (X - c) \cdot q + r$, по теореме о делении с остатком $\deg r < \deg (X - c) = 1 \implies$
+    
+    $f(c) = (c - c) \cdot q(c) + r(c) = r(c)$
+\end{proof}
+
+\begin{follow}
+    
+    Пусть $f \in R[X],~c \in R$. Тогда $f(c) = 0 \iff (X - c) \mid f$
+\end{follow}
+
+\begin{defn}
+    Пусть $R$ --- подкольцо $S$, элементы $R$ коммутируют с элементами $S$. Тогда $s \in S$, такой что $f(s) = 0$, где $f \in R[x]$ --- называется корнем из $f$ в $R$.
+\end{defn}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item $f = x^4 - 2$ в $\Z[x]$
+        
+        $f$ не имеет корней в $\Z$
+
+        $f$ имеет $2$ корня в $\R$
+
+        $f$ имеет $4$ корня в $\CC$
+    \end{enumerate}
+\end{examples}
+
+\begin{theorem-non}
+    Пусть $R$ -- область целостности, $f \in R[x]$, $\deg f = d \geq 0$. Тогда число корней $f$ в $R$ не превосходит $d$.
+\end{theorem-non}
+
+\begin{proof}
+    Индукция по $d$
+    
+    \textsl{База:} $d = 0 \implies f$ ненулевой $d \implies$ корней нет
+
+    \textsl{Переход:} $d > 0$
+
+    У $f$ нет корней в $R \implies$ утверждение выполнено
+
+    У $f$ есть корни в $R$, пусть $c \in R$ --- какой-либо из корней $f$
+
+    $f(c) = 0 \implies f = (X - c) \cdot g$, где $g \in R[x]$
+
+    $\deg f = \deg (X - c) + \deg g \implies \deg g = d - 1$
+
+    Пусть $c_1, \ldots, c_l$ --- все корни $g$ в $R$
+
+    По предположению индукции: $l \leq d - 1$
+
+    Утверждение: $\{c_1, \ldots c_l, c\}$ --- все корни $f$ в $R$
+
+    $f(c_1) = \ldots = f(c_l) = f(c) = 0$
+
+    Предположим $\exists c' \notin \{c_1, \ldots, c_l, c\}$, такой что $f(c') = 0$
+
+    $\implies (c' - c) \cdot g(c') = 0$ --- противоречие с тем, что $R$ -- область целостности
+
+    $\implies$ у $f$ не более $l + 1 \leq d$ корней в $R$.
+\end{proof}
+
+\begin{example} $x^2 - 1$ имеет $4$ корня в $\Z/8\Z$ или в $\Z/5\Z$
+    \begin{gather*}
+        x^2 \equivm{77} 1 \iff \begin{cases}
+            x^2 \equivm{7} 1 \\
+            x^2 \equivm{11} 1
+        \end{cases} \iff \begin{cases}
+            x \equivm{7} 1 \text{ или } x \equivm{7} -1 \\
+            x \equivm{11} 1 \text{ или } x \equivm{11} -1
+        \end{cases}
+    \end{gather*}
+\end{example}
+
+\begin{theorem-non} [формальное и функциональное равенство многочленов]~
+
+    Пусть $R$ -- бесконечная область: $f, g \in R[x]$
+
+    таковы, что $\forall a \in R: f(a) = g(a)$
+
+    Тогда $f = g$
+\end{theorem-non}
+
+\begin{proof}
+
+    $h = f - g$, предположим, что $h \neq 0 \implies \deg h = d \geq 0 \implies$ у $h$ есть $\leq d$ корней.
+
+    Но $\forall a \in R: h(a) = f(a) - g(a) = 0$, $R$ - бесконечная область, противоречие. Так как их не больше чем $d$, но $R$ бесконечно.
+\end{proof}
+
+\begin{example}
+    $R = \Z/3\Z$, $f = X, g = X^3$
+
+    $\forall A \in \Z: a^3 \equivm{3} a \implies \forall \alpha \in \Z/3\Z: f(\alpha) = g(\alpha)$
+\end{example}

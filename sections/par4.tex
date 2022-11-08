@@ -11,7 +11,7 @@
     $\letus m \in \N$. Тогда 
     
     \begin{enumerate}
-        \item $\Z/m\Z = \{\overline{0}, \overline{1}, \ldots, \overline{m-1}\}$
+        \item $\Z/m\Z = \{\oln{0}, \oln{1}, \ldots, \oln{m-1}\}$
         \item $|\Z/m\Z| = m$ 
     \end{enumerate}
 \end{theorem}
@@ -19,7 +19,7 @@
 \begin{proof}~
 
     \begin{enumerate}
-        \item $a \in \Z$ $(!) \overline{a} = \overline{r},~0 \leq r < m$
+        \item $a \in \Z$ $(!) \oln{a} = \oln{r},~0 \leq r < m$
         \begin{enumerate}
             \item[a)] $a \geq 0$, $\letus r$ --- наименьшее число, такое что $r \geq 0, a \equivm{m} r$
             
@@ -29,10 +29,10 @@
             
             \item[b)] $a < 0,~a' = a \pm (-a)m = a(1-m) \geq 0$
             
-            $\overline{a} = \overline{a'} = \overline{r},~0 \leq r < m$
+            $\oln{a} = \oln{a'} = \oln{r},~0 \leq r < m$
         \end{enumerate}
         
-        \item предположим $\overline{r} = \overline{r'},~0 \leq r, r' < m$.
+        \item предположим $\oln{r} = \oln{r'},~0 \leq r, r' < m$.
         
         $|r' - r| < m \implies m \mid (r - r') \implies r' - r = 0$
     \end{enumerate}
@@ -51,13 +51,13 @@
 
     \textsl{Существование:}
 
-    В $\Z/b\Z$ рассмотрим $\overline{a} \in \{\overline{0}, \overline{1}, \ldots, \overline{b-1}\}$, тогда если $\overline{a} = \overline{r},~0 \leq r < b$
+    В $\Z/b\Z$ рассмотрим $\oln{a} \in \{\oln{0}, \oln{1}, \ldots, \oln{b-1}\}$, тогда если $\oln{a} = \oln{r},~0 \leq r < b$
 
     $a \equivm{b} r \iff a = bq + r,~q \in \Z$
 
     \textsl{Единственность:}
 
-    $\letus a = bq + r = bq' + r',~0 \leq r, r' < b \iff \overline{bq+r} = \overline{bq'+r'} \iff \overline{r} = \overline{r'} \iff r = r' \implies bq = bq' \implies q = q'$
+    $\letus a = bq + r = bq' + r',~0 \leq r, r' < b \iff \oln{bq+r} = \oln{bq'+r'} \iff \oln{r} = \oln{r'} \iff r = r' \implies bq = bq' \implies q = q'$
 
 \end{proof}
 
@@ -72,38 +72,38 @@
 На $\Z/m\Z$ определим операцию сложения и умножения по модулю $m$:
 
 \begin{itemize}
-    \item $\overline{a} + \overline{b} = \overline{a + b}$
+    \item $\oln{a} + \oln{b} = \oln{a + b}$
     
-    \item $\overline{a} \cdot \overline{b} = \overline{a \cdot b}$
+    \item $\oln{a} \cdot \oln{b} = \oln{a \cdot b}$
 \end{itemize}
 
-$(!)~\overline{a} = \overline{a'},~\overline{b} = \overline{b'} \implies \overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdot b'}$
+$(!)~\oln{a} = \oln{a'},~\oln{b} = \oln{b'} \implies \oln{a + b} = \oln{a' + b'},~\oln{a \cdot b} = \oln{a' \cdot b'}$
 
-$\overline{a} = \overline{a'},~\overline{b} = \overline{b'} \implies a \equivm{m} a',~\implies b \equivm{m} b' \implies a + b \equivm{m} a' + b',~ a \cdot b \equivm{m} a' \cdot b' \implies$
+$\oln{a} = \oln{a'},~\oln{b} = \oln{b'} \implies a \equivm{m} a',~\implies b \equivm{m} b' \implies a + b \equivm{m} a' + b',~ a \cdot b \equivm{m} a' \cdot b' \implies$
 
-$\overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdot b'}$
+$\oln{a + b} = \oln{a' + b'},~\oln{a \cdot b} = \oln{a' \cdot b'}$
 
 \begin{example}
-    $m = 4, \Z/4\Z = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}\}$
+    $m = 4, \Z/4\Z = \{\oln{0}, \oln{1}, \oln{2}, \oln{3}\}$
 \end{example}
 
 \[
 \begin{tabular}{c|cccc}
-    $+$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$\\
+    $+$ & $\oln{0}$ & $\oln{1}$ & $\oln{2}$ & $\oln{3}$\\
     \hline
-    $\overline{0}$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$\\
-    $\overline{1}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$ & $\overline{0}$\\
-    $\overline{2}$ & $\overline{2}$ & $\overline{3}$ & $\overline{0}$ & $\overline{1}$\\
-    $\overline{3}$ & $\overline{3}$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$
+    $\oln{0}$ & $\oln{0}$ & $\oln{1}$ & $\oln{2}$ & $\oln{3}$\\
+    $\oln{1}$ & $\oln{1}$ & $\oln{2}$ & $\oln{3}$ & $\oln{0}$\\
+    $\oln{2}$ & $\oln{2}$ & $\oln{3}$ & $\oln{0}$ & $\oln{1}$\\
+    $\oln{3}$ & $\oln{3}$ & $\oln{0}$ & $\oln{1}$ & $\oln{2}$
 \end{tabular}
 \quad\quad\quad
 \begin{tabular}{c|cccc}
-    $\cdot$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$\\
+    $\cdot$ & $\oln{0}$ & $\oln{1}$ & $\oln{2}$ & $\oln{3}$\\
     \hline
-    $\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$ & $\overline{0}$\\
-    $\overline{1}$ & $\overline{0}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$\\
-    $\overline{2}$ & $\overline{0}$ & $\overline{2}$ & $\overline{0}$ & $\overline{2}$\\
-    $\overline{3}$ & $\overline{0}$ & $\overline{3}$ & $\overline{2}$ & $\overline{1}$
+    $\oln{0}$ & $\oln{0}$ & $\oln{0}$ & $\oln{0}$ & $\oln{0}$\\
+    $\oln{1}$ & $\oln{0}$ & $\oln{1}$ & $\oln{2}$ & $\oln{3}$\\
+    $\oln{2}$ & $\oln{0}$ & $\oln{2}$ & $\oln{0}$ & $\oln{2}$\\
+    $\oln{3}$ & $\oln{0}$ & $\oln{3}$ & $\oln{2}$ & $\oln{1}$
 \end{tabular}
 \]
 
@@ -120,15 +120,15 @@ $\overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdo
     
     \item $(A + B) + C = A + (B + C)$ --- ассоциативность сложения
     
-    \item $A + \overline{0} = A$--- существование нейтрального элемента относительно сложения
+    \item $A + \oln{0} = A$--- существование нейтрального элемента относительно сложения
     
-    \item $A + A' = \overline{0}$ --- существование обратного элемента относительно сложения
+    \item $A + A' = \oln{0}$ --- существование обратного элемента относительно сложения
     
     \item $AB = BA$ --- коммутативность умножения
     
     \item $(AB)C = A(BC)$ --- ассоциативность умножения
     
-    \item $A \cdot \overline{1} = A$ --- существование нейтрального элемента относительно умножения
+    \item $A \cdot \oln{1} = A$ --- существование нейтрального элемента относительно умножения
     
     \item $A \cdot (B + C) = A \cdot B + A \cdot C$ --- дистрибутивность умножения относительно сложения.
     
@@ -187,8 +187,8 @@ $\overline{a + b} = \overline{a' + b'},~\overline{a \cdot b} = \overline{a' \cdo
     \begin{itemize}
         \item $\R^* = \R \setminus \{0\}$
         \item $\Z^* = \{-1, 1\}$
-        \item $(\Z/4\Z)^* = \{\overline{1}, \overline{3}\}$
-        \item $(\Z/5\Z)^* = \{\overline{1}, \overline{2}, \overline{3}, \overline{4}\}$
+        \item $(\Z/4\Z)^* = \{\oln{1}, \oln{3}\}$
+        \item $(\Z/5\Z)^* = \{\oln{1}, \oln{2}, \oln{3}, \oln{4}\}$
     \end{itemize}
 \end{examples}
 
