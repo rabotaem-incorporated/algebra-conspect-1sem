@@ -1,0 +1,84 @@
+\subsection{Отношение эквивалентности и разбиение на классы}
+
+\begin{defn}
+    Отношение эквивалентности --- бинарное отношение, 
+    удовлетворяющее следующим свойствам: рефлексивность, симметричность, транзитивность.
+\end{defn}
+
+\begin{defn}
+    Разбиение на классы множества $M$ --- это представление $M$ в виде 
+    $M = \bigcup\limits_{i \in I} M_i$, 
+    где $M_i$ --- классы, $I$ --- индексное множество, 
+    $M_i \cap M_j = \emptyset$ при $i \neq j$.
+\end{defn}
+
+\begin{theorem}
+    Пусть $M = \bigcup\limits_{i \in I} M_i$ --- разбиение на классы.
+    Введем отношение $\sim$ над $M$ так, что $a \sim b \iff \exists i \in I \ a, b \in M_i$.
+    Тогда $\sim$ --- отношение эквивалентности.
+\end{theorem}
+
+\begin{proof}~
+
+    Рефлексивность и симметричность очевидны. Докажем транзитивность.
+    
+    \[ 
+        a \sim b,\ b \sim c \implies 
+        \exists i, j \ \begin{cases} a, b \in M_i \\ b, c \in M_j \end{cases}
+    \]
+    
+    Тогда $b \in M_i \cap M_j$, но так как $M_i \cap M_j \neq \emptyset$ при неравных $i$ и $j$,
+    $i = j$. Значит $a, b, c \in M_i$.
+\end{proof}
+
+\begin{theorem}
+    Пусть $\sim$ --- отношение эквивалентности на $M$. 
+    Значит существует разбиение на классы $M = \bigcup\limits_{i \in I} M_i$ такое, 
+    что $\forall a, b \in M: a \sim b \iff \exists i : a, b \in M_i$.
+\end{theorem}
+
+\begin{proof}~
+
+    Рассмотрим $a \in M$. Назовем классом элемента $a$ множество 
+    \[ [a] = \{b \in M \mid a \sim b\}. \]
+    Докажем, что для любых элементов $a$ и $b$, либо $[a] = [b]$, либо $[a] \cap [b] = \emptyset$.
+
+    Пусть $[a] \cap [b] \neq \emptyset$. Тогда 
+    \[
+        \exists x \in [a] \cap [b] 
+        \lbl{очев}\implies \begin{cases}
+            x \in [a] \\
+            x \in [b]
+        \end{cases}
+        \lbl{опр. класса}\implies \begin{cases}
+            x \sim a \\
+            x \sim b
+        \end{cases} 
+        \lbl{транзитивность $\sim$}\implies a \sim b. 
+    \]
+
+    \begin{align}
+        (\forall c \in [a]\ c \sim a \lbl{$a \sim b$}\implies c \sim b \implies c \in [b]) 
+            & \implies [a] \subset [b] \\
+        (\forall c \in [b]\ c \sim b \lbl{$a \sim b$}\implies c \sim a \implies c \in [a]) 
+            & \implies [b] \subset [a]
+    \end{align}
+
+    Из $(1)$ и $(2)$ получаем $[a] = [b]$.
+
+    Тогда искомое разбиение можно построить как
+    \[
+        X = \{[a] \mid a \in M\}.
+    \]
+    Действительно $\forall a \in M$, так как $a \in [a]$, то $M = \bigcup\limits_{\alpha \in I} M_i$,
+    а так как различные классы не пересекаются (доказано выше) $\forall a, b \ [a] \neq [b]$.
+\end{proof}
+
+\begin{defn}
+    Построенное множество $X$ называют \emph{фактор-множеством} множества $M$ 
+    по отношению эквивалентности $\sim$, обозначение: $M / \sim$.
+\end{defn}
+
+\begin{example}
+    $\Z/\sim = \{[z] \mid z \in \Z \} = \{[0], [1], [2], \dots\}$
+\end{example}

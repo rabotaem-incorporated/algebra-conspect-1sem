@@ -195,3 +195,8 @@
   linkcolor=blue,
   urlcolor=blue
 }
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\newcommand{\lbl}[2]{\overset{\text{#1}}{#2}}
