@@ -1,0 +1,212 @@
+\subsection{Евклидовы области}
+
+\begin{defn}
+    Евклидовой областью целостности называется область целостности $R$, для которой существует функция $\nu: R \ \{0\} \to \Z_{\geq 0}$, такая что:
+
+    \begin{enumerate}
+        \item Если $d \mid a$, то $\nu(d) \leq \nu(a)$, причем $\nu(d) = \nu(a) \iff d \sim a$
+        
+        \item Для любых $a, b \in R,~b \neq 0: a = bq + r$, где $r = 0$ или $\nu(r) < \nu(b)$ 
+    \end{enumerate}
+\end{defn}
+
+\begin{defn} 
+    $\nu$ называется евклидовой нормой на $R$.
+\end{defn}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item $R = K[x]$, ($K$ - поле), где $\nu(P) = \deg P$
+
+        \item $R = \Z$, где $\nu(a) = |a|$
+        
+        \item $R = \Z[i] = \{ a + bi \mid a,b \in \Z \}$, где $\nu(a + bi) = a^2 + b^2$ (подробнее в книжке Аейрленд, Роузен - <<Классическое введение в современную теорию чисел>>)
+        
+        \item $R = K[[x]]$, ($K$ - поле) 
+        
+        $R^* = \{ a_0 + a, X + \ldots \mid a_0 \neq 0 \}$
+
+        $\ord f =  \min \{ j \mid a_j \neq 0 \}$
+
+        $f = X^{\ord f} \cdot (a_j + a_{j + 1}X + \ldots) \sim X^{\ord f}$ 
+
+        \begin{exerc}
+            Докажите, что это евклидова область.
+        \end{exerc}
+
+        \item $R = \Z_{(5)} = \{ \frac{a}{b} \mid a, b \in \Z,~5 \nmid b \}$
+        
+        \begin{exerc}
+            Докажите, что это евклидова область.
+        \end{exerc}
+    \end{enumerate}
+\end{examples}
+
+\begin{lemma}
+    Пусть $R$ - область целостности, $a, b \in R$. Тогда $a \sim b \iff a = \eps b,~\eps \in R^*$
+\end{lemma}
+
+\begin{proof}
+
+    "$\Leftarrow$":
+
+    $a = \eps b \implies b = \eps^{-1} a$
+    
+    $\begin{cases}
+        a = \eps b \implies a \mid b\\
+        b = \eps^{-1} a \implies b \mid a
+    \end{cases} \iff a \sim b$
+
+    "$\Rightarrow$": 
+
+    $a \sim b \implies \begin{cases}
+        a \mid b\\
+        b \mid a
+    \end{cases} \implies \begin{cases}
+        b = \eps a\\
+        a = \eps' b
+    \end{cases} \implies b = \eps \eps' b \implies (\eps \eps' - 1) b = 0$
+\end{proof}
+
+\begin{defn}    
+    $R$ --- коммутативное кольцо, $I \subset R$ называется идеалом в $R$, если:
+
+    \begin{enumerate}
+        \item $I \neq \emptyset$
+        
+        \item $\forall a, b \in I: a + b \in I$
+        
+        \item $\forall a \in I~\forall b \in R: ab \in I$
+    \end{enumerate}
+\end{defn}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item $R = \Z,~I = 2\Z$
+        
+        \item $R = K[X],~I = \{ f \in R \mid f(0) = 0 \}$
+        
+        \item $R = C[0, 1]$(непрерывные функции на отрезке [0, 1]) ,$~I = \{ f \in R \mid f(0) = 0 \}$
+    \end{enumerate}
+\end{examples}
+
+\begin{defn}
+    $R$ --- коммутативное кольцо, $r \in R$
+
+    $\langle r \rangle = (r) = \{ rs \mid s \in R \}$ --- идеал в $R$
+
+    $r$ это так называемый главный идеал порожденного множества.
+\end{defn}
+
+\begin{notice}
+    $(r) = (r') \iff r \sim r'$
+\end{notice}
+
+\begin{example}
+    $R = \Z[X],~I = \{ f : 2 \mid f(0) \}$ (Пример показывает, что идеалы могут быть не главными)
+\end{example}
+
+\begin{theorem-non}
+    В евклидовой области все идеалы главные.
+\end{theorem-non}
+
+\begin{proof}
+    Пусть $I$ - идеал в области целостности $R$.
+
+    $I = \{0\} \implies I = (0)$
+
+    $I \neq \{0\}$, зафиксируем евклидову норму $\nu$. Выберем $c \in I$ с минимальной нормой $\nu(c)$. $I = (c)$
+
+    "$\supset$":
+    
+    $c \in I, \forall b \in R: cb \in I$, то есть $I \supset (c)$
+    
+    "$\subset$":
+
+    Предположим, $\exists a \in I \setminus (c)$
+
+    Представим евклидову норму в виде $a = cq + r, q, r \in R$ 
+    
+    $\nu(r) < \nu(c)$ или $r = 0$ и евклидовой нормы нет.
+
+    $r \neq 0$, так как иначе $a \in (c)$
+
+    $r = a - cq = a + c(-q),~a \in I,~c \in I \implies c(-q) \in I \implies r \in I$
+
+    Но $\nu(r) < \nu(c)$, что противоречит минимальности нормы $\nu(c)$
+\end{proof}
+
+\begin{defn}   
+    Область целостности, в которых все идеалы главные, называется областью главных идеалов (ОГИ).
+\end{defn}
+
+\begin{theorem-non}
+    $R$ --- область главных идеалов
+
+    \begin{enumerate}
+        \item $a, b \in R \implies$ у $a$ и $b$ существует наибольший общий делитель
+        
+        \item Если $d$ - наибольший общий делитель $a$ и $b$, то $d = am + bn,~m, n \in R$
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    
+    Можно считать $a \neq 0$ или $b \neq 0$, если $a = b = 0$, то $d = 0$ подходит, $d \neq 0$ не подходит.
+
+    \begin{enumerate}
+        \item $I = \{ am + bn \mid m, n \in R \}$ --- идеал в $R \implies I = (d)$ 
+        
+        $\begin{cases}
+            a = a \cdot 1 + b \cdot 0 \in I = (d)\\
+            b = a \cdot 0 + b \cdot 1 \in I = (d)
+        \end{cases} \implies \begin{cases}
+            d \mid a\\
+            d \mid b
+        \end{cases}$
+
+        $\begin{cases}
+            d' \mid a\\
+            d' \mid b
+        \end{cases} \lbl{?}{\implies} d' \mid d$
+
+        $d \in I \implies d = a m_0 + b n_0,~m_0, n_0 \in R$
+
+        $\begin{cases}
+            d' \mid a\\
+            d' \mid b
+        \end{cases} \implies \begin{cases}
+            d' \mid a m_0\\
+            d' \mid b n_0
+        \end{cases} \implies d' \mid d$
+
+        \item Если $d'$ - наибольший общий делитель $a$ и $b$, то:
+        
+        $d' \sim d \in I \implies d' \in I \implies d' = am + bn,~m, n \in R$
+    \end{enumerate}
+\end{proof}
+
+\begin{notice}
+    $(a, b)$ --- наибольший общий делитель $a$ и $b$ в ОГИ
+\end{notice}
+
+\begin{defn}
+    $a$ и $b$ взаимно простые, если $(a, b) = 1$
+\end{defn}
+
+\begin{theorem-non}
+    $(a, b) = 1 \iff m, n \in R: am + bn = 1$
+\end{theorem-non}
+
+\begin{proof}
+
+    "$\Rightarrow$":
+
+    Из предыдущего предложения
+
+    "$\Leftarrow$":
+
+    $d = (a, b) \implies d \mid a, d \mid b \implies d = 1 \implies d \sim 1$
+\end{proof}
