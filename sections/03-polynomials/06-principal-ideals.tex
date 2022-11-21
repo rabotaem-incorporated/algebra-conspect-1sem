@@ -1,0 +1,62 @@
+\subsection{Факториальность области главных идеалов}
+
+\begin{defn}
+    Пусть $R$ - коммутативное кольцо.
+    Элемент $a$ называется \emph{неприводимым}, если $a \neq 0$, $a \notin R^*$ и $a = bc \implies b \in R:*$ или $c \in R^*$.
+
+    То есть неприводимый элемент --- необратимый элемент, который не раскладывается в произведение двух обратимых. 
+\end{defn}
+
+\begin{defn}
+    \emph{Приводимый элемент} --- не $0$, не обратный, не неприводимый.
+\end{defn}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item $R = K[x]$, ($K$ - поле)
+        
+        $\deg f = 1 \implies f$ - неприводимый, так как $f = bc, \deg f = \deg b + \deg c = 1 + 0 = 0 + 1 = 1$
+
+        \item $\R[x]$: 
+        
+        $x^2 - 4$ приводим $x^2 - 4 = (x - 2)(x + 2)$
+    
+        $x^2 + 1$ неприводим, иначе имел бы корень в $\R$
+    \end{enumerate}
+\end{examples}
+
+\begin{lemma}
+    
+    Пусть $f \in K[x]$ --- многочлен степени $2$ или $3$. Тогда $f$ приводим $\iff$ у него есть корень в $K$.
+\end{lemma}
+
+\begin{proof}
+
+    <<$\Longrightarrow$>>:
+
+    $a$ - корень $f \lbl{т. Безу}{\implies} (X - a) \mid f$. Рассмотрим разложение $f = (X - a) \cdot g$.
+    Так как $\deg g = \deg f - 1 \geq 1$, оно нетривиально и $f$ --- приводимый.
+
+    <<$\Longleftarrow$>>:
+
+    Пусть $f = gh$ и $\deg g,~\deg h \geq 1$, не умаляя общности, $\deg g \geq \deg h$. Тогда:
+    \begin{gather*}
+        \underbrace{\deg f}_{2\text{ или }3} = \deg g + \deg h
+    \end{gather*}
+    Есть два стула: $2 = 1 + 1$ и $3 = 2 + 1$ (на какой сам сядешь, на какой друга посадишь?)
+    \begin{gather*}
+        \deg h = 1 \implies h = aX + b \implies h \left( -\frac{b}{a} \right) = 0 \implies f \left( -\frac{b}{a} \right) = 0.
+    \end{gather*}
+    Значит $-\frac{b}{a}$ --- корень $f$.
+\end{proof}
+
+\begin{notice}
+    Многочлены большей степени могут быть приводимыми, но не иметь корней в $K$.
+    \begin{example}
+        Рассмотрим $f = x^4 + x^2 + 1$ в $\R[x]$:
+        \begin{gather*}
+            f = (x^2 + 1)^2 = (x^2 + x + 1)(x^2 - x + 1).
+        \end{gather*}
+    \end{example}
+\end{notice}
