@@ -60,3 +60,118 @@
         \end{gather*}
     \end{example}
 \end{notice}
+
+% new information
+
+\begin{notice}
+    $R$ --- ОГИ
+\end{notice}
+
+\begin{lemma}
+    Пусть $p, f \in R$. $p$ - неприводимый элемент. Тогда $p \mid f$ либо $(p, f) = 1$.
+\end{lemma}
+
+\begin{proof}
+    $(p, f) \mid p \implies (p, f) = 1 $ или $(p, f) = p \implies (p, f) = 1$ или $p \mid f$.
+\end{proof}
+
+\begin{theorem-non}
+    Пусть $p$ - неприводимый, $p \mid ab \implies p \mid a$ или $p \mid b$.
+\end{theorem-non}
+
+\begin{proof}
+    Пусть $p \nmid a, p \nmid b \implies (p, a) = (p, b) = 1 \implies$
+
+    $pm + an = 1, pm' + an' = 1 \lbl{перемножим}{\implies} p(pmm' + mbn' + anm') + abnn' = 1 \implies p \mid 1$
+\end{proof}
+
+\begin{defn}
+    Область целостности $R$ называют факториальным кольцом, если:
+
+    \begin{enumerate}
+        \item Любой $a \in \R$ отличный от $0$ и не являющийся обратимым можно представить в виде $a = p_1 \ldots p_s, s \geq 1$ и $p_1, \ldots, p_s$ - неприводимые элементы.
+        
+        \item Если $p_1 \ldots p_s = q_1 \ldots q_t$, где все $p_i, q_i$ - неприводимые элементы, то $s = t$ и после перенумерации $q_j$ выполнено $q_1 \sim p_1, \ldots, q_s \sim p_s$.
+    \end{enumerate}
+\end{defn}
+
+\begin{theorem}
+    Область главных идеалов является факториальным кольцом.
+\end{theorem}
+
+\begin{proof}
+    Есть элемент $a$, докажем что существует неприводимый $p$ такой, что $p \mid a$.
+
+    Возьмем $a$, если он неприводимый, то доказывать нечего (т.к. $a \mid a$), иначе: $a = a_1 b_1$, где $a_1, b_1 \notin R^*$ (не являются обратимыми)
+
+    $a_1$ -- неприводимый, следовательно утверждение доказано, иначе $a_1 = a_2 b_2$, где $a_2, b_2 \notin R^*$
+
+    и так далее
+
+    Предположим, утверждение неверно. Обозначим $I = \bigcup\limits_{i = 1}^{\infty} (a_i)$
+
+    $x, y \in I \implies x + y \in I$
+
+    Можно заметить, что  $a_2 \mid a_1, a_3 \mid a_2, \ldots \implies (a_1) \subset (a_2) \subset \ldots$
+
+    $x \in (a_i), y \in (a_j)$, не умаляя общности $i \leq j$
+
+    $x, y \in (a_j) \implies x+y \in (a_j) \subset I$
+
+    $x \in I \implies x \in (a_i)$ для некоторого $i$
+
+    $a \in R \implies ax \in (a_i) \subset I$
+
+    $I = (c), c \in I \implies c \in (a_i)$ для некоторого $i$
+
+    $a_{i+1} \in I \implies c \mid a_{i+1}$
+
+    $a_i \mid c \implies a_i \mid a_{i+1}$
+
+    $a_i = a_{i + 1} \cdot b_{i + 1} \implies b_{i + 1} \in R^*$ 
+
+    Значит любой обратимый элемент делится на неприводимый.
+
+    $a \in R, a \neq 0, a \notin R^*$
+
+    $a$ неприводимый $\implies$ все доказано, иначе $a = p_1 a_1,~p_1 \notin R^*$, $p_1$ -- неприводимый
+
+    $a_1$ неприводимый $\implies$ все доказано, иначе $a_1 = p_2 a_2,~p_2 \notin R^*$, $p_2$ -- неприводимый
+
+    и так далее
+
+    Можно заметить, что  $a_2 \mid a_1, a_3 \mid a_2, \ldots \implies (a_1) \subset (a_2) \subset \ldots$
+
+    Аналогично доказывается, что существуют $a_i \sim a_{i + 1}$ ассоциированные $\implies p_{i + 1} \in R^*$. Противоречие.
+
+    Единственность разложения:
+
+    Пусть $p_1 \ldots p_s = q_1 \ldots q_t$, где все $p_i, q_i$, не умаляя общности $s \leq t$
+
+    Индукция по $S$
+
+    \textsl{База:} $s = 1$ 
+
+    $p_1 = q_1 \ldots q_t$. $p_1$ - неприводимый $\implies t = 1,~q_1 = p_1$.
+
+    \textsl{Переход:} $s > 1$
+
+    $p_s \mid (p_1 \ldots p_s) \implies p_s \mid (q_1 \ldots q_t) \implies \exists j: p_s \mid q_j$
+
+    Перенумеруем, так чтобы $j = t$. $q_t = p_s \cdot \eps$, но $q_t$ неприводим $\implies \eps \in R^*$
+    
+    $p_1 \ldots p_s = q_1 \ldots q_{t - 1} \cdot \eps p_s \implies p_1 \ldots p_{s-1} = q_1 \ldots q_{t - 1} \cdot \eps = \underbrace{(\eps q_1)}_{\text{неприводимый}} \cdot q_2 \ldots q_{t - 1}$
+
+    По индукционному предположению $p_1 \ldots p_{s-1}$ совпадает с $(\eps q_1) \cdot q_2 \ldots q_{t - 1}$ c точностью до порядка и ассоциировнности.
+\end{proof}
+
+\begin{examples}~
+
+    \begin{enumerate}
+        \item $R$ --- факториальное кольцо $\implies R[X]$ --- факториальное кольцо.
+        
+        \item $\Z[X]$ --- факториальное кольцо.
+        
+        \item $K[X][Y] = K[X, Y] \implies K[X, Y]$ --- факториальное кольцо.
+    \end{enumerate}
+\end{examples}
