@@ -36,11 +36,17 @@
 \end{proof}
 
 \begin{defn}
-    $\F_{p^r}$ --- поле из $n$ элементов $\iff n = p^r,~p \in \P,~r \in \N$
-
-    (хз что это)
+    $\F_{n}$ --- поле из $n$ элементов.
 \end{defn}
 
+\begin{theorem-non}
+    $\F_{n}$ --- поле из $n$ элементов $\iff n = p^r,~ p \in \P,~ r \in \Z_{+}$.
+
+    $p$ - характеристика $\F_{n}$.
+\end{theorem-non}
+\begin{proof}
+    \TODO{Пока без доказательства.}
+\end{proof}
 \begin{defn}
     $\letus m \in \N: \varphi(n) = |(\Z/m\Z)^*|$
 
@@ -61,14 +67,14 @@
     $p^r - |\{a \mid 0 \leq a \leq p^r-1,~p \mid a\}| = p^r - p^{r-1}$
 \end{proof}
 
-\begin{theorem-non}
+\begin{theorem-non} Мультипликативность функции Эйлера. \\
     $\letus m, n \in \N,~(m, n) = 1$.
 
-    Тогда $\varphi(mn) = \varphi(m) \cdot \varphi(n)$.(Мультипликативность)
+    Тогда $\varphi(mn) = \varphi(m) \cdot \varphi(n)$.
 \end{theorem-non}
 
 \begin{proof}
-    Построим отображение $\lambda: (\Z/mn\Z)^* \times (\Z/m\Z)^* \to (\Z/n\Z)^*$:
+    Построим отображение $\lambda: (\Z/mn\Z)^* \to (\Z/m\Z)^* \times (\Z/n\Z)^*$:
     
     $[a]_{mn} = A \in (\Z/mn\Z)^* \mapsto ([a]_m, [a]_n)$
     
@@ -84,17 +90,16 @@
 
     Проверка корректности:
 
-    $[a]_{mn} = [a']_{mn} \implies ([a]_m, [a]_n) = ([a']_m, [a']_n)$?
-
     $[a]_{mn} = [a']_{mn} \implies a \equivm{mn} a' \implies
     \begin{cases}
         a \equivm{m} a'\\
         a \equivm{n} a'
-    \end{cases}
+    \end{cases} \implies
     \begin{cases}
         [a]_m = [a']_m\\
         [a]_n = [a']_n
-    \end{cases}$
+    \end{cases} \implies 
+    ([a]_m, [a]_n) = ([a']_m, [a']_n)$
 
     Проверим что $\lambda$ --- биекция:
 
@@ -119,7 +124,7 @@
 
     $\begin{cases}
         (b, m) = 1 \implies (a, m) = 1\\
-        (c, m)=1 \implies (a, n) = 1
+        (c, n) = 1 \implies (a, n) = 1
     \end{cases}    
     \implies (a, mn) = 1 \implies [a]_{mn} \in (\Z/mn\Z)^*$
 
@@ -190,7 +195,7 @@
 
     $(\Z/m\Z)^* = \{A_1, A_2, \ldots, A_{\varphi(m)}\}$
     
-    $[a]_m, A_j \in (\Z/m\Z)^* \overset{lemma-1}{\implies}$
+    $[a]_m A_j \in (\Z/m\Z)^* \overset{lemma-1}{\implies}$
     
     $[a]_m A_1, \ldots, [a]_m A_{\varphi(m)}$ --- различные элементы 
     
@@ -227,13 +232,13 @@
     В $(\Z/m\Z)^*$ 
 
     $\oln{(p-1)!} = \oln{1} \cdot \oln{2} \cdot \ldots \cdot \oln{p-1} = \prod\limits_{A \in (\Z/m\Z)^*} A = 
-    \prod\limits_{A^2 = \oln{1}} \cdot \prod\limits_{A^2 \neq \oln{1}} = \prod\limits_{A^2 = \oln{1}} \cdot (A_1 \cdot A_1' \cdot \ldots) = \prod\limits_{A^2 = \oln{1}} \cdot \oln{1} = \prod\limits_{A^2 = \oln{1}}$
+    \prod\limits_{A^2 = \oln{1}} A \cdot \prod\limits_{A^2 \neq \oln{1}} A = (\prod\limits_{A^2 = \oln{1}} A) \cdot (A_1 \cdot A_1' \cdot \ldots) = (\prod\limits_{A^2 = \oln{1}} A) \cdot \oln{1} = \prod\limits_{A^2 = \oln{1}} A$
     
-    $A^2 = \oln{1} \iff A^2 - \oln{1}^2 = \oln{0} \iff (A - \oln{1})(A + \oln{1}) = \oln{0} \overset{\Z/p\Z - field}{\iff} A - \oln{1} = \oln{0}, A + \oln{1} = \oln{0} = \prod\limits_{A^2 = \oln{1}}$
-    
-    $p \neq 2 \implies \oln{1} \cdot \oln{-1} = \oln{-1}$
-    
-    $p = 2 \implies \oln{1} = \oln{-1}$
+    $A^2 = \oln{1} \iff A^2 - \oln{1}^2 = \oln{0} \iff (A - \oln{1})(A + \oln{1}) = \oln{0} \overset{\Z/p\Z - \text{ ОЦ}}{\iff} A - \oln{1} = \oln{0} \text{ или } A + \oln{1} = \oln{0} \implies 
+    \begin{cases}
+        p = 2 &\prod\limits_{A^2 = \oln{1}} A = \oln{1} = \oln{-1}\\
+        p \neq 2 &\prod\limits_{A^2 = \oln{1}} A = \oln{-1}
+    \end{cases}$
 \end{proof}
 
 
