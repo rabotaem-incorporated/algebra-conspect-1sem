@@ -5,7 +5,7 @@ new_index = ""
 for section in sorted(os.listdir("sections")):
     sec_index, *subsections = sorted(os.listdir("sections/" + section))
 
-    with open(f"sections/{section}/!sec.tex") as f:
+    with open(f"sections/{section}/!sec.tex", encoding="utf-8") as f:
         sec_index = f.read()
     
     new_sec_index = ""
@@ -16,13 +16,13 @@ for section in sorted(os.listdir("sections")):
     for ss in subsections:
         new_sec_index += f"\import{{sections/{section}}}{{{ss}}}\n"
 
-    with open(f"sections/{section}/!sec.tex", "w") as f:
+    with open(f"sections/{section}/!sec.tex", "w", encoding="utf-8") as f:
         f.write(new_sec_index)
 
     new_index += f"\import{{sections/{section}}}{{!sec}}\n"
 
 
-with open("algebra.tex") as f:
+with open("algebra.tex", encoding="utf-8") as f:
     root = f.read()
 
 new_root = ""
@@ -40,5 +40,5 @@ for line in root.splitlines(keepends=True):
     else:
         new_root += line
 
-with open("algebra.tex", "w") as f:
+with open("algebra.tex", "w", encoding="utf-8") as f:
     f.write(new_root)

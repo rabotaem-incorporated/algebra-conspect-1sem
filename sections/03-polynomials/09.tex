@@ -1,0 +1,105 @@
+\subsection{Алгебраически замкнутые поля. Каноническое разложение над \CC и над \R.}
+
+\begin{defn}
+    Поле $K$ называется \emph{алгебраически замкнутым}, если любой $f \in K[x]$ имеет корень в $K$.
+\end{defn}
+
+\begin{theorem}
+    Основная теорема алгебры.
+
+    $\CC$ алгебраически замкнуто.
+\end{theorem}
+
+\begin{proof}
+     Не будет в курсе.
+
+     Идея доказательства:
+
+     $f = a_nx^n + \dots + a_1x + a_0,~ z \in \CC,~ f(z) = 0$.
+
+     $r > max\{|a_0|, \ldots, |a_n|\}$.
+
+     $f(r(\cos(\varphi) + i\sin(\varphi))) = r^n(\cos(n\varphi) + i\sin(n\varphi)) + g(r(\cos(\varphi) + i\sin(\varphi)))$.
+
+     $|g(r(\cos(\varphi) + i\sin(\varphi)))| < r^{n - 1}(|a_{n - 1}| + \ldots + |a_1| + |a_0|) < r^n$.
+
+     $\implies \Delta \arg f(r(\cos(\varphi) + i\sin(\varphi))) = 2\pi n$.
+
+     $D = \{z \in \CC \mid |z| \le r\}$
+
+     $\overset{\text{Топология}}{\implies} f(D)$ - односвязная область.
+
+     $\implies 0 \in f(D) \implies \exists z~f(z) = 0$.
+\end{proof}
+
+\begin{notice} 
+    Любое поле можно вложить в алгебраически замкнутое поле. 
+    
+    Всегда есть минимальное такое поле.
+
+    Для $\Q$ это поле алгебраических чисел.
+
+    Алгебраическое число - комплексный корень многочлена над $\Q$.
+\end{notice}
+
+\begin{theorem-non}
+    $K$ - алгебраически замкнутое поле, $f \in K[x]$.
+
+    Тогда $f$ - неприводим $\iff \deg f = 1$.
+\end{theorem-non}
+
+\begin{proof}
+    Все многочлены $\deg = 1$ неприводимы.
+
+    $\deg f \neq 1 \implies \exists x \in K: f(x) = 0$
+
+    $\overset{\text{Т. Безу}}{\implies} (x - c) \mid f$
+
+    Таким образомб если $f \in K[x], \deg f \ge 1$, то его каноническое разложение имеет вид:
+
+    $f = c_0\prod\limits_{i = 1}^n (x - c_i)^{d_i}$, где $c_i \in K,~d_i \in \Z_+$.
+\end{proof}
+
+\begin{theorem-non}
+    $f \in \R[x],~ a \in CC$ - его корень.
+
+    Тогда $\bar{a}$ - корень $f$ той же кратности.
+\end{theorem-non}
+
+\begin{proof}~
+    $l$ - кратность $a$.
+
+    В $\CC[x]~f = (x - a)^lg,~ g \in \CC[x],~ g(a) \neq 0$.
+
+    Пусть $g = b_nx^n + \dots + b_1x + b_0$.
+
+    Рассмотрим $\bar{g} = \bar{b_n}x^n + \dots + \bar{b_1}x + \bar{b_0}$.
+
+    Тогда $f = \bar{f} = \overline{(x - a)^l}\bar{g} = (x - \bar{a})^l\bar{g} \implies f(\bar{a}) = 0$
+
+    $g(a) = \overline{\bar{g}(\bar{a})} \implies x - \bar{a} \nmid \bar{g}$
+
+    $\implies \bar{a}$ - корень $f$ кратности $l$
+
+    $\implies$ все корни входят парами
+
+    $\implies f = r_0\left(\prod\limits_{i = 1}^n (x - r_i)^{d_i}\right) \cdot \left(\prod\limits_{i = 1}^m ((x - c_i)(x - \bar{c_i}))^{p_i}\right)$, где $r_i \in \R,~d_i \in Z_+,~c_i \in \CC,~p_i \in \Z_+$.
+
+    $\implies f = r_0\left(\prod\limits_{i = 1}^n (x - r_i)^{d_i}\right) \cdot \left(\prod\limits_{i = 1}^m B_i^{p_i}\right),~ B_i$ - квадратичные многочлены, неприводимые в $\R$.
+\end{proof}
+
+\begin{theorem-non}
+    Унитарные неприводимые многочлены в $\R$ - это:
+
+    1. $x - a,~ a \in \R$
+
+    2. $x^2 + ax + b,~ a, b \in \R,~ b^2 - 4ac < 0$
+\end{theorem-non}
+
+\begin{proof}~
+    С многочленами степени 1 и 2 все ясно.
+
+    Если степень многочлены больше 2, то справедливо разложение $9.2$, значит они приводимы.
+\end{proof}
+
+

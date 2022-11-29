@@ -1,0 +1,66 @@
+\subsection{Формула Тейлора}
+
+\begin{theorem-non}
+    $K$ - поле, $f, g \in K[x], f \neq 0, d = \deg(g) \ge 1$.
+
+    Тогда $f$ можно представить единственным образом:
+
+    $f = h_ng^n + \dots + h_1g + h_0$,
+
+    где $n \ge 0, h_i \in K[x], h_n \neq 0, \deg(h_i) < d, i = 0, \dots, n$.
+\end{theorem-non}
+
+\begin{proof}
+    Индукция по $l = \deg f$.
+
+    $l < d:~ n = 0, h_0 = f$.
+
+    $l >= d:~ f = gq + r,~ \deg(r) < d,~ q \neq 0$.
+
+    $\deg gq \ge \deg g > \deg r$
+
+    $\implies \deg f = \deg gq \implies \deg q = l - d$
+    
+    По ИП: $q = h_ng^n + \dots + h_1g + h_0,~ h_n \neq 0,~ \deg(h_i) < d,~ i = 0, \dots, n$.
+
+    $\implies f = h_ng^{n + 1} + \dots + h_0g + r$.
+
+    Единственность.
+
+    Индукция по $l = \deg f$.
+
+    $l < d$:
+
+    $\deg h_ng^n \ge nd > deg h_ig^i,~ i = 0, \dots, n - 1 \implies \deg f = \deg h_ng^n \implies \deg h_ng^n < d$.
+
+    $nd + d - 1 \ge l \ge nd \implies n$ - неполное частное при делении $l$ на $d$.
+
+    База $l < d~ n = 0 \implies h_0 = f$.
+
+    Предположим, то есть еще разложение $f = \hat{h_n}g^n + \dots + \hat{h_1}g + \hat{h_0}$.
+
+    $f = g(h_ng^{n - 1} + \dots + h_1) + h_0 = g(\hat{h_n}g^{n - 1} + \dots + h_1) + h_0, ~\deg h_0, ~\deg \hat{h_0} < d$
+
+    Тогда $h_0 = \hat{h_0}$.
+
+    По ИП: $\deg f_1 = h_ng^{n - 1} + \dots + h_1 < \deg f \implies h_i = \hat{h_i},~ i = 1, \dots, n - 1$.
+\end{proof}
+
+
+\begin{theorem-non}
+    $char K = 0,~ f \in K[x],~ f \neq 0,~ d = \deg(f) = n \ge 0,~ a \in K$.
+
+    $\implies f = \sum\limits_{i = 0}^n \frac{f^{(i)}(x - a)^i}{i!},~ f_i \in K[x],~ \deg(f_i) < d,~ i = 0, \dots, n$.
+
+    Напоминание: $\Char K = \min\{l \mid \underbrace{1 + 1 + \ldots 1}_{\text{l раз}} = 0\}$.
+\end{theorem-non}
+
+\begin{proof}
+    $f = \sum_{i = 0}^n c_i(x - a)^i,~ c_i \in K,~ i = 0, \dots, n,~ c_n \neq 0$.
+
+    $f^{(i)} = \sum\limits_{j = i}^{n} c_{j}j!(x - a)^{j - i},~ i = 0, \dots, n$.
+
+    $f^{(j)}(a) = c_jj!$
+
+    $c_i = \frac{f^{(i)}(a)}{i!}$.
+\end{proof}
