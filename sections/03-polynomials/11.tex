@@ -1,0 +1,71 @@
+\subsection{Интерполяция}
+
+\begin{theorem}
+    Пусть $K$ --- поле, $n \in \N$: $x_1, x_2, \ldots, x_n \in K$, различные между собой. $y_1, y_2, \ldots, y_n \in K$. Тогда $\exists! f \in K[x]: \deg f \leq n - 1$ и $f(x_i) = y_i,~i = 1, \ldots, n$.
+\end{theorem}
+
+\begin{proof}
+
+    <<Единственность>>:
+
+    Предположим, что существует $f, g \in K[x],~\deg \leq n - 1,~\deg g \leq n - 1, f(x_i) = g(x_i) = y_i,~i = 1, \ldots, n$
+
+    $\letus h = f - g,~\deg h \leq n - 1,~h(x_i) = 0,~i = 1, \ldots, n$
+
+    Предположим, $h \neq 0 \implies$ у $h \leq n - 1$ корней, но такого не может быть.
+
+    <<Существование>>:
+
+    \textbf{Формула Лагранжа}
+
+    Решим интерполяционную задачу в специальном случае, когда $y_1 = 1, y_2 = \ldots = y_n = 0$.
+
+    Найдем соответствующий многочлен $f_1$.
+
+    $x_1, \ldots, x_n$ --- корни многочлена $f_1 \implies (x - x_2) \mid f_1, \ldots, (x - x_n) \mid f_1 \implies$ 
+
+    $\underbrace{(x - x_2) (x - x_3) \ldots (x - x_n)}_{\text{степени } n - 1} \mid f_1 \implies f_1 = c(x - x_2) \ldots (x - x_n),~c \in K$
+
+    $f_1 (x_1) = 1 \iff c (x_1 - x_2) \ldots (x_1 - x_n) = 1 \implies c = \frac{1}{(x_1 - x_2) \ldots (x_1 - x_n)}$
+
+    Получился многочлен $f_1 = \frac{(x - x_2) \ldots (x - x_n)}{(x_1 - x_2) \ldots (x_1 - x_n)}$
+
+    Аналогичная задача с $y_i = 1, \forall_{j \neq i}~y_j = 0$ имеет решение:
+
+    $f_i = \frac{(x - x_1) \ldots \widehat{(x - x_i)} \ldots (x - x_n)}{(x_i - x_1) \ldots \widehat{(x_i - x_i)} \ldots (x_i - x_n)} = \frac{(x - x_1) \ldots \widehat{(x - x_i)} \ldots (x - x_n)}{F'(x_i)}$
+
+    Рассмотрим $f = y_1 f_1 + y_2 f_2 + \ldots + y_n f_n$, $y_1, \ldots, y_n$ теперь произвольные.
+
+    $\deg \leq \max(\deg f_1, \ldots, \deg f_n) = n - 1$
+
+    Получилась такая формула $f(x_i) = y_1 \underbrace{f_1(x_i)}_0 + y_2 \underbrace{f_2(x_i)}_0 + \ldots + y_i \underbrace{f_i(x_i)}_1 + \ldots + y_n \underbrace{f_n(x_i)}_0 = y_i$
+
+\end{proof}
+
+\begin{notice}
+    Про связь с производной
+
+    $F = (x - x_1) \ldots (x - x_n)$
+
+    $F' = \sum\limits_{i = 1}^n (x - x_1) \ldots \widehat{(x - x_i)} \ldots (x - x_n)$
+
+    $F'(x_j) = \sum\limits_{i = 1}^n (x_j - x_1) \ldots \widehat{(x_j - x_i)} \ldots (x_j - x_n) = (x_j - x_1) \ldots \widehat{(x_j - x_j)} \ldots (x_j - x_n)$
+\end{notice}
+
+\subsubsection*{Метод Ньютона}
+
+Рассмотрим интерполяционную задачу и предположим, что мы уже нашли $f_{(n - 1)} \in K[x]$, такой что $f_{(n - 1)}$ решение интерполяционной задачи $(x_1, \ldots, x_{n - 1}; y_1, \dots, y_{n - 1})$, то есть
+
+$\deg f_{(n - 1)} \leq n - 2$ и $f_{(n - 1)}(x_i) = y_i,~i = 1, \ldots, n - 1$
+
+Пусть $f$ решение интерполяционной задачи
+
+$f = f_{(n - 1)} + g,~ g = ?$
+
+$f(x_i) = y_i = f_{(n - 1)}(x_i),~ i = 1, \ldots, n - 1$
+
+$g = f - f_{(n - 1)},~ g(x_1) = \ldots = g(x_{n - 1}) = 0$
+
+$\deg g \leq n - 1 \implies g = c (x - x_1) \ldots (x - x_{n - 1})$
+
+$g(x_n) = f(x_n) - f_{(n - 1)}(x_n) = y_n - f_{(n - 1)}(x_n) \implies$ отсюда находится $c$

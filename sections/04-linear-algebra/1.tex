@@ -1,0 +1,197 @@
+\subsection{Матрицы}
+
+\begin{defn}
+    $R$ --- кольцо, $m, n \in \N$
+
+    Матрица $m \times n$ над кольцом $R$ --- прямоугольная таблица
+
+    $A = \begin{pmatrix}
+        a_{11} & a_{12} & \dots & a_{1n} \\
+        a_{21} & a_{22} & \dots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \dots & a_{mn}
+    \end{pmatrix}$, где $a_{ij} \in R$
+
+    Есть краткая запись $A = (a_{ij})_{i = 1, \ldots, m;~j = 1, \ldots, n} = (a_{ij})$
+\end{defn}
+
+\begin{defn}
+    Множество матриц $m \times n$ над кольцом $R$ обозначается как $M_{m, n}(R)$
+
+    Так же обозначают, как: $R^{m \times n}$, $M(m, n, R)$, $M_{m \times n}(R)$
+\end{defn}
+
+Пусть $A, B \in M_{m, n}(R)$ --- матрицы. $A = (a_{ij})$, $B = (b_{ij})$
+
+Их суммой называется матрица $C = (c_{ij})$, где $c_{ij} = a_{ij} + b_{ij}$.
+
+Пусть $A = (a_{ij}) \in M_{m, n}(R)$, $B = (b_{ij}) \in M_{n, p}(R)$
+
+Их произведением называется матрица $C = (c_{ij}) \in M_{m, p}(R)$, где $c_{ij} = \sum\limits_{k = 1}^n a_{ik} b_{kj}$
+
+Пусть $c \in R$, $A \in M_{m, n}(R)$
+
+Тогда $c \cdot A = (c \cdot a_{ij}) \in M_{m, n}(R)$
+
+\begin{notice}
+    По умолчанию $R$ --- коммутативное кольцо
+\end{notice}
+
+\begin{defn}
+    Транспонированная матрица $A = (a_{ij}) \in M_{m, n}(R)$ --- матрица $B = (b_{ij}) \in M_{n, m}(R)$, где $b_{ij} = a_{ji}$
+
+    Обозначается как $A^T$
+\end{defn}
+
+\begin{example}
+    $\begin{pmatrix}
+        2 & 0 & -3 \\
+        1 & 5 & 4
+    \end{pmatrix}^T = \begin{pmatrix}
+        2 & 1 \\
+        0 & 5 \\
+        -3 & 4
+    \end{pmatrix}$
+\end{example}
+
+\begin{defn}
+    Матрица $A = (a_{ij}) \in M_{m, n}(R)$ --- квадратная, если $m = n$
+
+    Обозначается как $A \in M_{n}(R)$
+\end{defn}
+
+\begin{theorem}[Свойства операций над матрицами]~
+
+    \begin{enumerate}
+        \item $A + (B + C) = (A + B) + C$
+        
+        \item $0 = (0)$, тогда $A + 0 = 0 + A = A$
+        
+        \item Для любой $A$ есть $-A$, такая что $A + (-A) = (-A) + A = 0$
+        
+        \item $A + B = B + A$
+        
+        \item $(AB)C = A(BC)$, нужно чтобы $A \in M_{m, n}(R)$, $B \in M_{n, p}(R)$, $C \in M_{p, q}(R)$
+        
+        Обе матрицы принадлежат $M_{m, q}(R)$
+
+        \item $A(B + C) = AB + AC$
+        
+        \item $(B + C)A = BA + CA$
+    
+        \item $(\lambda + \mu) A = \lambda A + \mu A,~\lambda, \mu \in R$
+        
+        \item $\lambda(A + B) = \lambda A + \lambda B,~\lambda \in R$
+        
+        \item $(\lambda A) B = \lambda (A B) = A(\lambda B),~\lambda \in R$
+        
+        \item $(\lambda \mu) A = \lambda (\mu A),~\lambda, \mu \in R$
+        
+        \item $(A + B)^T = A^T + B^T$
+        
+        \item $(AB)^T = B^T A^T$
+    \end{enumerate}
+\end{theorem}
+
+\begin{defn}
+    Пусть $n \in \N$. Единичная матрицой порядка $n$ называется:
+
+    $E_n = \begin{pmatrix}
+        1 & 0 & \ldots & 0 \\
+        0 & 1 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 1  
+    \end{pmatrix} \in M_{n}(R)$
+
+    Как кратко обозначить: $E_n = (\delta_{ij})$, где $\delta_{ij} = \begin{cases}
+        1, & i = j \\
+        0, & i \neq j
+    \end{cases}$ --- символ Кронекера
+\end{defn}
+
+\begin{theorem-non}
+
+    Пусть $A \in M_{m, n}(R)$.
+
+    Тогда $E_m A = A E_n = A$
+\end{theorem-non}
+
+\begin{proof}
+
+    $E_m A = (b_{ij}),~ A = (a_{ij})$
+
+    $b_{ij} = \sum\limits_{k = 1}^m \delta_{ik} a_{kj} = a_{ij}$
+
+    То есть $E_m A = A$
+
+    $E_n A^T = A^T \implies (E_n A^T)^T = (A^T)^T \implies (A^T)^T E_n^T = (A^T)^T \implies A E_n = A$
+\end{proof}
+
+\begin{follow}
+    $M_{n}(R)$ --- кольцо, где $E_n$ --- нейтральный элемент по умножению
+
+    Называют кольцом квадратных матриц порядка $n$.
+\end{follow}
+
+\begin{notice}
+    Кольцо не обязательно коммутативное при $n \geq 2$
+
+    $A = \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix} \cdot \begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix}$
+    
+    $B = \begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{pmatrix} \cdot \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix} = \begin{pmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{pmatrix}$
+
+    $A \neq B$
+\end{notice}
+
+\begin{notice}
+    $M_1(R) \cong R$
+\end{notice}
+
+\begin{defn}
+    $GL_n(R) = M_n(R)^* = \{A \in M_n(R) \mid \exists B \in M_n(R),~ AB = BA = E_n\}$
+
+    Такая $B$ единственная и называется обратной к $A$, обозначается $A^{-1}$
+\end{defn}
+
+\begin{theorem-non}~
+
+    \begin{enumerate}
+        \item $E_n \in GL_n(R),~ E_n^{-1} = E_n$
+        
+        \item $A_1, \ldots, A_k \in GL_n(R) \implies \prod\limits_{i = 1}^k A_i \in GL_n(R),~ (A_1 \ldots A_k)^{-1} = A_k^{-1} \ldots A_1^{-1}$
+        
+        \item $A \in GL_n(R) \implies A^T \in GL_n(R),~ (A^T)^{-1} = (A^{-1})^T$
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $E_n E_n = E_n E_n = E_n$
+        
+        \item $(A_1 \ldots A_k)(A_k^{-1} \ldots A_1^{-1}) = A_1 \ldots A_{k-1} (A_k A_k^{-1}) \ldots A_1^{-1} = A_1 \ldots A_{k - 1} A_{k - 1}^{-1} \ldots A_1^{-1} = A_1 A_1^{-1} = E_n$
+        
+        $(A_k^{-1} \ldots A_1^{-1})(A_1 \ldots A_k) = \ldots = A_k^{-1} A_k = E_n$
+
+        \item $(A^T \cdot (A^T)^{-1}) = (A^{-1} \cdot A)^T = E_n^T = E_n$
+        
+        $((A^T)^{-1} \cdot A^T) = (A \cdot A^{-1})^T = E_n^T = E_n$
+    \end{enumerate}
+\end{proof}
