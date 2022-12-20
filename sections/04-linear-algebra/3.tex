@@ -1,0 +1,51 @@
+\subsection{Перестановки}
+
+\begin{defn}
+    $M$ --- множество. Перестановкой $M$ называется биекция на себя.
+
+    $S(M) = \{ \text{перестановка } M \}$
+
+    $S(M) \times S(M) \to S(M)$
+
+    $(g, f) \mapsto g \circ f$
+\end{defn}
+
+\begin{theorem-non}
+    $(S(M), \circ)$ --- группа.
+\end{theorem-non}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Ассоциативность очевидна.
+        
+        \item $id_M$ --- нейтральный элемент.
+        
+        \item $f \in S(M) \implies f^{-1} \in S(M)$ --- обратный элемент.
+    \end{enumerate}
+\end{proof}
+
+\begin{defn}
+    $S_n$ --- симметрическая группа степени $n$ (группа перестановок $n$-элементного множества)
+\end{defn}
+
+\begin{notice}
+    $|S_n| = n!$
+\end{notice}
+
+\begin{example}
+    $S_3 = \{ (1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1) \}$
+\end{example}
+
+\begin{defn}
+    Циклом $(i_1, i_2, \ldots, i_k)$ называется $\sigma \in S_n$ такая что $\sigma(i_1) = i_2, \sigma(i_2) = i_3, \ldots, \sigma(i_{k - 1}) = i_k, \sigma(i_k) = i_1$, а так же $\sigma(i_j) = i_j$ для всех $j \notin \{ 1, 2, \ldots, k \}$.
+
+    $k \geq 2$ --- длина цикла.
+\end{defn}
+
+\begin{defn}
+    Циклы $(i_1, i_2, \ldots, i_k)$ и $(j_1, j_2, \ldots, j_l)$ называются независимыми, если $i_r \neq j_s \forall r,s$
+\end{defn}
+
+\begin{theorem-non}
+    Любая перестановка является произведением нескольких попарно независимых циклов.
+\end{theorem-non}
