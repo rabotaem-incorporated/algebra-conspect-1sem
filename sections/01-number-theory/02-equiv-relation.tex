@@ -14,7 +14,7 @@
 
 \begin{theorem}
     Пусть $M = \bigcup\limits_{i \in I} M_i$ --- разбиение на классы.
-    Введем отношение $\sim$ над $M$ так, что $a \sim b \iff \exists i \in I \ a, b \in M_i$.
+    Введем отношение $\sim$ над $M$ так, что $a \sim b \iff \exists i \in I : a, b \in M_i$.
     Тогда $\sim$ --- отношение эквивалентности.
 \end{theorem}
 
@@ -24,7 +24,7 @@
     
     \[ 
         a \sim b,\ b \sim c \implies 
-        \exists i, j \ \begin{cases} a, b \in M_i \\ b, c \in M_j \end{cases}
+        \exists i, j : \begin{cases} a, b \in M_i \\ b, c \in M_j \end{cases}
     \]
     
     Тогда $b \in M_i \cap M_j$, но так как $M_i \cap M_j \neq \emptyset$ при неравных $i$ и $j$,
