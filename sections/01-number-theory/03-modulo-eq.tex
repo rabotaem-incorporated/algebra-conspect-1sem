@@ -1,11 +1,15 @@
 \subsection{Сравнение по модулю}
 
 \begin{defn}
-    $\letus a, b, m \in \Z$. Говорят, что $m \mid (a - b)$.
+    $\letus a, b, m \in \Z$. Говорят, что
+    \begin{align*}
+        a \equivm{m} b &\quad\iff \\
+        a \equiv_m b &\quad\iff \\
+        a \equiv b \pmod{m} &\quad\iff\quad m \mid (a - b)
+    \end{align*}
 \end{defn}
 
 \begin{prop}~
-
     \begin{enumerate}
         \item $\equivm{m}$ --- рефлексивно
     
@@ -13,14 +17,18 @@
     
         \item $\equivm{m}$ --- транзитивно
     
-        \item $a \equivm{m} b,~d \mid m \implies a^d \equivm{m} b$ (ну тут хрень написана, я хз что тут может быть. $a \equivm{d} b$? вроде слишком очев для свойства) 
+        \item $a \equivm{m} b,~d \mid m \implies a \equivm{d} b$
     
         \item $a \equivm{m} b,~k \in \Z \implies ka \equivm{km} kb$
-    
-        \item $a \equivm{m} b,~k \in \Z \implies ka \equivm{m} kb$
+
+        \item $a \equivm{m} b,~k \in \Z \implies ka \equivm{m} kb$ (ослабленная версия предыдущего свойства)
     
         \item $a_1 \equivm{m} b_1,~a_2 \equivm{m} b_2 \implies a_1 \pm a_2 \equivm{m} b_1 \pm b_2$
     
         \item $a_1 \equivm{m} b_1,~a_2 \equivm{m} b_2 \implies a_1 a_2 \equivm{m} b_1 b_2$
     \end{enumerate}
 \end{prop}
+
+\begin{notice}
+    Сравнение по модулю --- отношение эквивалентности.    
+\end{notice}

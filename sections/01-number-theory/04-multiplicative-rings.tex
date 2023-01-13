@@ -19,54 +19,62 @@
 \begin{proof}
 
     \begin{enumerate}
-        \item $a \in \Z$ $(!) \oln{a} = \oln{r}, \quad 0 \leq r < m$
+        \item $\letus a \in \Z$, $\prove \oln{a} = \oln{r}, \quad 0 \leq r < m$
         \begin{enumerate}
-            \item[a)] $a \geq 0$, $\letus r$ --- наименьшее число, такое что $r \geq 0, \quad a \equivm{m} r$
+            \item[a)] Случай $a \geq 0$: $\letus r$ --- наименьшее число, такое что $r \geq 0$ и $a \equivm{m} r$.
             
-            $r \geq m \implies r - m \equivm{m} a, \quad r - m \geq 0, \quad r - m < r$. Противоречие с выбором $r$.
+            Если $r \geq m$, то $r - m \equivm{m} a,~ r - m \geq 0,~ r - m < r$. 
+            То есть $r - m$ подходит под условие для $r$ и меньше. 
+            Противоречие с выбором $r$.
             
             Значит $r < m$, то есть $r$ --- искомое.
             
-            \item[b)] $a < 0, \quad a' = a \pm (-a)m = a(1-m) \geq 0$
+            \item[b)] Случай $a < 0$: 
             
-            $\oln{a} = \oln{a'} = \oln{r}, \quad 0 \leq r < m$
+            Рассмотрим $a' = a \pm (-a)m = a(1-m)$. Тогда $a < 0,~1 - m \le 0$, и $a' \ge 0$.
+            
+            $\oln{a} = \oln{a'} = \oln{r},~ 0 \leq r < m$
         \end{enumerate}
         
-        \item предположим $\oln{r} = \oln{r'}, \quad 0 \leq r, r' < m$.
-        
-        $|r' - r| < m \implies m \mid (r - r') \implies r' - r = 0$
+        \item предположим $\oln{r} = \oln{r'},~ 0 \leq r, r' < m$.
+        \begin{gather*}
+            \begin{cases}|r' - r| < m \\ m \mid (r - r')\end{cases} \implies r' - r = 0 \implies r = r'.
+        \end{gather*}
     \end{enumerate}
 \end{proof}
 
 \begin{follow}
-
-    Теорема о делениии с остатком --- $\letus a \in \Z, b \in \N \implies \exists! q, r \in \Z$
-    \begin{enumerate}
-        \item $a = bq + r, \quad 0 \leq r < b$
-        \item $0 \leq r < b$
-    \end{enumerate}
+    Теорема о делениии с остатком
+    
+    Пусть $a \in \Z,~b \in \N$. Тогда 
+    \begin{gather*}
+        \exists!\,q, r \in \Z \quad \begin{cases}a = bq + r \\ \leq r < b\end{cases}
+    \end{gather*}
 \end{follow}
 
 \begin{proof}
 
     \textsl{Существование:}
 
-    В $\Z/b\Z$ рассмотрим $\oln{a} \in \{\oln{0}, \oln{1}, \ldots, \oln{b-1}\}$, тогда если $\oln{a} = \oln{r}, \quad 0 \leq r < b$
-
-    $a \equivm{b} r \iff a = bq + r, \quad q \in \Z$
+    В $\Z/b\Z$ рассмотрим $\oln{a} \in \{\oln{0}, \oln{1}, \ldots, \oln{b-1}\}$, тогда по теореме выше найдется $0 \leq r < b$ для которого $\oln{a} = \oln{r}$:
+    \begin{gather*}
+        a \equivm{b} r \iff a = bq + r, \quad q \in \Z.
+    \end{gather*}
 
     \textsl{Единственность:}
-
-    $\letus a = bq + r = bq' + r', \quad 0 \leq r, r' < b \iff \oln{bq+r} = \oln{bq'+r'} \iff \oln{r} = \oln{r'} \iff r = r' \implies bq = bq' \implies q = q'$
-
+    Пусть нашлось два таких $q, q' \in \Z$ и $r, r' \in \Z$ для которых $a = bq + r, a = bq' + r'$. Тогда
+    \begin{gather*}
+        bq+r \equiv bq'+r' \pmod{b} \iff r \equiv r' \pmod{b} \lbl{$0 \ge r, r' < b$}\iff r = r' \implies bq = bq' \iff q = q'.
+    \end{gather*}
+    Напомню, что вторая равносильнось выполняется благодаря единственности класса вычетов $\oln{r}$.
 \end{proof}
 
 \begin{defn}
-    $q$ --- неполное частное при делении $a$ на $b$, $r$ --- остаток при делении $a$ на $b$
+    $q$ --- \emph{неполное частное} при делении $a$ на $b$, $r$ --- \emph{остаток} при делении $a$ на $b$.
 \end{defn}
 
 \begin{defn}
-    Операция на множестве $M$ --- бинарная операция $M \times M \to M$
+    \emph{Операция} на множестве $M$ --- бинарное отображение $M \times M \to M$.
 \end{defn}
 
 На $\Z/m\Z$ определим операцию сложения и умножения по модулю $m$:
@@ -77,11 +85,28 @@
     \item $\oln{a} \cdot \oln{b} = \oln{a \cdot b}$
 \end{itemize}
 
-$(!) \quad \oln{a} = \oln{a'}, \quad \oln{b} = \oln{b'} \implies \oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}$
-
-$\oln{a} = \oln{a'}, \quad \oln{b} = \oln{b'} \implies a \equivm{m} a', \quad \implies b \equivm{m} b' \implies a + b \equivm{m} a' + b', \quad a \cdot b \equivm{m} a' \cdot b' \implies$
-
-$\oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}$
+\begin{theorem-non}
+    Это правда операции над множеством $\Z/m\Z$:
+\end{theorem-non}
+\begin{proof}
+    То, что за пределы множества при сложении и умножении мы не выходим, очевидно.
+    Надо доказать, что при подстановке одинаковых классов, получаеются одинаковые результаты, то есть:
+    \begin{gather*}
+        \prove \oln{a} = \oln{a'},~ \oln{b} = \oln{b'} \implies \oln{a + b} = \oln{a' + b'},~\oln{a \cdot b} = \oln{a' \cdot b'}
+    \end{gather*}
+    распишем условия через сравнения по модулю:
+    \begin{gather*}
+        \oln{a} = \oln{a'},~\oln{b} = \oln{b'} \implies a \equivm{m} a',~\implies b \equivm{m} b'
+    \end{gather*}
+    Воспользуемся свойствами сравнения:
+    \begin{gather*}
+        a \equivm{m} a',~ b \equivm{m} b' \implies a + b \equivm{m} a' + b',~ a \cdot b \equivm{m} a' \cdot b'
+    \end{gather*}
+    И перейдем обратно к классам:
+    \begin{gather*}
+        a + b \equivm{m} a' + b',~ a \cdot b \equivm{m} a' \cdot b' \implies \oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}
+    \end{gather*}
+\end{proof}
 
 \begin{example}
     $m = 4, \Z/4\Z = \{\oln{0}, \oln{1}, \oln{2}, \oln{3}\}$
@@ -108,13 +133,14 @@ $\oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}$
 \]
 
 \begin{defn}
-    $e \in M$ --- нейтральный элемент относительно операции(*) на $M$, если $\forall a \in M$ справедливо $a * e = e * a = a$
+    $e \in M$ --- \emph{нейтральный элемент} относительно операции $*$ на $M$, если $\forall a \in M$ справедливо $a * e = e * a = a$.
 \end{defn}
 
 \begin{theorem-non}
     Операции сложения и умножения на $\Z/m\Z$ обладают следующими свойствами:
 \end{theorem-non}
 
+$\forall A,~B,~C \quad \exists A'$:
 \begin{enumerate}
     \item $A + B = B + A$ --- коммутативность сложения
     
@@ -136,31 +162,34 @@ $\oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}$
 \end{enumerate}
 
 \begin{defn}
-    Кольцом называется множество $M$ с операциями сложения и умножения, для которых выполнены аналоги свойств 1-4 и 8-9.
+    \emph{Кольцом} называется множество $M$ с операциями сложения и умножения, для которых выполнены аналоги свойств 1-4 и 8-9.
 \end{defn}
 
 \begin{defn}
-    Кольцо коммутативное, если выполнены свойство 5.
+    Кольцо \emph{коммутативное}, если выполнены свойство 5.
 \end{defn}
 
 \begin{defn}
-    Колько ассоциативное, если выполнено свойство 6.
+    Колько \emph{ассоциативное}, если выполнено свойство 6.
 \end{defn}
 
 \begin{defn}
-    Кольцо c единицей, если выполнено свойство 7.
+    Кольцо \emph{c единицей}, если выполнено свойство 7.
 \end{defn}
 
 \begin{defn}
-    $\forall x \in \R \quad \exists y \in \R: x + y = n \implies n$ --- нейтральный элемент относительно сложения.
-\end{defn}    
+    Я оставлю это для полноты картины, но wtf is this?
+
+    \sout{$\forall x \in \R \quad \exists y \in \R: x + y = n \implies n$ --- нейтральный элемент относительно \\сложения.}
+\end{defn}
 
 \begin{notice}
-    Если (*) --- операция на $M$, то существует единственный нейтральный элемент относительно (*).
+    Если $*$ --- операция на $M$, то существует единственный нейтральный элемент относительно $*$.
 \end{notice}
 
 \begin{proof}
-    $e, e'$ --- нейтральные элементы относительно (*), тогда $e = e * e' = e'$.
+    $e, e'$ --- нейтральные элементы относительно $*$, тогда $e = e * e' = e'$.
+    Типа просто в определение нейтрального элемента подставили и получилось.
 \end{proof}
 
 \begin{theorem-non}
@@ -170,20 +199,24 @@ $\oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}$
 \begin{lemma}
     В любом кольце $0 \cdot a = 0$.
 \end{lemma}
-\begin{proof}
-
-    $0 + 0 = 0 \implies (0 + 0) \cdot a = 0 \cdot a \implies 0 \cdot a + 0 \cdot a = 0 \cdot a$
-
-    $\letus 0 \cdot A \neq 0 \implies \exists b: b + 0 \cdot A = 0$
-    
-    $0 = b + 0 \cdot a = b + (0 \cdot a + 0 \cdot a) = (b + 0 \cdot a) + (0 \cdot a) = 0 + (0 \cdot a) = (0 \cdot a)$
+\begin{proof}~
+    Предположим противное.
+    Покажем, что $0 \cdot a + 0 \cdot a = 0 \cdot a$.
+    \begin{gather*}
+        0 + 0 = 0 \lbl{$\exists 0$}\implies (0 + 0) \cdot a = 0 \cdot a \lbl{дистр.}\implies 0 \cdot a + 0 \cdot a = 0 \cdot a
+    \end{gather*}
+    Теперь вычтем $0 \cdot a$. Так как $\exists b:\ b + (0 \cdot A) = 0$, то
+    \begin{gather*}
+        0 = b + (0 \cdot a) = b + (0 \cdot a + 0 \cdot a) = (b + 0 \cdot a) + (0 \cdot a) = 0 + (0 \cdot a) = 0 \cdot a
+    \end{gather*}
+    Противоречие.
 \end{proof}
 
 \begin{defn}
-    $A^*$ --- множество обратимых элементов $A$.
+    $A^*$ --- множество обратимых элементов кольца $A$ (по умножению, разумеется).
 \end{defn}
 
-\begin{examples}
+\begin{examples}~
     \begin{itemize}
         \item $\R^* = \R \setminus \{0\}$
         \item $\Z^* = \{-1, 1\}$
@@ -193,5 +226,5 @@ $\oln{a + b} = \oln{a' + b'}, \quad \oln{a \cdot b} = \oln{a' \cdot b'}$
 \end{examples}
 
 \begin{defn}
-    Полем называется коммутативное кольцо $F$, такое что $F^* = F \setminus \{0\}$.
+    \emph{Полем} называется коммутативное кольцо $F$, такое что $F^* = F \setminus \{0\}$.
 \end{defn}

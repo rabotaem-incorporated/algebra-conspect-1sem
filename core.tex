@@ -5,7 +5,7 @@
 \usepackage{xspace}
 \usepackage{centernot}
 \usepackage{mathtools}
-
+\usepackage[normalem]{ulem}
 
 \usepackage[
   left=0.50in,
@@ -202,3 +202,8 @@
 \renewcommand\section{\clearpage\oldsection}
 
 \newcommand{\lbl}[2]{\overset{\text{#1}}{#2}}
+\newcommand{\prove}{(!)\ }
+
+% они все равно убогие
+\renewcommand{\le}{\geq}
+\renewcommand{\ge}{\geq}
