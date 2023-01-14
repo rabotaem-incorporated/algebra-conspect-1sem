@@ -2,21 +2,26 @@
 
 \begin{defn}
     Числа $a$ и $b$ называются взаимно простыми, если $\gcd(a, b) = 1$.
+
+    $a \bot b$ --- сокращенная запись для обозначения взаимной простоты.
 \end{defn}
 
 \begin{theorem-non}~
     \begin{enumerate}
         \item $\letus a, b \in \Z$, тогда $a \bot b \iff \exists m, n \in \Z: am + bn = 1$.
         
-        \item $a_1 \bot b, a_2 \bot b \implies a_1a_2 \bot b$.
+        \item $a_1 \bot b,~ a_2 \bot b \implies a_1a_2 \bot b$.
         
-        \item $a_1, \ldots, a_m, b_1, \ldots, b_n \in \Z$ и $\forall i, j: a_i \bot b_j \implies a_1 \ldots a_m \bot b_1 \ldots b_n$.
+        \item $\begin{cases} 
+            a_1, \ldots, a_m \in \Z \\ 
+            b_1, \ldots, b_n \in \Z
+        \end{cases}$ и $\forall i, j:\ a_i \bot b_j \implies a_1 \ldots a_m \bot b_1 \ldots b_n$.
         
-        \item $a \mid bc,~a \bot b \implies a \mid c$.
+        \item $a \mid bc,~ a \bot b \implies a \mid c$.
         
-        \item $ax \equivm{m} ay,~a \bot m \implies x \equivm{m} y$.
+        \item $ax \equivm{m} ay,~ a \bot m \implies x \equivm{m} y$.
         
-        \item $\gcd(a, b) = d \implies a = da',~b = db', a' \bot b'$.
+        \item $\gcd(a, b) = d \implies a = da',~ b = db',~ a' \bot b'$.
     \end{enumerate}
 \end{theorem-non}
 
@@ -24,23 +29,37 @@
     \begin{enumerate}
         \item $m$ и $n$ существуют согласно линейному представлению НОД.
         
-        $d = \gcd(a, b), d \mid a, d \mid b \implies d \mid (am + bn) = 1 \implies d \mid 1 \implies d = 1$.
+        $d = \gcd(a, b),~ d \mid a,~ d \mid b \implies d \mid (am + bn) = 1 \implies d \mid 1 \implies d = 1$.
         
-        \item $1 = a_1m_1 + bn_1, 1 = a_2m_2 + bn_2 \implies 1 = a_1a_2(m_1m_2) + b(a_1m_1n_2 + a_2m_2n_1+bn_1n_2) \implies a_1a_2 \bot b$.
+        \item $\begin{cases} 
+            1 = a_1m_1 + bn_1\\ 
+            1 = a_2m_2 + bn_2
+        \end{cases} \lbl{перемножим}\implies 1 = a_1a_2(m_1m_2) + b(a_1m_1n_2 + a_2m_2n_1+bn_1n_2) \implies a_1a_2 \bot b$.
         
-        \item $a_1 \bot b, \ldots,~a_n \bot b \implies a_1 \ldots a_n \bot b$
+        \item $\begin{cases} 
+            a_1 \bot b\\
+            \quad\vdots\\
+            a_n \bot b 
+        \end{cases} \implies a_1 \ldots a_n \bot b$
         
-        $a_1 \ldots a_n \bot b_1, \ldots,~a_1 \ldots a_n \bot b_n \implies a_1 \ldots a_n \bot b_1 \ldots b_n$
+        $\begin{cases}
+            a_1 \ldots a_n \bot b_1\\
+            \quad\ldots\\
+            a_1 \ldots a_n \bot b_n
+        \end{cases} \implies a_1 \ldots a_n \bot b_1 \ldots b_n$
         
-        \item $1 = am + bn, c = acm + bcn$
+        \item $1 = am + bn \implies c = acm + bcn$
         
         $a \mid acm,~a \mid bcn \implies a \mid c$.
         
-        \item $m \mid (ax - ay), a \bot m \implies m \mid (x - y) \implies x \equivm{m} y$.
+        \item $m \mid (ax - ay),~ a \bot m \implies m \mid (x - y) \implies x \equivm{m} y$.
         
-        \item $d \mid a, d \mid b \implies a = da',~b=db': a', b' \in \Z$
+        \item $d \mid a,~ d \mid b \implies \begin{cases}
+            a = da'\\
+            b=db'
+        \end{cases} :\quad a', b' \in \Z$
         
-        $d = am + bn,~m, n \in \Z$
+        $d = am + bn, \quad m, n \in \Z$
         
         $d = 0 \implies a' = b' = 0 = da'm + db'm$
         
