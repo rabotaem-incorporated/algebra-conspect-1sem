@@ -80,7 +80,7 @@
         \begin{enumerate}
             \item аргумент существует
             
-            \item если $\phi_0$ - аргумент $z$, то $\phi$ - аргумент $z \iff \phi = \phi_0 + 2 \pi k,~k \in \Z$
+            \item если $\phi_0$ - аргумент $z$, и $\phi$ - аргумент $z \iff \phi = \phi_0 + 2 \pi k,~k \in \Z$
         \end{enumerate}
     \end{enumerate}
 \end{theorem-non}
@@ -101,13 +101,17 @@
 
         $z = |z| \cdot z_0 = |z|(\cos\phi_0 + i\sin\phi_0)$
 
+       <<$\Leftarrow$>>: 
+
         $\phi = \phi_0 + 2 \pi k \implies
         \begin{cases}
             \cos\phi = \cos\phi_0\\
             \sin\phi = \sin\phi_0
-        \end{cases} \implies \phi$ - аргумент
+        \end{cases} \implies \phi$ --- аргумент
 
-        $\phi$ - аргумент $\implies z = |z|(\cos\phi + i\sin\phi) \implies
+        <<$\Rightarrow$>>:
+
+        $\phi$ --- аргумент $\implies z = |z|(\cos\phi + i\sin\phi) \implies
         \begin{cases}
             \cos\phi = \cos\phi_0\\
             \sin\phi = \sin\phi_0
@@ -116,16 +120,16 @@
 \end{proof}
 
 \begin{defn}
-    $arg(z) = \phi$ означает $\phi$ - один из аргументов $z$
+    $arg(z) = \phi$ означает $\phi$ --- один из аргументов $z$
 \end{defn}
 
 \begin{notice}
-    Предположим оказалось, что $z = r(\cos\phi + i\sin\phi)$ для некоторых $r \geq 0,~\phi \in \R$.\\
+    Предположим оказалось, что $z = r(\cos\phi + i\sin\phi)$ для некоторых $r \geq 0,~\phi \in \R$.
     Тогда $r = |z|,~\phi = \arg z$
 \end{notice}
 
 \begin{proof}
-    $|z| = \sqrt{(r\cos\phi)^2 + (r\sin\phi)^2} = \sqrt{r^2} = r \implies \phi$ - аргумент по определению\\
+    $|z| = \sqrt{(r\cos\phi)^2 + (r\sin\phi)^2} = \sqrt{r^2} = r$, а $\phi$ --- аргумент по определению
 \end{proof}
 
 \begin{theorem-non}~
@@ -147,7 +151,8 @@
         
         $\arg \oln{z} = -\phi$
 
-        \item "$\Rightarrow$":
+        \item 
+        <<$\Rightarrow$>>:
         
         $z > 0$: 
         
@@ -157,15 +162,15 @@
         
         $z = |z| \cdot (-1) = |z|(\cos \pi + i\sin \pi) \implies \arg z = \pi$
         
-        "$\Leftarrow$":
+        <<$\Leftarrow$>>:
         
         $\sin(k \pi) = 0$
 
         \item $\arg z_1 = \phi_1,~\arg z_2 = \phi_2 \implies$
         
-        $(!)~\phi_1 + \phi_2 = \arg(z_1 z_2)$
+        $\prove \phi_1 + \phi_2 = \arg(z_1 z_2)$
         
-        $z_1 = |z_1|(\cos\phi_1 + i\sin\phi_1),~z_2 = |z_2|(\cos\phi_2 + i\sin\phi_2) \implies$
+        $z_1 = |z_1|(\cos\phi_1 + i\sin\phi_1),~ z_2 = |z_2|(\cos\phi_2 + i\sin\phi_2) \implies$
         
         $z_1 z_2 = |z_1| \cdot |z_2|(\cos\phi_1 \cdot \cos\phi_2 - \sin\phi_1 \cdot \sin\phi_2 + i(\sin\phi_1 \cdot \cos\phi_2 + \cos\phi_1 \cdot \sin\phi_2)) =$
         
@@ -176,7 +181,7 @@
     \end{enumerate}
 \end{proof}
 
-\begin{follow}(Формула Муавра)
+\begin{follow}[Формула Муавра]
 
     Пусть $z \in \CC,~|z| = r,~\arg z = \phi,~n \in \Z$.
 
@@ -185,27 +190,29 @@
 
 \begin{proof}
 
-    $n > 0$ --- индукция по $n$
+    \begin{itemize}
+        \item $n > 0:$ индукция по $n$
 
-    \textsl{База}: $n = 1$ --- тривиально
+        <<База>>: $n = 1$ --- тривиально
+        
+        <<Переход>>: $n - 1 \to n$
+        
+        $z^n = z^{n-1} \cdot z = r^{n-1}(\cos((n-1)\phi) + i\sin((n-1)\phi)) \cdot z = $
+        
+        $r^{n-1}(\cos((n-1)\phi) + i\sin((n-1)\phi)) \cdot r(\cos\phi + i\sin\phi) = $
+        
+        $r^n(\cos((n-1)\phi + \phi) + i\sin((n-1)\phi + \phi)) = $
+        
+        $r^n(\cos(n\phi) + i\sin(n\phi))$
     
-    \textsl{Переход}: $n - 1 \to n$
+        \item $n = 0: 1 = r^0(\cos(0) + i\sin(0)) = 1$
     
-    $z^n = z^{n-1} \cdot z = r^{n-1}(\cos((n-1)\phi) + i\sin((n-1)\phi)) \cdot z = $
+        \item $n < 0:$ $n = -k,~k \in \N$
     
-    $r^{n-1}(\cos((n-1)\phi) + i\sin((n-1)\phi)) \cdot r(\cos\phi + i\sin\phi) = $
-    
-    $r^n(\cos((n-1)\phi + \phi) + i\sin((n-1)\phi + \phi)) = $
-    
-    $r^n(\cos(n\phi) + i\sin(n\phi))$
-
-    $n = 0,~ 1 = r^0(\cos(0) + i\sin(0)) = 1$
-
-    $n < 0$: $n = -k,~k \in \N$
-
-    $z^n = \frac{1}{z^k}$
-    
-    $|z^n| = \frac{1}{|z^k|} = \frac{1}{|z|^k} = |z|^{-k} = |z|^n$
-    
-    $\arg z^n = \arg 1 - \arg z^k = 0 - k \phi = n \phi$
+        $z^n = \frac{1}{z^k}$
+        
+        $|z^n| = \frac{1}{|z^k|} = \frac{1}{|z|^k} = |z|^{-k} = |z|^n$
+        
+        $\arg z^n = \arg 1 - \arg z^k = 0 - k \phi = n \phi$
+    \end{itemize}    
 \end{proof}

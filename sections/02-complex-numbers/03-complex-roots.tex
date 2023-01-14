@@ -1,31 +1,6 @@
 \subsection{Корни из комплексных чисел}
 
-$z^n = w,~n \in \N,~w \in \CC$
-
-$w = 0 \implies z = 0$
-
-$w \neq 0,~w = r (\cos \phi + i \sin \phi),~r > 0,~\phi \in \R,~z = p (\cos \alpha + i \sin \alpha),~p > 0,~\alpha \in \R$
-
-$z^n = w \iff p^n (\cos n \alpha + i \sin n \alpha) = r (\cos \phi + i \sin \phi) \iff$
-$\begin{cases}
-    p^n = r\\
-    n \alpha = \phi + 2 \pi k,~k \in \Z
-\end{cases} \iff$
-
-$\begin{cases}
-    p = \sqrt[n]{r}\\
-    \alpha = \frac{\phi + 2 \pi k}{n},~k \in \Z
-\end{cases}$
-
-$z^n = w \iff z = \underbrace{\sqrt[n]{r} \left(\cos \frac{\phi + 2 \pi k}{n} + i \sin \frac{\phi + 2 \pi k}{n}\right)}_{z_k},~k \in \Z$
-
-При каких $k, l: z_k = z_l$?
-
-$z_k = z_l \iff \frac{\phi + 2 \pi k}{n} = \frac{\phi + 2 \pi l}{n} + 2 \pi s,~s \in \Z \iff \frac{k}{n} + \frac{l}{n} + s,~s \in \Z \iff $  
-
-$k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}\}$
-
-Таким образом, мы доказали:
+Рассмотрим уравнение $z^n = w,~n \in \N,~w \in \CC$.
 
 \begin{theorem}
     $\letus n \in \N,~w \in \CC$
@@ -40,13 +15,44 @@ $k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}
     \end{enumerate}
 \end{theorem}
 
+\begin{proof}
+
+    \begin{enumerate}
+        \item $w = 0 \implies z = 0$
+
+        \item $w \neq 0 \implies \begin{cases}
+            w = r (\cos \phi + i \sin \phi):\quad r > 0,~\phi \in \R\\
+            z = p (\cos \alpha + i \sin \alpha):\quad p > 0,~\alpha \in \R
+        \end{cases}$
+    
+        $z^n = w \iff p^n (\cos n \alpha + i \sin n \alpha) = r (\cos \phi + i \sin \phi) \iff$
+        $\begin{cases}
+            p^n = r\\
+            n \alpha = \phi + 2 \pi k,~k \in \Z
+        \end{cases} \iff \begin{cases}
+            p = \sqrt[n]{r}\\
+            \alpha = \frac{\phi + 2 \pi k}{n},~k \in \Z
+        \end{cases}$
+    
+        $z^n = w \iff z = \underbrace{\sqrt[n]{r} \left(\cos \frac{\phi + 2 \pi k}{n} + i \sin \frac{\phi + 2 \pi k}{n}\right)}_{z_k},~k \in \Z$
+    
+        При каких $k,~l:\ z_k = z_l$?
+    
+        $z_k = z_l \iff \frac{\phi + 2 \pi k}{n} = \frac{\phi + 2 \pi l}{n} + 2 \pi s,~ s \in \Z \iff$ 
+        
+        $\frac{k}{n} = \frac{l}{n} + s,~s \in \Z \iff k = l + ns,~s \in \Z \iff $
+        
+        $k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}\}$
+    \end{enumerate}
+\end{proof}
+
 \subsubsection*{Изображение на окружности}
 
 \begin{center}
     \includegraphics[width=0.3\textwidth]{images/complexroot.png}
 \end{center}
 
-Комплексные корни образуют праильный $n$-угольник на окружности.
+Комплексные корни образуют правильный $n$-угольник на окружности.
 
 \begin{lemma}
     Пусть $z_0, z_1, \ldots, z_{n - 1}$ --- все корни $z^n = w,~n > 1$
@@ -56,17 +62,11 @@ $k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}
 
 \begin{proof}
 
-    $z_k = z_{k - 1} \underbrace{\left( \cos \frac{2 \pi}{n} + i \sin \frac{2 \pi}{n} \right)}_{\xi}$
+    Заметим, что $z_k = z_{k - 1} \underbrace{\left( \cos \frac{2 \pi}{n} + i \sin \frac{2 \pi}{n} \right)}_{\xi}$, тогда $z_k = z_0 \cdot \xi^k$.
 
-    $S = z_0 + z_1 + \ldots + z_{n - 1}$
+    Обозначим $S = z_0 + z_1 + \ldots + z_{n - 1}$, значит $\xi \cdot S = z_1 + z_2 + \ldots + \underbrace{z_n}_{= z_0} = S \implies \xi S = S \implies (\xi - 1) S = 0$
 
-    $z_k = z_0 \cdot \xi^k$
-
-    $\xi \cdot S = z_1 + z_2 + \ldots + \underbrace{z_n}_{= z_0} = S \implies (\xi - 1) S = 0$
-
-    $n \neq 1 \implies \xi \neq 1$ 
-    
-    $(\xi - 1)S = 0 \implies S = 0$
+    Из того что $n > 1 \implies \xi \neq 1$, а значит $(\xi - 1)S = 0 \implies S = 0$
 \end{proof}
 
 \begin{defn}
@@ -88,46 +88,41 @@ $k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}
     \end{enumerate}
 \end{examples}
 
-Проверить замкнутость относительно умножения. 
+\begin{theorem-non}
+    $\mu_n = \{ z \in \CC \mid z^n = 1\} = \{ \underbrace{\cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n}}_{\xi_k} \mid k = 0, 1, \ldots, n-1 \}$ --- группа относительно умножения.
+\end{theorem-non}
 
-Зафиксируем $n \in \N$
+\begin{proof}
 
-$\mu_n = \{ z \in \CC \mid z^n = 1\} = \{ \underbrace{\cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n}}_{\xi_k} \mid k = 0, 1, \ldots, n-1 \}$ --- группа относительно умножения
-
-$z, w \in \mu_n \implies zw \in \mu_n$ --- замкнутость относительно умножения
-
-$(zw)^n = z^n w^n = 1 \cdot 1 = 1$
-
-Доказательство, что $\mu_n$ --- группа:
-
-\begin{itemize}
-    \item Ассоциативность --- так как есть ассоциативность в $\CC$
-    
-    \item $1 \in \mu_n~(1 = \xi_0)$
-    
-    \item $\xi_k \cdot \xi_{-k} = \left( \cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n} \right) \left( \cos \frac{2 \pi (-k)}{n} + i \sin \frac{2 \pi (-k)}{n} \right) = 1$
-\end{itemize}
+    \begin{itemize}
+        \item Ассоциативность --- так как есть ассоциативность в $\CC$
+        
+        \item $1 \in \mu_n~(1 = \xi_0)$
+        
+        \item $\xi_k \cdot \xi_{-k} = \left( \cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n} \right) \left( \cos \frac{2 \pi (-k)}{n} + i \sin \frac{2 \pi (-k)}{n} \right) = 1$
+    \end{itemize}
+\end{proof}
 
 \begin{lemma}
     $\xi_k = \xi_1^k$
 \end{lemma}
 
 \begin{proof}
-    $\left(1 \cdot \cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi}{n}\right)^k = 1 \cdot \left( \cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n} \right)$ (по формуле Муавра)
+    $\left(1 \cdot \cos \frac{2 \pi k}{n} + 1 \cdot i \sin \frac{2 \pi}{n}\right)^k = 1^k \cdot \left( \cos \frac{2 \pi k}{n} + i \sin \frac{2 \pi k}{n} \right)$ (по формуле Муавра)
 \end{proof}
 
 \begin{defn}
-    $G$ --- группа с операцией $*$, $g \in G,~n \in \Z$\\
+    $G$ --- группа с операцией $*$, $g \in G,~n \in \Z$, тогда:
 
     $g^n = \begin{cases}
-        g~*~g~*~\ldots~*~g & n > 0 \\
-        e & n = 0 \\
-        g^{-1} * g^{-1} *~\ldots~* g^{-1} & n < 0
+        g~*~g~*~\ldots~*~g, & n > 0 \\
+        e, & n = 0 \\
+        g^{-1} * g^{-1} *~\ldots~* g^{-1}, & n < 0
     \end{cases}$
 \end{defn}
 
 \begin{defn}
-    Группа $G$ называется циклической, если $\exists g \in G : G = \{g^n \mid n \in \Z\}$
+    Группа $G$ называется циклической, если $\exists g \in G :\ G = \{g^n \mid n \in \Z\}$
 
     Пишут: $G = \langle g \rangle$
 \end{defn}
@@ -182,9 +177,10 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 \end{theorem-non}
 
 \begin{proof}
-    "$\Rightarrow$":
 
-    $\exists k, l: g^k = g^l,~k, l \in \{0, 1, \ldots, n\},~k \neq l$ (так как $G$ конечная)
+    <<$\Rightarrow$>>:
+
+    $\exists k,~l \in \{0, 1, \ldots, n\},~k \neq l:\ g^k = g^l$
 
     $k < l$: $g^{-k} \cdot g^k = g^{-k} \cdot g^l = g^{l - k} = e$
 
@@ -194,13 +190,13 @@ $(zw)^n = z^n w^n = 1 \cdot 1 = 1$
 
     Предположим, $\ord g = m < n$
 
-    $G = \{ g^k \mid k \in \Z \} = \{ g^{mq + r} \mid q \in \Z,~0 \leq r < m \} = \{g^0, g^1, \ldots, g^{m-1}\}$ --- противоречие, так как $|G| \leq m < n$
+    $G = \{ g^k \mid k \in \Z \} = \{ g^{mq + r} \mid q \in \Z,~0 \leq r < m \} = \{g^0, g^1, \ldots, g^{m-1}\}$ --- противоречие, так как $|G| \leq m < n$, а мы знаем что $|G| = n$.
 
-    "$\Leftarrow$":
+    <<$\Leftarrow$>>:
 
     $\ord g = n$
 
-    $\implies g^0, g^1, g^2, \ldots, g^{n - 1}$ --- они попарно различны
+    $\implies g^0, g^1, g^2, \ldots, g^{n - 1}$ --- попарно различны
 
     $\implies \{g^0, g^1, \ldots, g^{n - 1}\} = G$
 
