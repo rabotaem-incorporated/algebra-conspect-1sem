@@ -1,9 +1,7 @@
 \subsection{Функция Эйлера}
 
 \begin{theorem-non}
-    $\letus m \in \N;~a \in \Z$
-
-    $[a]_m \in (\Z/m\Z)^* \iff (a, m) = 1$
+    $\letus m \in \N,~ a \in \Z$, тогда $[a]_m \in (\Z/m\Z)^* \iff a \bot m$
 \end{theorem-non}
 
 \begin{proof}
@@ -14,41 +12,42 @@
     
     $\exists b, c \in \Z:~ab = 1 + mc \iff$
     
-    $\exists b, c \in \Z:~ab - mc = 1 \iff (a, m) = 1$
+    $\exists b, c \in \Z:~ab - mc = 1 \iff \gcd(a, m) = 1 \iff a \bot m$
 \end{proof}
 
 \begin{follow}
-    $\Z/m\Z$ - поле $\iff m$ --- простое число.
+    $\Z/m\Z$ --- поле $\iff m$ --- простое число.
 \end{follow}
 
 \begin{proof}
-    считаем $m \geq 1$
+
+    $m = 1:\ \Z/1\Z = \{\oln{0}\}$
     
-    $m = 1$: $\Z/1\Z = \{\oln{0}\}$
-    
-    $m$ --- простое: $(a, m) = 1$ для $\forall a \in \{1, 2, \ldots, m-1\} \implies$
+    $m$ --- простое: $\gcd(a, m) = 1, \quad \forall a \in \{1, 2, \ldots, m-1\} \implies$
     
     $(\Z/m\Z)^* = \{\oln{1}, \oln{2}, \ldots, \oln{m-1}\}$
     
-    $m$ --- составное: $m = ab,~2 \leq a \leq m-1$
+    $m$ --- составное: $m = ab,~2 \leq a < m$
     
-    $(a, m) \neq 1 \implies \oln{a} \notin (\Z/m\Z)^*$
+    $\gcd(a, m) \neq 1 \implies \oln{a} \notin (\Z/m\Z)^*$
 \end{proof}
 
 \begin{defn}
-    $\F_{n}$ --- поле из $n$ элементов.
+    $\F_{n}$ --- поле из $n$ элементов. Называется конечным полем или полем Галуа.
 \end{defn}
 
 \begin{theorem-non}
     $\F_{n}$ --- поле из $n$ элементов $\iff n = p^r,~ p \in \P,~ r \in \Z_{+}$.
 
-    $p$ - характеристика $\F_{n}$.
+    $p$ --- характеристика $\F_{n}$.
 \end{theorem-non}
+
 \begin{proof}
-    \TODO{Пока без доказательства.}
+    \TODO{Пока без доказательства.} % это точно TODO или нам не доказывали? 
 \end{proof}
+
 \begin{defn}
-    $\letus m \in \N: \phi(n) = |(\Z/m\Z)^*|$
+    $\letus m \in \N:\ \phi(n) = |(\Z/m\Z)^*|$
 
     Функция $\phi \times \N \to \N$ --- функция Эйлера.
 \end{defn}
@@ -60,15 +59,15 @@
 \end{theorem-non}
 
 \begin{proof}
-    $\phi(p^r) = |\{a \mid 0 \leq a \leq p^r-1,~(a, p^r) = 1\}| = $
+    $\phi(p^r) = |\{a \mid 0 \leq a < p^r,~(a, p^r) = 1\}| = $
 
-    $p^r -  |\{a \mid 0 \leq a \leq p^r-1,~(a, p) \neq 1\}| = $
+    $p^r -  |\{a \mid 0 \leq a < p^r,~(a, p) \neq 1\}| = $
     
-    $p^r - |\{a \mid 0 \leq a \leq p^r-1,~p \mid a\}| = p^r - p^{r-1}$
+    $p^r - |\{a \mid 0 \leq a < p^r,~p \mid a\}| = p^r - p^{r-1}$
 \end{proof}
 
 \begin{theorem-non} Мультипликативность функции Эйлера. \\
-    $\letus m, n \in \N,~(m, n) = 1$.
+    $\letus m, n \in \N,~ m \bot n$.
 
     Тогда $\phi(mn) = \phi(m) \cdot \phi(n)$.
 \end{theorem-non}
@@ -78,11 +77,11 @@
     
     $[a]_{mn} = A \in (\Z/mn\Z)^* \mapsto ([a]_m, [a]_n)$
     
-    $[a]_{mn} \in (\Z/mn\Z)^* \implies (a, mn) = 1  \implies 
+    $[a]_{mn} \in (\Z/mn\Z)^* \implies a \bot mn  \implies 
     \begin{cases}
-        (a, m) = 1\\
-        (a,n) = 1
-    \end{cases}
+        a \bot m\\
+        a \bot n
+    \end{cases} \implies
     \begin{cases}
         [a]_m \in (\Z/m\Z)^*\\
         [a]_n \in (\Z/n\Z)^*
@@ -110,23 +109,22 @@
         [a]_m = [b]_m\\
         [a]_n = [b]_n
     \end{cases}
-    \overset{\text{КТО}}{\implies} a \equivm{mn} b \implies [a]_{mn} = [b]_{mn}$
+    \lbl{$m \bot n$}{\implies} a \equivm{mn} b \implies [a]_{mn} = [b]_{mn}$
 
     Сюръективность:
 
     Рассмотрим $([b]_m, [c]_n) \in (\Z/m\Z)^* \times (\Z/n\Z)^*$.
 
-    $(m, n) = 1 \overset{\text{КТО}}{\implies} \exists a:
+    $m \bot n \lbl{КТО}{\implies} \exists a:
     \begin{cases}
         a \equivm{m} b\\
         a \equivm{n} c
     \end{cases}$
 
     $\begin{cases}
-        (b, m) = 1 \implies (a, m) = 1\\
-        (c, n) = 1 \implies (a, n) = 1
-    \end{cases}    
-    \implies (a, mn) = 1 \implies [a]_{mn} \in (\Z/mn\Z)^*$
+        b \bot m \implies a \bot m\\
+        c \bot n \implies a \bot n
+    \end{cases} \implies a \bot mn \implies [a]_{mn} \in (\Z/mn\Z)^*$
 
     $\lambda([a]_{mn}) = ([a]_m, [a]_n) = ([b]_m, [c]_n) \implies \lambda$ --- биекция.
 
@@ -142,9 +140,9 @@
 \begin{proof}
     Индукция по $k$.
 
-    База: $k = 1 \implies \phi(m_1) = \phi(m_1)$
+    <<База>>: $k = 1 \implies \phi(m_1) = \phi(m_1)$
     
-    Переход: $n-1 \to n$
+    <<Переход>>: $n-1 \to n$
     
     $(m_n, m_1) = \ldots = (m_n, m_{n-1}) = 1 \implies (m_1, \ldots, m_n) = 1 \implies$
     
@@ -161,17 +159,15 @@
     По следствию: $\phi(n) = \phi(\prod\limits_{i=1}^s p_i^{r_i}) = \prod\limits_{i=1}^s \phi(p_i^{r_i}) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
 \end{proof}
 
-\begin{theorem}
-    $\letus m \in \N, a \in \Z, (a, m) = 1 \implies a^{\phi(m)} \equivm{m} 1$ --- теорема Эйлера.
-\end{theorem}
-
-\begin{lemma}~
-
+\begin{lemma} 
     Пусть $R$ --- ассоциативное кольцо с единицей.
     \begin{enumerate}
         \item $a, b \in R^* \implies ab \in R^*$
         
-        \item $a \in R^*,~x,y \in R \implies ax = ay \implies x = y,~xa = ya \implies x = y$
+        \item $a \in R^*,~ x,y \in R \implies \begin{cases}
+            ax = ay \implies x = y\\
+            xa = ya \implies x = y
+        \end{cases}$
     \end{enumerate}
 \end{lemma}
 
@@ -191,54 +187,55 @@
     \end{enumerate}
 \end{proof}
 
-\begin{proof}(теоремы Эйлера)
+\begin{theorem}[Теорема Эйлера]
+    $\letus m \in \N,~ a \in \Z,~ a \bot m \implies a^{\phi(m)} \equivm{m} 1$.
+\end{theorem}
+
+\begin{proof}
 
     $(\Z/m\Z)^* = \{A_1, A_2, \ldots, A_{\phi(m)}\}$
     
-    $[a]_m A_j \in (\Z/m\Z)^* \overset{lemma-1}{\implies}$
-    
-    $[a]_m A_1, \ldots, [a]_m A_{\phi(m)}$ --- различные элементы 
-    
-    $([a]_m A_j = [a]_m A_k \overset{lemma-2}{\implies} A_j = A_k) \implies$
+    $[a]_m, A_j \in (\Z/m\Z)^* \lbl{1 из леммы}{\implies} [a]_m A_j \in (\Z/m\Z)^*$, тогда $[a]_m A_1, \ldots, [a]_m A_{\phi(m)}$ --- различные элементы, иначе $[a]_m A_j = [a]_m A_k \lbl{2 из леммы}{\implies} A_j = A_k$
     
     $\{[a]_m A_1, \ldots, [a]_m A_{\phi(m)}\} = (\Z/m\Z)^* \implies$
     
     $[a]_m A_1 \cdot \ldots \cdot [a]_m A_{\phi(m)} = A_1 A_2 \ldots A_{\phi(m)} \implies$
     
-    $[a]_m^{\phi(m)} A_1 A_2 \ldots A_{\phi(m)} = [1]_m A_1 A_2 \ldots A_{\phi(m)} \overset{lemma-2}{\implies}$
+    $[a]_m^{\phi(m)} A_1 A_2 \ldots A_{\phi(m)} = [1]_m A_1 A_2 \ldots A_{\phi(m)} \lbl{2 из леммы}{\implies}$
     
     $[a]_m^{\phi(m)} = [1]_m \implies [a^{\phi(m)}]_m = [1]_m \implies a^{\phi(m)} \equivm{m} 1$
 \end{proof}
 
-\begin{theorem}(Малая теорема Ферма)
-
-    $\letus p \in \P, a \in \Z \implies a^p \equivm{p} a$
+\begin{theorem}[Малая теорема Ферма]
+    $\letus p \in \P,~ a \in \Z \implies a^p \equivm{p} a$
 \end{theorem}
 
 \begin{proof}
 
-    $(a, p) = 1 \implies a^{p-1} \equivm{p} 1 \implies a^{p-1}a \equivm{p} 1a \implies a^p \equivm{p} a$
+    $(a, p) = 1 \implies a^{p-1} \equivm{p} 1 \implies a^{p-1} \cdot a \equivm{p} 1 \cdot a \implies a^p \equivm{p} a$
 
-    $(a, p) \neq 1 \implies a \equivm{p} 0 \implies a^p \equivm{p} 0 \implies a^p \equivm{p} a$
+    $(a, p) \neq 1 \implies a \equivm{p} 0 \implies \begin{cases}
+        a^p \equivm{p} 0\\
+        a \equivm{p} 0
+    \end{cases} \implies a^p \equivm{p} a$
 \end{proof}
 
-\begin{theorem}(Теорема Вильсона)
-
+\begin{theorem}[Теорема Вильсона]
     $p \in \P \implies (p-1)! \equivm{p} -1$
 \end{theorem}
 
 \begin{proof}
+    В $(\Z/p\Z)^* : \oln{(p-1)!} = \oln{1} \cdot \oln{2} \cdot \ldots \cdot \oln{p-1} = \prod\limits_{A \in (\Z/p\Z)^*} A = $
     
-    В $(\Z/m\Z)^*$ 
+    $\left( \prod\limits_{A^2 = \oln{1}} A \right) \cdot \left( \prod\limits_{A^2 \neq \oln{1}} A \right) = \left( \prod\limits_{A^2 = \oln{1}} A \right) \cdot \left( A_1 \cdot A_1' \cdot \ldots \right) = \left( \prod\limits_{A^2 = \oln{1}} A \right) \cdot \oln{1} = \prod\limits_{A^2 = \oln{1}} A$
+    
+    Рассмотрим каждый элемент:
 
-    $\oln{(p-1)!} = \oln{1} \cdot \oln{2} \cdot \ldots \cdot \oln{p-1} = \prod\limits_{A \in (\Z/m\Z)^*} A = 
-    \prod\limits_{A^2 = \oln{1}} A \cdot \prod\limits_{A^2 \neq \oln{1}} A = (\prod\limits_{A^2 = \oln{1}} A) \cdot (A_1 \cdot A_1' \cdot \ldots) = (\prod\limits_{A^2 = \oln{1}} A) \cdot \oln{1} = \prod\limits_{A^2 = \oln{1}} A$
+    $A^2 = \oln{1} \iff A^2 - \oln{1}^2 = \oln{0} \iff (A - \oln{1})(A + \oln{1}) = \oln{0} \lbl{$\Z/p\Z$ --- ОЦ}{\iff} A - \oln{1} = \oln{0} \text{ или } A + \oln{1} = \oln{0}$
     
-    $A^2 = \oln{1} \iff A^2 - \oln{1}^2 = \oln{0} \iff (A - \oln{1})(A + \oln{1}) = \oln{0} \overset{\Z/p\Z - \text{ ОЦ}}{\iff} A - \oln{1} = \oln{0} \text{ или } A + \oln{1} = \oln{0} \implies 
-    \begin{cases}
-        p = 2 &\prod\limits_{A^2 = \oln{1}} A = \oln{1} = \oln{-1}\\
-        p \neq 2 &\prod\limits_{A^2 = \oln{1}} A = \oln{-1}
+    Тогда, если:
+    $\begin{cases}
+        p = 2, &\text{то } \prod\limits_{A^2 = \oln{1}} A = \oln{1} = \oln{-1}\\
+        p \neq 2, &\text{то } \prod\limits_{A^2 = \oln{1}} A = \oln{1} \cdot \oln{-1} = \oln{-1}
     \end{cases}$
 \end{proof}
-
-
