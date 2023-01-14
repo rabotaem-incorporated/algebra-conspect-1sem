@@ -207,3 +207,39 @@
 % они все равно убогие
 \renewcommand{\le}{\geq}
 \renewcommand{\ge}{\geq}
+
+
+\usepackage{listings}
+
+\definecolor{ForestGreen}{RGB}{34,139,34}
+
+\lstdefinestyle{supercpp}{
+  language=C++,
+  deletekeywords={int, long, char, short, unsigned, signed,
+    uint64\_t, int64\_t, uint32\_t, int32\_t, uint16\_t, int16\_t, uint8\_t, int8\_t,
+    size\_t, ptrdiff\_t, \#include,\#define,\#if,\#ifdef,\#ifndef},
+  classoffset=1,
+  morekeywords={vector,stack,queue,set,map,unordered\_set,unordered\_map,deque,array,string,multiset,multimap,
+    int, long, char, short, unsigned, signed,
+    uint64\_t, int64\_t, uint32\_t, int32\_t, uint16\_t, int16\_t, uint8\_t, int8\_t,
+    size\_t, ptrdiff\_t
+  },
+  keywordstyle=\bfseries\color{green!40!black},
+  classoffset=0,
+  classoffset=2,
+  morekeywords={std},
+  keywordstyle=\bfseries\color{ForestGreen},
+}
+
+\lstset{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue},
+  commentstyle=\itshape\color{Maroon},
+  identifierstyle=\color{black},
+  stringstyle=\color{orange},
+  numbers=none
+}

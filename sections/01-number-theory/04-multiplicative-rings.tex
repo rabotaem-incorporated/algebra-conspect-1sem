@@ -48,7 +48,7 @@
     
     Пусть $a \in \Z,~b \in \N$. Тогда 
     \begin{gather*}
-        \exists!\,q, r \in \Z \quad \begin{cases}a = bq + r \\ \leq r < b\end{cases}
+        \exists!\,q, r \in \Z : \begin{cases}a = bq + r \\ \leq r < b\end{cases}
     \end{gather*}
 \end{follow}
 
@@ -64,7 +64,7 @@
     \textsl{Единственность:}
     Пусть нашлось два таких $q, q' \in \Z$ и $r, r' \in \Z$ для которых $a = bq + r, a = bq' + r'$. Тогда
     \begin{gather*}
-        bq+r \equiv bq'+r' \pmod{b} \iff r \equiv r' \pmod{b} \lbl{$0 \ge r, r' < b$}\iff r = r' \implies bq = bq' \iff q = q'.
+        bq+r \equivm{b} bq'+r' \iff r \equivm{b} r' \lbl{$0 \ge r, r' < b$}\iff r = r' \implies bq = bq' \iff q = q'.
     \end{gather*}
     Напомню, что вторая равносильнось выполняется благодаря единственности класса вычетов $\oln{r}$.
 \end{proof}
@@ -96,7 +96,7 @@
     \end{gather*}
     распишем условия через сравнения по модулю:
     \begin{gather*}
-        \oln{a} = \oln{a'},~\oln{b} = \oln{b'} \implies a \equivm{m} a',~\implies b \equivm{m} b'
+        \oln{a} = \oln{a'},~\oln{b} = \oln{b'} \implies a \equivm{m} a',~ b \equivm{m} b'
     \end{gather*}
     Воспользуемся свойствами сравнения:
     \begin{gather*}
@@ -109,7 +109,7 @@
 \end{proof}
 
 \begin{example}
-    $m = 4, \Z/4\Z = \{\oln{0}, \oln{1}, \oln{2}, \oln{3}\}$
+    $m = 4,~ \Z/4\Z = \{\oln{0}, \oln{1}, \oln{2}, \oln{3}\}$
 \end{example}
 
 \[
@@ -166,7 +166,7 @@ $\forall A,~B,~C \quad \exists A'$:
 \end{defn}
 
 \begin{defn}
-    Кольцо \emph{коммутативное}, если выполнены свойство 5.
+    Кольцо \emph{коммутативное}, если выполнено свойство 5.
 \end{defn}
 
 \begin{defn}
@@ -180,7 +180,8 @@ $\forall A,~B,~C \quad \exists A'$:
 \begin{defn}
     Я оставлю это для полноты картины, но wtf is this?
 
-    \sout{$\forall x \in \R \quad \exists y \in \R: x + y = n \implies n$ --- нейтральный элемент относительно \\сложения.}
+    % выглядит как какой-то факт, весьма очевидный, но факт (ну либо это было пояснение к определению)
+    \sout{$\forall x \in \R \quad \exists y \in \R: x + y = n \implies n$ --- нейтральный элемент относительно сложения.}
 \end{defn}
 
 \begin{notice}
@@ -188,7 +189,8 @@ $\forall A,~B,~C \quad \exists A'$:
 \end{notice}
 
 \begin{proof}
-    $e, e'$ --- нейтральные элементы относительно $*$, тогда $e = e * e' = e'$.
+    $e,~ e'$ --- нейтральные элементы относительно $*$, тогда $e = e * e' = e'$.
+    
     Типа просто в определение нейтрального элемента подставили и получилось.
 \end{proof}
 
@@ -200,12 +202,13 @@ $\forall A,~B,~C \quad \exists A'$:
     В любом кольце $0 \cdot a = 0$.
 \end{lemma}
 \begin{proof}~
+
     Предположим противное.
     Покажем, что $0 \cdot a + 0 \cdot a = 0 \cdot a$.
     \begin{gather*}
         0 + 0 = 0 \lbl{$\exists 0$}\implies (0 + 0) \cdot a = 0 \cdot a \lbl{дистр.}\implies 0 \cdot a + 0 \cdot a = 0 \cdot a
     \end{gather*}
-    Теперь вычтем $0 \cdot a$. Так как $\exists b:\ b + (0 \cdot A) = 0$, то
+    Теперь вычтем $0 \cdot a$. Так как $\exists b:\ b + (0 \cdot a) = 0$, то
     \begin{gather*}
         0 = b + (0 \cdot a) = b + (0 \cdot a + 0 \cdot a) = (b + 0 \cdot a) + (0 \cdot a) = 0 + (0 \cdot a) = 0 \cdot a
     \end{gather*}

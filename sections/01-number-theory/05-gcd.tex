@@ -6,32 +6,30 @@
     Элемент $d$ называется наибольшим общим делителем, если:
 
     \begin{enumerate}
-        \item $d \mid a, d \mid b$
-        \item $d' \mid a, d' \mid b \implies d' \mid d$
+        \item $d \mid a,~ d \mid b$
+        \item $d' \mid a,~ d' \mid b \implies d' \mid d$
     \end{enumerate}
 \end{defn}
 
 \begin{theorem-non}~
     \begin{enumerate}
-        \item $d_1, d_2$ --- наибольшие общие делители, тогда $d_1, d_2$ --- ассоциированны.
+        \item $d_1,~ d_2$ --- наибольшие общие делители, тогда $d_1 \sim d_2$.
         
-        \item $\letus d_1$ --- наибольший общий делитель, $d_2$ ассоциированн с $d_1$, тогда $d_2$ --- тоже наибольший общий делитель.
+        \item $\letus d_1$ --- наибольший общий делитель, $d_2 \sim d_1$, тогда $d_2$ --- тоже наибольший общий делитель.
     \end{enumerate}
 \end{theorem-non}
 
 \begin{proof}
     \begin{enumerate}
-        \item По свойству 2. $d_1 \mid d_2,~d_2 \mid d_1 \implies d_1,~d_2$ --- ассоциированны.
+        \item По свойству 2 : $d_1 \mid d_2,~d_2 \mid d_1 \implies d_1 \sim d_2$.
         
         \item $d_2 \mid d_1,~d_1 \mid a,~d_1 \mid b \implies d_2 \mid a,~d_2 \mid b$
         
         Пусть $d_2$ не наибольший, тогда $\exists d' > d_2$.
         
-        $d' \mid a,~d' \mid b \implies d' \mid d_1$
+        $d' \mid a,~d' \mid b \implies d' \mid d_1$, так как $d_1$ наибольший общий делитель,
         
-        $d' \mid d_1,~d_1 \mid d_2 \implies d' \mid d_2$
-        
-        Противоречие
+        $d' \mid d_1,~d_1 \mid d_2 \implies d' \mid d_2$, противоречие, так как $d' > d_2$.
     \end{enumerate}
 \end{proof}
 
@@ -39,7 +37,7 @@
     $\letus a, b \in \Z \implies$
     
     \begin{enumerate}
-        \item $\exists d \in \Z:~a\Z + b\Z = d\Z$
+        \item $\exists d \in \Z:~a\Z + b\Z = d\Z$, иначе говоря: $\forall x, y \in \Z \ \exists d, z \in \Z: ax + by = dz$
         
         \item при этом $d$ --- наибольший общий делитель $a, b$.
     \end{enumerate}
@@ -47,49 +45,58 @@
 
 \begin{proof}~
     \begin{enumerate}
-        \item $I = a\Z + b\Z$, заметим что $0 \in I$, так как $0a + 0b = 0$.
+        \item Пусть $I = a\Z + b\Z$.
         
-        $I = \{0\} \implies I = 0\Z$
+        Заметим что $0 \in I$, так как $0a + 0b = 0$.
         
-        $I \neq \{0\} \implies c \in I \implies -c \in I$, так как $-(ax + by) = a \cdot -x + b \cdot -y$
+        Если $I = \{0\}$, то $I = 0\Z$.
+        
+        Иначе $I \neq \{0\} \implies c \in I \implies -c \in I$, так как $-(ax + by) = a \cdot -x + b \cdot -y$
         
         То есть в $I$ есть положительные числа.
         
-        $d = \min\{ c \mid c \in I, c > 0 \}$, докажем что $a\Z + b\Z = d\Z$
+        Пусть $d = \min\{ c \mid c \in I,~ c > 0 \}$, и докажем что $a\Z + b\Z = d\Z$.
         
-        "$\subset$":
+        <<$\supset$>>:
         
-        $d \in I \implies d = ax_0 + by_0, \quad x_0, y_0 \in \Z \implies$
+        $d \in I$ (по определению) $\implies d = ax_0 + by_0, \quad x_0, y_0 \in \Z \implies$
         
-        $\forall z \in \Z: dz = a(x_0z) + b(y_0z) \in I$
+        $\forall z \in \Z:\ dz = a(x_0z) + b(y_0z) \in I$, значит $d\Z \subset a\Z + b\Z$
         
-        "$\supset$":
+        <<$\subset$>>:
         
-        $\letus c \in I, d \in \N \implies \exists q, r \in \Z: c = dq + r, \quad 0 \leq r < d$
+        $\letus c \in I,~ d \in \N \implies \exists q, r \in \Z:\ c = dq + r, \quad 0 \leq r < d$
         
-        $c = ax_1 + by_1, \quad x_1, y_1 \in \Z$
+        $c \in I$, значит $c = ax_1 + by_1, \quad x_1, y_1 \in \Z$
         
-        $d = ax_0 + by_0, \quad x_0, y_0 \in \Z$
+        Мы уже знаем, что $d \in I$, значит $d = ax_0 + by_0, \quad x_0, y_0 \in \Z$ 
         
         $r = c - dq = a(x_1 -x_0q) + b(y_1 - y_0q) \in I$
+
+        По определению остатка: $\begin{cases} 
+            r \geq 0,\\
+            r < d 
+        \end{cases}$, но $d = \min\{ c \mid c \in I,~ c > 0 \} \implies$ 
         
-        Но $r < d \overset{defn(d)}{\implies} r = 0 \implies c \in d\Z$
+        $\implies c \in d\Z \implies a\Z + b\Z \subset d\Z$
         
-        \item $a = a1 + b0 \in I = d\Z \implies d \mid a$
+        \item Пусть $d$ --- наибольший общий делитель $a, b$.
+        
+        $a = a1 + b0 \in I = d\Z \implies d \mid a$
         
         $b = a0 + b1 \in I = d\Z \implies d \mid b$
         
         $\letus d' \mid a,~d' \mid b,~d=ax_0 + by_0$
         
-        $d' \mid ax_0,~d' \mid by_0 \implies d' \mid d$
+        $d' \mid ax_0,~d' \mid by_0 \implies d' \mid d$, значит $d$ действительно наибольший общий делитель $a, b$.
     \end{enumerate}
 \end{proof}
 
 \begin{follow}~
     \begin{enumerate}
-        \item $a, b \in \Z$: Тогда наибольший общий делитель $a, b$ существует.
+        \item $a, b \in \Z:$ Тогда наибольший общий делитель $a, b$ существует.
         
-        \item Если $d$ --- наибольший общий делитель $a, b$, то $\exists x, y \in \Z:~d = ax + by$ \quad (Линейное представление наибольшего общего делителя).
+        \item Если $d$ --- наибольший общий делитель $a, b$, то $\exists x, y \in \Z:~d = ax + by$ \quad (\emph{Линейное представление наибольшего общего делителя}).
     \end{enumerate}
 \end{follow}
 
@@ -97,40 +104,42 @@
     \begin{enumerate}
         \item Доказали в двух частях предложения.
         
-        \item $\exists d_0$ --- наибольший общий делитель $a, b$, то есть $d_0 = ax_0 + by_0$
+        \item Из первой части знаем, что существует $d_0$ --- наибольший общий делитель $a, b$, то есть $d_0 = ax_0 + by_0$
         
-        $d$ ассоциирован с $d_0 \implies d = d_0\Z, z \in \Z \implies d = a(x_0z) + b(y_0z)$
+        $d$ ассоциирован с $d_0 \implies d = d_0\Z,~ z \in \Z \implies d = a(x_0z) + b(y_0z)$
     \end{enumerate}
 \end{proof}
 
 \begin{defn}
-    НОД$(a, b) = \gcd(a, b)$ --- неотрицательный наибольший общий делитель $a, b$.
+    НОД$(a, b) \iff \gcd(a, b)$ --- неотрицательный наибольший общий делитель $a, b$.
 \end{defn}
 
 \begin{theorem-non}
-    $\letus a_1, a_2, b \in \Z: a_1 \equivm{b} a_2$
+    $\letus a_1, a_2, b \in \Z:\ a_1 \equivm{b} a_2$
     
     Тогда $\gcd(a_1, b)$ = $\gcd(a_2, b)$.
 \end{theorem-non}
 
 \begin{proof}
-    $(!)~\{c: c \mid a_1, c \mid b \} = \{c : c \mid a_2, c \mid b\}$
+    $\prove \{c: c \mid a_1,~ c \mid b \} = \{c : c \mid a_2,~ c \mid b\}$
     
-    "$\subset$":
+    <<$\subset$>>:
     
     $a_2 - a_1 = bm \implies a_2 = a_1 + bm$
     
-    $c \mid a_1, c \mid b \implies c \mid a_2$
+    $c \mid a_1,~c \mid b \implies c \mid a_2$
 
-    "$\supset$":
+    <<$\supset$>>:
     
     $a_1 - a_2 = bm \implies a_1 = a_2 + bm$
 
-    $c \mid a_2, c \mid b \implies c \mid a_1$
+    $c \mid a_2,~ c \mid b \implies c \mid a_1$
+
+    Получается, что:
     
-    $\forall x \in \{c: c \mid a_1, c \mid b \}: x \mid \gcd(a_1, b)$
+    $\forall x \in \{c: c \mid a_1, c \mid b \}:\ x \mid \gcd(a_1, b)$
     
-    $\forall x \in \{c: c \mid a_2, c \mid b \}: x \mid \gcd(a_2, b)$
+    $\forall x \in \{c: c \mid a_2, c \mid b \}:\ x \mid \gcd(a_2, b)$
     
     $\gcd(a_1, b) = \gcd(a_2, b)$
 \end{proof}
@@ -140,3 +149,5 @@
 
     $\gcd(a, b) = \gcd(b, a \mod b)$, если $b \neq 0$
 \end{defn}
+
+\lstinputlisting[style=supercpp]{code/gcd.cpp}
