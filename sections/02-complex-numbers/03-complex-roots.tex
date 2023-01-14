@@ -4,24 +4,24 @@ $z^n = w,~n \in \N,~w \in \CC$
 
 $w = 0 \implies z = 0$
 
-$w \neq 0,~w = r (\cos \varphi + i \sin \varphi),~r > 0,~\varphi \in \R,~z = p (\cos \alpha + i \sin \alpha),~p > 0,~\alpha \in \R$
+$w \neq 0,~w = r (\cos \phi + i \sin \phi),~r > 0,~\phi \in \R,~z = p (\cos \alpha + i \sin \alpha),~p > 0,~\alpha \in \R$
 
-$z^n = w \iff p^n (\cos n \alpha + i \sin n \alpha) = r (\cos \varphi + i \sin \varphi) \iff$
+$z^n = w \iff p^n (\cos n \alpha + i \sin n \alpha) = r (\cos \phi + i \sin \phi) \iff$
 $\begin{cases}
     p^n = r\\
-    n \alpha = \varphi + 2 \pi k,~k \in \Z
+    n \alpha = \phi + 2 \pi k,~k \in \Z
 \end{cases} \iff$
 
 $\begin{cases}
     p = \sqrt[n]{r}\\
-    \alpha = \frac{\varphi + 2 \pi k}{n},~k \in \Z
+    \alpha = \frac{\phi + 2 \pi k}{n},~k \in \Z
 \end{cases}$
 
-$z^n = w \iff z = \underbrace{\sqrt[n]{r} \left(\cos \frac{\varphi + 2 \pi k}{n} + i \sin \frac{\varphi + 2 \pi k}{n}\right)}_{z_k},~k \in \Z$
+$z^n = w \iff z = \underbrace{\sqrt[n]{r} \left(\cos \frac{\phi + 2 \pi k}{n} + i \sin \frac{\phi + 2 \pi k}{n}\right)}_{z_k},~k \in \Z$
 
 При каких $k, l: z_k = z_l$?
 
-$z_k = z_l \iff \frac{\varphi + 2 \pi k}{n} = \frac{\varphi + 2 \pi l}{n} + 2 \pi s,~s \in \Z \iff \frac{k}{n} + \frac{l}{n} + s,~s \in \Z \iff $  
+$z_k = z_l \iff \frac{\phi + 2 \pi k}{n} = \frac{\phi + 2 \pi l}{n} + 2 \pi s,~s \in \Z \iff \frac{k}{n} + \frac{l}{n} + s,~s \in \Z \iff $  
 
 $k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}\}$
 
@@ -35,7 +35,7 @@ $k = l + ns,~s \in \Z \iff k \equivm{n} l \iff z \in \{z_0, z_1, \ldots, z_{n-1}
         
         \item Если $w \neq 0$, То уравнение $z^n = w$ имеет ровно $n$ различных корней:
     
-        \[ z_k = \sqrt[n]{r} \left(\cos \frac{\varphi + 2 \pi k}{n} + i \sin \frac{\varphi + 2 \pi k}{n}\right),~k = 0, 1, \ldots, n-1 \]
+        \[ z_k = \sqrt[n]{r} \left(\cos \frac{\phi + 2 \pi k}{n} + i \sin \frac{\phi + 2 \pi k}{n}\right),~k = 0, 1, \ldots, n-1 \]
 
     \end{enumerate}
 \end{theorem}

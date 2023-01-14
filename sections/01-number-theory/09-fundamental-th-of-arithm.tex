@@ -1,36 +1,36 @@
 \subsection{Основная теорема арифметики}
 
 \begin{theorem}
-    $\letus n \geq 2$. Тогда $n$ можно представить в виде произведения простых чисел, и такое представление единственно с точностью до порядка сомножителей.    
+    Пусть $n \geq 2$. Тогда $n$ можно представить в виде произведения простых чисел, и такое представление единственно с точностью до порядка сомножителей.    
 \end{theorem}
 
 \begin{proof}
     
-    Существование:
+    <<Существование>>:
     
     $\letus n_0$ --- наименьшее число $(\geq 2)$, для которого такого представления нету.
     
-    $n_0$ --- составное число $\implies n_0 = ab, 2 \leq a, b < n_0$
+    $n_0$ --- составное число $\implies n_0 = ab,~ 2 \leq a, b < n_0$
     
-    По минимальности $\implies a = p_1 \ldots p_k, b = q_1 \ldots q_l$, все $p_i, q_j$ --- простые.
+    Это число минимальное $\implies a = p_1 \ldots p_k,~b = q_1 \ldots q_l$, где все $p_i, q_j$ --- простые.
     
-    $\implies n_0 = p_1 \ldots p_k q_1 \ldots q_l$ --- Противоречие
+    Но тогда, $ n_0 = p_1 \ldots p_k q_1 \ldots q_l$, где все $p_i, q_j$ --- простые $\implies$ такое представление существует, противоречие.
     
-    Единственность:
+    <<Единственность>>:
     
-    $n = p_1 \ldots p_k = q_1 \ldots q_l$, $p_i, q_j$ --- простые.
+    $n = p_1 \ldots p_k = q_1 \ldots q_l,\quad p_i, q_j$ --- простые.
     
-    Нудно доказать: $k = l,~q_1, \ldots, q_k$ совпадают с $p_1, \ldots, p_k$ с точностью до порядка.
+    Нужно доказать, что $k = l$ и что $q_1 \ldots, q_k$ совпадают с $p_1, \ldots, p_k$ с точностью до порядка.
     
-    Не умаляя общности иожно считать: $k \leq l$. 
+    Не умаляя общности можно считать: $k \leq l$. 
     
     Индукция по $k$:
     
-    $k = 1$: $p_1 = q_1 \ldots q_l$, $p_1$ --- простое $\implies l = 1, p_1 = q_1$
+    <<База>>: $k = 1:\ p_1 = q_1 \ldots q_l,~p_1$ --- простое $\implies l = 1,~ p_1 = q_1$
     
-    k > 1: $p_k \mid n \implies p_k \mid (q_1 \ldots q_l) \implies \exists j : p_k \mid q_j \implies p_k \sim q_j \implies p_k = q_j \implies$
+    <<Переход>>: $k > 1:\ p_k \mid n \implies p_k \mid (q_1 \ldots q_l) \implies \exists j : p_k \mid q_j \implies p_k \sim q_j \implies p_k = q_j$
     
-    $p_1 \ldots p_{k-1} = q_1 \ldots \hat{q_j} \ldots q_l,~k-1 \leq l-1$
+    А значит $p_1 \ldots p_{k-1} = q_1 \ldots \hat{q_j} \ldots q_l$, где $k-1 \leq l-1$
     
     $k-1 < k \implies$ применим индукционный переход:
     
@@ -40,7 +40,7 @@
 \end{proof}
 
 \begin{defn}
-    Каноническое разложение(факторизация) числа $n$ --- это представление $n$ в виде $p_1^{r_1} \ldots p_s^{r_s}$, где $p_i$ --- разложение $n$ на простые множители, $r_i \in \N$
+    \emph{Каноническое разложение (факторизация)} числа $n$ --- это представление $n$ в виде $p_1^{r_1} \ldots p_s^{r_s}$, где $\forall i:\ p_i \in \P,~ r_i \in \N$
 \end{defn}
 
 \begin{examples}~
@@ -53,63 +53,70 @@
 \end{examples}
 
 \begin{theorem-non}
-    $\letus a = p_1^{r_1} \ldots p_s^{r_s}, b = p_1^{t_1} \ldots p_s^{t_s}$
+    $\letus a = p_1^{r_1} \ldots p_s^{r_s},~ b = p_1^{t_1} \ldots p_s^{t_s}$
 
     Тогда $a \mid b \iff r_i \leq t_i~\forall i \in \{1, \ldots, s\}$
 \end{theorem-non}
 
 \begin{proof}
-    "$\Rightarrow$":
     
-    $b = a \cdot p_1^{t_1 - r_1} \ldots p_s^{t_s - r_s}$
+    <<$\Leftarrow$>>:
     
-    "$\Leftarrow$":
+    $b = a \cdot p_1^{t_1 - r_1} \ldots p_s^{t_s - r_s} \implies a \mid b$
     
-    $b = ac$ $c = p_1^{m_1} \ldots p_s^{m_s} p_{s+1}^{m_{s+1}} \ldots p_n^{m_n}$
+    <<$\Rightarrow$>>:
     
-    $p_1^{t_1} \ldots p_s^{t_s} = p_1^{r_1 + m_1} \ldots p_s^{r_s + m_s} p_{s+1}^{m_{s+1}} \ldots p_n^{m_n} \implies$
+    $a \mid b \implies b = ac,~ c = p_1^{m_1} \ldots p_s^{m_s} p_{s+1}^{m_{s+1}} \ldots p_n^{m_n}$
     
-    $t_i = r_i + m_i~\forall i \in \{1, \ldots, s\}, m_{s+1} = \ldots = m_n = 0 \implies t_i \geq r_i~\forall i \in \{1, \ldots, s\}$
+    $b = p_1^{t_1} \ldots p_s^{t_s} = p_1^{r_1 + m_1} \ldots p_s^{r_s + m_s} p_{s+1}^{m_{s+1}} \ldots p_n^{m_n} \implies$
+    
+    $\begin{cases}
+        t_i = r_i + m_i, \quad \forall i \in \{1, \ldots, s\}\\
+         m_{s+1} = \ldots = m_n = 0 
+    \end{cases} \implies t_i \geq r_i,\quad \forall i \in \{1, \ldots, s\}$
 \end{proof}
 
 \begin{follow}
     $\letus a = p_1^{r_1} \ldots p_s^{r_s}$
 
-    Тогда $\{d > 0 : d \mid a\} = \{p_1^{t_1} \ldots p_s^{t_s} \mid 0 \leq t_i \leq r_i,~\forall i \in \{1, \ldots, s\}\}$
+    Тогда $\{d > 0 \mid a \divby d\} = \{p_1^{t_1} \ldots p_s^{t_s} \mid 0 \leq t_i \leq r_i,~ \forall i \in \{1, \ldots, s\}\}$
 \end{follow}
 
 \begin{follow}
     $\letus a = p_1^{r_1} \ldots p_s^{r_s},~b = p_1^{t_1} \ldots p_s^{t_s}$
 
-    Тогда $\gcd(a, b) = p_1^{min(r_1, t_1)} \ldots p_s^{min(r_s, t_s)}$
+    Тогда $\gcd(a, b) = p_1^{\min(r_1, t_1)} \ldots p_s^{\min(r_s, t_s)}$
 \end{follow}
 
 \begin{defn}
-    $\letus a, b \in \Z$. Число $c \in \Z$ называется наименьшим общим кратным чисел $a$ и $b$, если
+    $\letus a, b \in \Z$. Число $c \in \Z$ называется \emph{наименьшим общим кратным} чисел $a$ и $b$, если:
     \begin{enumerate}
-        \item $a \mid c, b \mid c$
-        \item Если $a \mid c', b \mid c'$, то $c \mid c'$
+        \item $a \mid c,~ b \mid c$
+        \item $a \mid c',~ b \mid c' \implies c \mid c'$
     \end{enumerate}
 \end{defn}
 
 \begin{theorem-non}
-    $\letus a = p_1^{r_1} \ldots p_s^{r_s}, b = p_1^{t_1} \ldots p_s^{t_s}$
+    $\letus a = p_1^{r_1} \ldots p_s^{r_s},~ b = p_1^{t_1} \ldots p_s^{t_s}$
 
-    Тогда $c = p_1^{max(r_1, t_1)} \ldots p_s^{max(r_s, t_s)}$ --- наименьшее общее кратное чисел $a$ и $b$
+    Тогда $c = {p_1}^{\max(r_1, t_1)} \ldots {p_s}^{\max(r_s, t_s)}$ --- наименьшее общее кратное чисел $a$ и $b$
 \end{theorem-non}
 
 \begin{proof}
-    $a \mid c, b \mid c$ --- очевидно
+    
+    \begin{enumerate}
+        \item $a \mid c,~ b \mid c$ --- очевидно
+        
+        \item $\letus a \mid c',~ b \mid c',~ c' = p_1^{m_1} \ldots p_s^{m_s} p_{s+1}^{m_{s+1}} \ldots p_n^{m_n}$
 
-    $\letus a \mid c', b \mid c', c' = p_1^{m_1} \ldots p_s^{m_s} p_{s+1}^{m_{s+1}} \ldots p_n^{m_n}$
-
-    $a \mid c',~b \mid c' \implies r_i \leq m_i,~t_i \leq m_i,~\forall i \in \{1, \ldots, s\} \implies$
-
-    $max(r_i, t_i) \leq m_i,~\forall i \in \{1, \ldots, s\} \implies c \mid c'$
+        $a \mid c',~ b \mid c' \implies r_i \leq m_i,~ t_i \leq m_i,~\forall i \in \{1, \ldots, s\} \implies$
+    
+        $\max(r_i, t_i) \leq m_i,~ \forall i \in \{1, \ldots, s\} \implies c \mid c'$
+    \end{enumerate}
 \end{proof}
 
 \begin{defn}
-    НОК($a, b$) = $\lcm(a, b)$ --- положительное значение наименьшего общего кратного чисел $a$ и $b$. 
+    НОК($a, b$) $\iff \lcm(a, b)$ --- положительное значение наименьшего общего кратного чисел $a$ и $b$. 
 \end{defn}
 
 \begin{follow}
@@ -119,5 +126,5 @@
 \end{follow}
 
 \begin{proof}
-    $min(r_i, t_i) + max(r_i, t_i) = r_i + t_i$
+    $\min(r_i, t_i) + \max(r_i, t_i) = r_i + t_i$
 \end{proof}

@@ -48,19 +48,19 @@
     \TODO{Пока без доказательства.}
 \end{proof}
 \begin{defn}
-    $\letus m \in \N: \varphi(n) = |(\Z/m\Z)^*|$
+    $\letus m \in \N: \phi(n) = |(\Z/m\Z)^*|$
 
-    Функция $\varphi \times \N \to \N$ --- функция Эйлера.
+    Функция $\phi \times \N \to \N$ --- функция Эйлера.
 \end{defn}
 
 \begin{theorem-non}
     $\letus p \in \P,~r \in \N$.
 
-    Тогда $\varphi(p^r) = p^r - p^{r-1}$.
+    Тогда $\phi(p^r) = p^r - p^{r-1}$.
 \end{theorem-non}
 
 \begin{proof}
-    $\varphi(p^r) = |\{a \mid 0 \leq a \leq p^r-1,~(a, p^r) = 1\}| = $
+    $\phi(p^r) = |\{a \mid 0 \leq a \leq p^r-1,~(a, p^r) = 1\}| = $
 
     $p^r -  |\{a \mid 0 \leq a \leq p^r-1,~(a, p) \neq 1\}| = $
     
@@ -70,7 +70,7 @@
 \begin{theorem-non} Мультипликативность функции Эйлера. \\
     $\letus m, n \in \N,~(m, n) = 1$.
 
-    Тогда $\varphi(mn) = \varphi(m) \cdot \varphi(n)$.
+    Тогда $\phi(mn) = \phi(m) \cdot \phi(n)$.
 \end{theorem-non}
 
 \begin{proof}
@@ -130,39 +130,39 @@
 
     $\lambda([a]_{mn}) = ([a]_m, [a]_n) = ([b]_m, [c]_n) \implies \lambda$ --- биекция.
 
-    $\lambda$ --- биекция $\implies |(\Z/mn\Z)^*| = |(\Z/m\Z)^* \times (\Z/n\Z)^*| \implies \varphi(mn) = \varphi(m) \cdot \varphi(n)$
+    $\lambda$ --- биекция $\implies |(\Z/mn\Z)^*| = |(\Z/m\Z)^* \times (\Z/n\Z)^*| \implies \phi(mn) = \phi(m) \cdot \phi(n)$
 \end{proof}
 
 \begin{follow}
     $\letus m_1, \ldots, m_k$ --- попарно взаимно простые числа.
 
-    Тогда $\varphi(\prod\limits_{i=1}^k m_i) = \prod\limits_{i=1}^k \varphi(m_i)$.
+    Тогда $\phi(\prod\limits_{i=1}^k m_i) = \prod\limits_{i=1}^k \phi(m_i)$.
 \end{follow}
 
 \begin{proof}
     Индукция по $k$.
 
-    База: $k = 1 \implies \varphi(m_1) = \varphi(m_1)$
+    База: $k = 1 \implies \phi(m_1) = \phi(m_1)$
     
     Переход: $n-1 \to n$
     
     $(m_n, m_1) = \ldots = (m_n, m_{n-1}) = 1 \implies (m_1, \ldots, m_n) = 1 \implies$
     
-    $\varphi(m_1 \ldots m_n) = \varphi(m_1 \ldots m_{n-1}) \varphi(m_n) = \varphi(m_1) \ldots \varphi(m_{n-1}) \varphi(m_n)$
+    $\phi(m_1 \ldots m_n) = \phi(m_1 \ldots m_{n-1}) \phi(m_n) = \phi(m_1) \ldots \phi(m_{n-1}) \phi(m_n)$
 \end{proof}
 
 \begin{follow}
     $\letus n = p_1^{r_1}, \ldots, p_s^{r_s}$ --- разложение числа $n$ на простые множители.
     
-    $\implies \varphi(n) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
+    $\implies \phi(n) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
 \end{follow}
 
 \begin{proof}
-    По следствию: $\varphi(n) = \varphi(\prod\limits_{i=1}^s p_i^{r_i}) = \prod\limits_{i=1}^s \varphi(p_i^{r_i}) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
+    По следствию: $\phi(n) = \phi(\prod\limits_{i=1}^s p_i^{r_i}) = \prod\limits_{i=1}^s \phi(p_i^{r_i}) = \prod\limits_{i=1}^s (p_i^{r_i} - p_i^{r_i-1})$
 \end{proof}
 
 \begin{theorem}
-    $\letus m \in \N, a \in \Z, (a, m) = 1 \implies a^{\varphi(m)} \equivm{m} 1$ --- теорема Эйлера.
+    $\letus m \in \N, a \in \Z, (a, m) = 1 \implies a^{\phi(m)} \equivm{m} 1$ --- теорема Эйлера.
 \end{theorem}
 
 \begin{lemma}~
@@ -193,21 +193,21 @@
 
 \begin{proof}(теоремы Эйлера)
 
-    $(\Z/m\Z)^* = \{A_1, A_2, \ldots, A_{\varphi(m)}\}$
+    $(\Z/m\Z)^* = \{A_1, A_2, \ldots, A_{\phi(m)}\}$
     
     $[a]_m A_j \in (\Z/m\Z)^* \overset{lemma-1}{\implies}$
     
-    $[a]_m A_1, \ldots, [a]_m A_{\varphi(m)}$ --- различные элементы 
+    $[a]_m A_1, \ldots, [a]_m A_{\phi(m)}$ --- различные элементы 
     
     $([a]_m A_j = [a]_m A_k \overset{lemma-2}{\implies} A_j = A_k) \implies$
     
-    $\{[a]_m A_1, \ldots, [a]_m A_{\varphi(m)}\} = (\Z/m\Z)^* \implies$
+    $\{[a]_m A_1, \ldots, [a]_m A_{\phi(m)}\} = (\Z/m\Z)^* \implies$
     
-    $[a]_m A_1 \cdot \ldots \cdot [a]_m A_{\varphi(m)} = A_1 A_2 \ldots A_{\varphi(m)} \implies$
+    $[a]_m A_1 \cdot \ldots \cdot [a]_m A_{\phi(m)} = A_1 A_2 \ldots A_{\phi(m)} \implies$
     
-    $[a]_m^{\varphi(m)} A_1 A_2 \ldots A_{\varphi(m)} = [1]_m A_1 A_2 \ldots A_{\varphi(m)} \overset{lemma-2}{\implies}$
+    $[a]_m^{\phi(m)} A_1 A_2 \ldots A_{\phi(m)} = [1]_m A_1 A_2 \ldots A_{\phi(m)} \overset{lemma-2}{\implies}$
     
-    $[a]_m^{\varphi(m)} = [1]_m \implies [a^{\varphi(m)}]_m = [1]_m \implies a^{\varphi(m)} \equivm{m} 1$
+    $[a]_m^{\phi(m)} = [1]_m \implies [a^{\phi(m)}]_m = [1]_m \implies a^{\phi(m)} \equivm{m} 1$
 \end{proof}
 
 \begin{theorem}(Малая теорема Ферма)

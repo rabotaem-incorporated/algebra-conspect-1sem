@@ -10,60 +10,72 @@
         
         \item $p$ --- простое, $a \in \Z \implies p \mid a$ или $p \bot a$.
         
-        \item $p, q$ --- простые $\implies p, q$ --- ассоциированны или $p \bot q$.
+        \item $p, q$ --- простые $\implies p \sim q$ или $p \bot q$.
         
         \item $p \mid ab \implies p \mid a$ или $p \mid b$. 
     \end{enumerate}
 \end{prop}
 
 \begin{theorem-non}
-    $\letus a \neq \pm 1$, тогда существует простое число $p : p \mid a$.
+    $\letus a \neq \pm 1$, тогда существует простое число $p :\ p \mid a$.
 \end{theorem-non}
 
 \begin{proof}~
-    $a = 0 \implies p = 239$
+
+    Пусть $a = 0$, тогда $p = 239$
     
-    $a = 1 \implies a > 0$
+    Тогда $a \neq 0$, пускай $a > 0$, так как, случай $a < 0$ аналогичен.
     
     Индукция по $a$:
+
+    <<База>>: $a = 1$, но $a > 0$, значит простое число уже встречалось.
     
-    $a$ --- простое $\implies p = a, p \mid a$
+    <<Переход>>:
     
-    $a$ --- не простое, $\exists d : 1 < d < a, d \mid a$
+    $a$ --- простое $\implies p = a,~ p \mid a$
     
-    $a = dd'$, тогда по индукционному переходу существует простое число $p : p \mid d$
+    $a$ --- не простое, значит $\exists d :\quad 1 < d < a,~ d \mid a$
     
-    $p \mid d, d \mid a \implies p \mid a$
+    $a = dd'$, тогда по индукционному переходу существует простое число $p :\ p \mid d$
+    
+    $p \mid d,~d \mid a \implies p \mid a$
 \end{proof}
 
 \begin{defn}
     Составное число --- это число отличное от 0, и не являющееся простым.
 \end{defn}
 
-\subsubsection*{Решето Эратосфена}
+\begin{defn}
+    Решето Эратосфена --- это алгоритм, который позволяет найти все простые числа от 1 до $n$.
 
-2, 3, 4, 5, 6, 7, 8, 9, $\ldots$, 100
+    $2, 3, 4, 5, 6, 7, 8, 9, \ldots, 100$
 
-\begin{itemize}
-    \item 2 --- простое, вычеркиваем все числа кратные 2
-    
-    \item 3 --- простое, вычеркиваем все числа кратные 3
-    
-    \item 4 --- составное, пропускаем
-    
-    \item и т. д.
-\end{itemize}
+    \begin{itemize}
+        \item 2 --- простое, вычеркиваем все числа кратные 2
+        
+        \item 3 --- простое, вычеркиваем все числа кратные 3
+        
+        \item 4 --- составное, пропускаем
+        
+        \item и т. д.
+    \end{itemize}
 
-\begin{theorem}(Теорема Евклида)
+    В итоге получим все простые числа от $1$ до $100$.
+\end{defn}
+
+\begin{notice}
+    $\P$ --- множество всех простых чисел.
+\end{notice}
+
+\begin{theorem}[Теорема Евклида]
     Существует бесконечно много простых чисел
 \end{theorem}
 
-\begin{proof}~
-    $\letus p_1, p_2, \ldots p_n$ --- все простые числа
+\begin{proof}
+
+    $\letus p_1, p_2, \ldots p_n$ --- все простые числа. Возьмем $N = p_1 p_2 \ldots p_n + 1$, пусть оно составное $\implies$
     
-    $N = p_1 p_2 \ldots p_n + 1 \implies$
+    $\exists p \in \P :\ p \mid N,~ p > 0 \implies \exists j:\ p = p_j$
     
-    $\exists$ простое число $p : p \mid N, p > 0 \implies \exists j: p = p_j \implies p \mid (N - 1) \implies p \mid 1 \implies p = \pm 1$
-    
-    Противоречие 
+    Тогда, $p \mid (N - 1) \implies p \mid 1 \implies p = \pm 1$, противоречие.    
 \end{proof}

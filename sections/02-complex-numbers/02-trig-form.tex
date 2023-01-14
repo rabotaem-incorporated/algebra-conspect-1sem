@@ -2,11 +2,11 @@
 
 \begin{defn}
     
-    $a + bi = r(\cos\varphi + i\sin\varphi)$
+    $a + bi = r(\cos\phi + i\sin\phi)$
     
-    $a = r\cos\varphi$
+    $a = r\cos\phi$
     
-    $b = r\sin\varphi$
+    $b = r\sin\phi$
 \end{defn}
 
 \begin{defn}
@@ -67,20 +67,20 @@
 
 \begin{defn}
 
-    Пусть $z \in \CC$. Аргументом $z$ назовем такое $\varphi \in \R$, 
+    Пусть $z \in \CC$. Аргументом $z$ назовем такое $\phi \in \R$, 
 
-    что $z = |z|(\cos\varphi + i\sin\varphi)$
+    что $z = |z|(\cos\phi + i\sin\phi)$
 \end{defn}
 
 \begin{theorem-non}~
     \begin{enumerate}
-        \item Если $z = 0$, то любой $\varphi \in \R$ - аргумент $z$
+        \item Если $z = 0$, то любой $\phi \in \R$ - аргумент $z$
         
         \item Если $z \neq 0$, то:
         \begin{enumerate}
             \item аргумент существует
             
-            \item если $\varphi_0$ - аргумент $z$, то $\varphi$ - аргумент $z \iff \varphi = \varphi_0 + 2 \pi k,~k \in \Z$
+            \item если $\phi_0$ - аргумент $z$, то $\phi$ - аргумент $z \iff \phi = \phi_0 + 2 \pi k,~k \in \Z$
         \end{enumerate}
     \end{enumerate}
 \end{theorem-non}
@@ -93,39 +93,39 @@
         
         $|z_0| = \left| \frac{1}{|z|} \right| \cdot |z| = \frac{1}{|z|} \cdot |z| = 1$
         
-        $z_0 = a_0 + ib_0,~|z_0| = a_0^2 + b_0^2 = 1 \implies \exists \varphi_0:
+        $z_0 = a_0 + ib_0,~|z_0| = a_0^2 + b_0^2 = 1 \implies \exists \phi_0:
         \begin{cases}
-            a_0 = \cos\varphi_0\\
-            b_0 = \sin\varphi_0
+            a_0 = \cos\phi_0\\
+            b_0 = \sin\phi_0
         \end{cases}$
 
-        $z = |z| \cdot z_0 = |z|(\cos\varphi_0 + i\sin\varphi_0)$
+        $z = |z| \cdot z_0 = |z|(\cos\phi_0 + i\sin\phi_0)$
 
-        $\varphi = \varphi_0 + 2 \pi k \implies
+        $\phi = \phi_0 + 2 \pi k \implies
         \begin{cases}
-            \cos\varphi = \cos\varphi_0\\
-            \sin\varphi = \sin\varphi_0
-        \end{cases} \implies \varphi$ - аргумент
+            \cos\phi = \cos\phi_0\\
+            \sin\phi = \sin\phi_0
+        \end{cases} \implies \phi$ - аргумент
 
-        $\varphi$ - аргумент $\implies z = |z|(\cos\varphi + i\sin\varphi) \implies
+        $\phi$ - аргумент $\implies z = |z|(\cos\phi + i\sin\phi) \implies
         \begin{cases}
-            \cos\varphi = \cos\varphi_0\\
-            \sin\varphi = \sin\varphi_0
-        \end{cases} \implies \varphi - \varphi_0 = 2 \pi k,~k \in \Z$
+            \cos\phi = \cos\phi_0\\
+            \sin\phi = \sin\phi_0
+        \end{cases} \implies \phi - \phi_0 = 2 \pi k,~k \in \Z$
     \end{enumerate}
 \end{proof}
 
 \begin{defn}
-    $arg(z) = \varphi$ означает $\varphi$ - один из аргументов $z$
+    $arg(z) = \phi$ означает $\phi$ - один из аргументов $z$
 \end{defn}
 
 \begin{notice}
-    Предположим оказалось, что $z = r(\cos\varphi + i\sin\varphi)$ для некоторых $r \geq 0,~\varphi \in \R$.\\
-    Тогда $r = |z|,~\varphi = \arg z$
+    Предположим оказалось, что $z = r(\cos\phi + i\sin\phi)$ для некоторых $r \geq 0,~\phi \in \R$.\\
+    Тогда $r = |z|,~\phi = \arg z$
 \end{notice}
 
 \begin{proof}
-    $|z| = \sqrt{(r\cos\varphi)^2 + (r\sin\varphi)^2} = \sqrt{r^2} = r \implies \varphi$ - аргумент по определению\\
+    $|z| = \sqrt{(r\cos\phi)^2 + (r\sin\phi)^2} = \sqrt{r^2} = r \implies \phi$ - аргумент по определению\\
 \end{proof}
 
 \begin{theorem-non}~
@@ -139,13 +139,13 @@
 
 \begin{proof}
     \begin{enumerate}
-        \item $\arg z = \varphi$
+        \item $\arg z = \phi$
         
-        $z = |z|(\cos\varphi + i\sin\varphi)$
+        $z = |z|(\cos\phi + i\sin\phi)$
         
-        $\oln{z} = |z|(\cos\varphi - i\sin\varphi) = |\oln{z}|(\cos(-\varphi) + i\sin(-\varphi)) \implies$
+        $\oln{z} = |z|(\cos\phi - i\sin\phi) = |\oln{z}|(\cos(-\phi) + i\sin(-\phi)) \implies$
         
-        $\arg \oln{z} = -\varphi$
+        $\arg \oln{z} = -\phi$
 
         \item "$\Rightarrow$":
         
@@ -161,15 +161,15 @@
         
         $\sin(k \pi) = 0$
 
-        \item $\arg z_1 = \varphi_1,~\arg z_2 = \varphi_2 \implies$
+        \item $\arg z_1 = \phi_1,~\arg z_2 = \phi_2 \implies$
         
-        $(!)~\varphi_1 + \varphi_2 = \arg(z_1 z_2)$
+        $(!)~\phi_1 + \phi_2 = \arg(z_1 z_2)$
         
-        $z_1 = |z_1|(\cos\varphi_1 + i\sin\varphi_1),~z_2 = |z_2|(\cos\varphi_2 + i\sin\varphi_2) \implies$
+        $z_1 = |z_1|(\cos\phi_1 + i\sin\phi_1),~z_2 = |z_2|(\cos\phi_2 + i\sin\phi_2) \implies$
         
-        $z_1 z_2 = |z_1| \cdot |z_2|(\cos\varphi_1 \cdot \cos\varphi_2 - \sin\varphi_1 \cdot \sin\varphi_2 + i(\sin\varphi_1 \cdot \cos\varphi_2 + \cos\varphi_1 \cdot \sin\varphi_2)) =$
+        $z_1 z_2 = |z_1| \cdot |z_2|(\cos\phi_1 \cdot \cos\phi_2 - \sin\phi_1 \cdot \sin\phi_2 + i(\sin\phi_1 \cdot \cos\phi_2 + \cos\phi_1 \cdot \sin\phi_2)) =$
         
-        $|z_1 z_2|(\cos(\varphi_1 + \varphi_2) + i\sin(\varphi_1 + \varphi_2)) \implies \arg(z_1 z_2) = \varphi_1 + \varphi_2$
+        $|z_1 z_2|(\cos(\phi_1 + \phi_2) + i\sin(\phi_1 + \phi_2)) \implies \arg(z_1 z_2) = \phi_1 + \phi_2$
 
         \item $z_1 = \frac{z_1}{z_2} \cdot z_2 \implies \arg z_1 = \arg \frac{z_1}{z_2} + \arg z_2 \implies \arg \frac{z_1}{z_2} = \arg z_1 - \arg z_2$
 
@@ -178,9 +178,9 @@
 
 \begin{follow}(Формула Муавра)
 
-    Пусть $z \in \CC,~|z| = r,~\arg z = \varphi,~n \in \Z$.
+    Пусть $z \in \CC,~|z| = r,~\arg z = \phi,~n \in \Z$.
 
-    Тогда $z^n = r^n(\cos(n\varphi) + i\sin(n\varphi))$
+    Тогда $z^n = r^n(\cos(n\phi) + i\sin(n\phi))$
 \end{follow}
 
 \begin{proof}
@@ -191,13 +191,13 @@
     
     \textsl{Переход}: $n - 1 \to n$
     
-    $z^n = z^{n-1} \cdot z = r^{n-1}(\cos((n-1)\varphi) + i\sin((n-1)\varphi)) \cdot z = $
+    $z^n = z^{n-1} \cdot z = r^{n-1}(\cos((n-1)\phi) + i\sin((n-1)\phi)) \cdot z = $
     
-    $r^{n-1}(\cos((n-1)\varphi) + i\sin((n-1)\varphi)) \cdot r(\cos\varphi + i\sin\varphi) = $
+    $r^{n-1}(\cos((n-1)\phi) + i\sin((n-1)\phi)) \cdot r(\cos\phi + i\sin\phi) = $
     
-    $r^n(\cos((n-1)\varphi + \varphi) + i\sin((n-1)\varphi + \varphi)) = $
+    $r^n(\cos((n-1)\phi + \phi) + i\sin((n-1)\phi + \phi)) = $
     
-    $r^n(\cos(n\varphi) + i\sin(n\varphi))$
+    $r^n(\cos(n\phi) + i\sin(n\phi))$
 
     $n = 0,~ 1 = r^0(\cos(0) + i\sin(0)) = 1$
 
@@ -207,5 +207,5 @@
     
     $|z^n| = \frac{1}{|z^k|} = \frac{1}{|z|^k} = |z|^{-k} = |z|^n$
     
-    $\arg z^n = \arg 1 - \arg z^k = 0 - k \varphi = n \varphi$
+    $\arg z^n = \arg 1 - \arg z^k = 0 - k \phi = n \phi$
 \end{proof}
