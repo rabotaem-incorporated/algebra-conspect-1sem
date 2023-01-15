@@ -1,7 +1,7 @@
 \subsection{Многочлены и формальные степенные ряды}
 
 \begin{defn}
-    Последовательность финитная $\iff \exists N: \forall n \geq N: a_n = 0$.
+    Последовательность \emph{финитная} $\iff \exists N: \forall n \geq N: a_n = 0$.
 \end{defn}
 
 \begin{defn}
@@ -9,50 +9,52 @@
 \end{defn}
 
 \begin{defn}
-    $R$ --- коммутативное кольцо с 1.
-
-    $R[x] = \{(a_i) \mid a_i \in R, i = 0, 1, \ldots; a_i = 0$ при $i \to \infty \}$ --- кольцо многочленов над $R$.
+    $R$ --- коммутативное кольцо с 1, тогда:
+    
+    $R[x] = \{(a_i) \mid a_i \in R,~ i = 0, 1, \ldots; a_i = 0$ при $i \to \infty \}$ --- \emph{кольцо многочленов} над $R$.
 \end{defn}
 
+\begin{theorem-non}
+    Операции в $R[x]$:
 
-Введём сложение и умножение на $R[x]$
+    <<Сложение>>:
+    $(a_i) + (b_i) = (a_i + b_i)$
 
-$(a_i) + (b_i) = (a_i + b_i)$
+    <<Умножение>>:
+    $(a_i) \cdot (b_i) = (p_i)$, где $p_k = \sum\limits_{i=0}^k a_i b_{k-i}$
+\end{theorem-non}
 
-$(a_i) \cdot (b_i) = (p_i)$, где $p_k = \sum\limits_{i=0}^k a_i b_{k-i}$
+\begin{theorem-non}[Переход к стандартной записи]~
 
-$\letus a \in R,~[a] = (a, 0, 0, \ldots)$ --- многочлен, равный $a$.
+    $\letus a \in R,~[a] = (a, 0, 0, \ldots)$ --- многочлен, равный $a$.
 
-$[a] + [b] = [a + b]$
-
-$[a] \cdot [boba] = (aboba, 0, 0, \ldots) = [aboba]$
-
-Отождествим $[a]$ с $a$.
-
-$[a] \cdot (b_0, b_1, \ldots) = (ab_0, ab_1, \ldots)$
-
-$(a_0, a_1, \ldots, a_n, 0, 0, \ldots) = (a_0, 0, 0, \ldots) + (0, a_1, 0, 0, \ldots) + \ldots + (0, 0, \ldots, a_n, 0, 0, \ldots) =$ 
-
-$a_0 \cdot \underbrace{(1, 0, 0, \ldots)}_{x_0} + a_1 \cdot \underbrace{(0, 1, 0, \ldots)}_{x_1} + \ldots + a_n \cdot \underbrace{(0, 0, \ldots, 1, 0, 0, \ldots)}_{x_n} =$
-
-$a_0 + a_1 \cdot x_1 + \ldots + a_n \cdot x_n$
-
-$x_j \cdot x_1 = (0, \ldots, 1, 0, 0, \ldots) \cdot (0, 1, 0, 0, \ldots) = (0, \ldots, 0, 1, 0, 0, \ldots) = x_{j+1} \implies$
-
-$\forall m \in \N: x_m = x_1^m$
-
-$x_1 = x \implies x_m = x_1^m = x^m$
-
-Значит получили стандартную запись многочленов $(a_0 + a_1 x + a_2 x^2 + \ldots + a_n x^n)$
+    $[a] + [b] = [a + b]$
+    
+    $[a] \cdot [boba] = (aboba, 0, 0, \ldots) = [aboba]$
+    
+    Отождествим $[a]$ с $a$.
+    
+    $[a] \cdot (b_0, b_1, \ldots) = (ab_0, ab_1, \ldots)$
+    
+    $(a_0, a_1, \ldots, a_n, 0, 0, \ldots) = (a_0, 0, 0, \ldots) + (0, a_1, 0, 0, \ldots) + \ldots + (0, 0, \ldots, a_n, 0, 0, \ldots) =$ 
+    
+    $a_0 \cdot \underbrace{(1, 0, 0, \ldots)}_{x_0} + a_1 \cdot \underbrace{(0, 1, 0, \ldots)}_{x_1} + \ldots + a_n \cdot \underbrace{(0, 0, \ldots, 1, 0, 0, \ldots)}_{x_n} = a_0 + a_1 \cdot x_1 + \ldots + a_n \cdot x_n$
+    
+    $x_j \cdot x_1 = (0, \ldots, 1, 0, 0, \ldots) \cdot (0, 1, 0, 0, \ldots) = (0, \ldots, 0, 1, 0, 0, \ldots) = x_{j+1} \implies \forall m \in \N: x_m = x_1^m$
+    
+    $x_1 = x \implies x_m = x_1^m = x^m$
+    
+    Значит получили стандартную запись многочленов $(a_0 + a_1 x + a_2 x^2 + \ldots + a_n x^n)$
+\end{theorem-non}
 
 \begin{defn}
     $\letus f \in R[x],~f \neq 0$ (то есть не $(0)$)
 
     Тогда степенью $f$ называется максимальное $j$ такое что $a_j \neq 0$
 
-    Обозначим $\deg(f) = j$.
+    Обозначим $\deg f = j$.
 
-    Если $f = 0$, то $\deg(f) \in \{-1, -\infty\}$ (по разному обозначают).
+    Если $f = 0$, то $\deg f \in \{-1, -\infty\}$ (по разному обозначают).
 \end{defn}
 
 \begin{defn}
@@ -60,7 +62,7 @@ $x_1 = x \implies x_m = x_1^m = x^m$
 \end{defn}
 
 \begin{defn}
-    Константой называется множество $f$ такое что $\deg(f) \leq 0$.
+    Константой называется множество $f$ такое что $\deg f \leq 0$.
 \end{defn}
 
 \begin{defn}
@@ -72,22 +74,37 @@ $x_1 = x \implies x_m = x_1^m = x^m$
 \end{theorem-non}
 
 \begin{proof}
-    Аксиомы относящиеся к сложению очевидны.
 
-    Проверим коммутативность умножения и дистрибутивность.
+    \begin{enumerate}
+        \item[1-4.] Аксиомы относящиеся к сложению очевидны.
+        
+        \item[5.] Коммутативность умножения очевидна.
+        
+        \item[6.] Ассоциативность умножения:
+        
+        $f, g, h \in R[x],~ (fg)h = f(gh)$
 
-    $(f \cdot g) \cdot h = f \cdot (g \cdot h)$ --- сводится к сложению, $f, g, h$ --- мономы.
+        $f = \sum\limits_{i=0}^k f_i X_i$, где $f_i \in R$
 
-    $\begin{cases}
-        (aX^i \cdot bX^j) \cdot cX^k = abX^{i+j} \cdot cX^k = abc \cdot X^{i+j+k}\\
-        aX^i \cdot (bX^j \cdot cX^k) = aX^i \cdot bcX^{j + k} = abc \cdot X^{i+j+k}
-    \end{cases}$
+        $g = \sum\limits_{i=0}^l g_i X_i$, где $g_i \in R$
 
-    $(fg)h = f(gh)$
+        $h = \sum\limits_{i=0}^n h_i X_i$, где $h_i \in R$
+    
+        Ассоциативность мономов $(f \cdot g) \cdot h = f \cdot (g \cdot h)$ --- сводится к сложению, $f, g, h$ --- мономы.
 
-    $f = \sum\limits_{i=0}^k f_i,~g = \sum\limits_{j=0}^l g_j,~h = \sum\limits_{m=0}^n h_m$
-
-    $(fg)h = (\sum f_i \cdot \sum g_j) \cdot \sum h_k = \sum (f_i \cdot g_j) \cdot \sum h_k \overset{\text{ассоц. для мономов}}{=} \sum f_i \cdot \sum (g_j \cdot h_k) = f(gh)$
+        $(fg)h = (\sum f_i X^i \cdot \sum g_j X^j) \cdot \sum h_k X^k = \sum (f_i X^i \cdot g_j X^j) \cdot \sum h_k X^k \lbl{ассоц. мономов}{=}$ 
+        
+        $\sum f_i X^i \cdot \sum (g_j X^j \cdot h_k X^k) = f(gh)$
+        
+        \item[7.] Нейтральный элемент по умножению --- $1 = (1, 0, 0, \ldots)$.
+        
+        \item[8.] Дистрибутивность:
+        $\begin{cases}
+            (aX^i \cdot bX^j) \cdot cX^k = abX^{i+j} \cdot cX^k = abc \cdot X^{i+j+k}\\
+            aX^i \cdot (bX^j \cdot cX^k) = aX^i \cdot bcX^{j + k} = abc \cdot X^{i+j+k}
+        \end{cases}$
+        
+    \end{enumerate}
 \end{proof}
 
 \begin{defn}

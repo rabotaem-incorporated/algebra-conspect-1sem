@@ -43,18 +43,18 @@
 \end{notice}
 
 \begin{defn}
-    Область целостности (целостное кольцо, область) --- коммутативное ассоциативное кольцо с $1 \neq 0$ и без делителей нуля.
+    \emph{Область целостности} (целостное кольцо, область) --- коммутативное ассоциативное кольцо с $1 \neq 0$ и без делителей нуля (то есть никакие два ненулевых элемента не дают ноль при умножении)
 
-    \[ a \neq 0 \text{ так чтобы } \exists b \neq 0 : ab = 0 \]
+    %\[ a \neq 0 \text{ так чтобы } \exists b \neq 0 : ab = 0 \]
 \end{defn}
 
 \begin{theorem-non}
-    Пусть $R$ --- ОЦ(область целостности). 
+    Пусть $R$ --- область целостности. 
 
     \begin{enumerate}
-        \item $\forall f,g \in R[x]: \deg(fg) \leq \deg f + \deg g$
+        \item $\forall f,g \in R[x]: \deg(fg) = \deg f + \deg g$
         
-        \item $R[x]$ --- ОЦ
+        \item $R[x]$ --- область целостности
     \end{enumerate}
 \end{theorem-non}
 
@@ -70,17 +70,16 @@
 \end{proof}
 
 \begin{follow}
-    Пусть $R$ --- ОЦ: тогда $R[x]^* = R^*$
+    Пусть $R$ --- область целостности: тогда $R[x]^* = R^*$
 \end{follow}
 
 \begin{proof}
-    Очевидно $R^* \subset R[x]^*$
+    
+    <<$\supset$>>: очевидно $R^* \subset R[x]^*$
 
-    Обратно, пусть $f \in R[x]^* \implies$
+    <<$\subset$>>: пусть $f \in R[x]^* \implies \exists g \in R[x]: f \cdot g = 1$
 
-    $\exists g \in R[x]: f \cdot g = 1 (\implies f, g \neq 0)$
-
-    $\deg(fg) = 0 = \deg f + \deg g \implies \deg f = \deg g = 0 \implies f  \in R^*$
+    $\deg(fg) = 0 = \deg f + \deg g \implies \deg f = \deg g = 0 \implies f  \in R \implies f \in R^*$
 \end{proof}
 
 \begin{examples}~

@@ -2,7 +2,7 @@
 
 \begin{theorem}[о делении с остатком для многочленов]
 
-    $R$ --- ОЦ.
+    $R$ --- область целостности.
     
     Пусть $f, g \in R[x],~g \neq 0$ и старший коэффициент $g$ обратим.
 
@@ -16,16 +16,16 @@
 \end{theorem}
 
 \begin{proof}
-    $\deg g = d,~g = b_dX^d + \ldots$
+    Пусть $\deg g = d,~g = b_dX^d + \ldots$
 
     \begin{enumerate}
-        \item Существование $q$ и $r$
+        \item <<Существование>>
         
-        Индукция по $\deg f$: $\deg f < d \implies$ подходит $q = 0, r = f$
+        Индукция по $\deg f:\ \deg f < d \implies$ подходит $q = 0, r = f$
 
         Пусть $\deg f = n \geq d$
 
-        $f_1 = f - g \cdot a_n \cdot b_d^{-1} \cdot X^{n-d}$, где $b_d$ --- старший коэффициент $g$
+        $f_1 = f - g \cdot a_n \cdot b_d^{-1} \cdot X^{n-d}$, где $b_d$ --- старший коэффициент $g$ (на первый взгляд здесь написано что-то неочевидное, но на деле это простое деление многочленов столбиком, то есть мы просто делаем так, чтобы старший коэффициент $f$ исчез)
 
         $g \cdot a_n \cdot b_d^{-1} \cdot X^{n-d} = (b_d X^d + \ldots) \cdot a_n \cdot b_d^{-1} \cdot X^{n-d} = a_nX^n + \ldots \implies \deg f_1 < n$
 
@@ -38,16 +38,20 @@
         $f = g \cdot a_n \cdot b_d^{-1} \cdot X^{n - d} + f_1 = g \underbrace{(a_n \cdot b_d^{-1} \cdot X^{n - d} + q_1)}_{q} + \underbrace{r_1}_{r}$
 
 
-        \item Предположим $f = g \cdot q_1 + r_1 = g \cdot q_2 + r_2,~\deg r_1 < d, \deg r_2 < d$ 
+        \item <<Единственность>>
+        
+        Предположим $f = g \cdot q_1 + r_1 = g \cdot q_2 + r_2,~\deg r_1 < d,~ \deg r_2 < d$ 
         
         $g(q_1 - q_2) = r_2 - r_1$
 
-        Предположим $q_1 \neq q_2 \implies \deg g \cdot (q_1 - q_2) = \underbrace{\deg g}_{d} + \underbrace{\deg{q_1 - q_2}}_{\geq 0} \geq d,~\deg(r_2 - r_1) < d$
+        Предположим $q_1 \neq q_2 \implies \deg g \cdot (q_1 - q_2) \lbl{$R$ --- ОЦ}{=} \underbrace{\deg g}_{d} + \underbrace{\deg{q_1 - q_2}}_{\geq 0} \geq d \implies \deg(r_2 - r_1) \geq d$, но $\deg(r_2 - r_1) < d$, противоречие.
     \end{enumerate}
 \end{proof}
 
 \begin{notice}
-    Условие $R$ --- ОЦ не существенно.
+    Условие $R$ --- область целостности не существенно.
+
+    (я без понятия что написано дальше, но пускай будет)
 
     $g = b_d X^d + \ldots,~b_d \in R^*$
 
