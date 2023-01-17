@@ -1,39 +1,50 @@
 \subsection{Рациональные дроби}
 
 \begin{defn}
-    Пусть $R$ область целостности. Мы вложим $R$ в поле $Q(R)$, назовем её полем частных.    
+    \emph{Поле частных области целостности} $R$ --- наименьшее поле, в которое вложена $R$.
+
+    Назовем его $Q(R)$.
 \end{defn}
+
+Элементы поля частных представляются как дроби $\frac{a}{b}$, где $a, b \in R$ и $b \neq 0$. Это поле строится так:
 
 Рассмотрим $M = R \times (R \setminus \{0\})$ и введём на $M$ отношение $\sim$:
 
-$(a, b) \sim (a', b') \iff ab' = a'b$
+ $(a, b) \sim (a', b') \iff ab' = a'b$
+\begin{theorem-non}
+    $\sim$ --- отношение эквивалентности
+\end{theorem-non}
 
-Проверим: $\sim$ --- отношение эквивалентности
+\begin{proof}
+    рефлексивность и симметричность очевидны
 
-рефлексивность и симметричность очевидны
+    транзитивность:
+    $\begin{cases}
+        (a, b) \sim (a', b')\\
+        (a', b') \sim (a'', b'')
+    \end{cases} \implies ab'b'' = a'bb'' = a''bb' \implies b'(ab'' - a''b) = 0$
 
-транзитивность:
-$\begin{cases}
-    (a, b) \sim (a', b')\\
-    (a', b') \sim (a'', b'')
-\end{cases} \implies ab'b'' = a'bb'' = a''bb' \implies b'(ab'' - a''b) = 0$
+    $b \neq 0 \implies ab'' - a''b = 0 \implies ab'' = a''b \implies (a, b) \sim (a'', b'')$
 
-$b \neq 0 \implies ab'' - a''b \implies ab'' = a''b \implies (a, b) \sim (a'', b'')$
 
-То есть $\sim$ --- это отношение эквивалентности на $M$.
+    То есть $\sim$ --- это отношение эквивалентности на $M$.
+\end{proof}
 
-$Q(R) = M / \sim = \{ [(a, b)] \mid a \in R, b \in R \setminus \{0\} \}$
+\begin{defn}
+    $Q(R) = M / \sim = \{ [(a, b)] \mid a \in R, b \in R \setminus \{0\} \}$    
+\end{defn}
 
 \begin{defn}
     Обозначим $\frac{a}{b}$ --- это $[(a, b)] \in Q(R)$.
 \end{defn}
 
-Введём в $Q(R)$ операции сложения и умножения:
-
-\begin{gather*}    
-    \frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_2}\\
-    \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1a_2}{b_1b_2}
-\end{gather*}
+\begin{theorem-non}
+    Введём в $Q(R)$ операции сложения и умножения:
+    \begin{gather*}    
+        \frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2 + a_2b_1}{b_1b_2}\\
+        \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1a_2}{b_1b_2}
+    \end{gather*}
+\end{theorem-non}
 
 \begin{notice}
     $(a, b) \sim (ac, bc) \quad \forall c \in R \setminus \{0\}$
@@ -71,12 +82,14 @@ $Q(R) = M / \sim = \{ [(a, b)] \mid a \in R, b \in R \setminus \{0\} \}$
     Обратный по умножению элемент к $\frac{a}{b}$ --- это $\frac{b}{a}$
 \end{proof}
 
-$R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
-
-То есть, считаем $R \subset Q(R)$
+\begin{notice}
+    $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
+    
+    То есть, считаем $R \subset Q(R)$
+\end{notice}
 
 \begin{defn}
-    Пусть $K$-поле. Тогда поле $K(x) = Q(K[x])$ назовем полем рациональных дробей (дробно-рациональных функций) над полем $K$.
+    Пусть $K$ --- поле. Тогда поле $K(x) = Q(K[x])$ назовем \emph{полем рациональных дробей} (\emph{дробно-рациональных функций}) над полем $K$.
 \end{defn}
 
 \begin{theorem-non}[Несократимое представление]
@@ -84,12 +97,11 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
 \end{theorem-non}
 
 \begin{proof}
-    $s = \frac{a}{b},~ d = \gcd(a, b) \implies a = d a', b = d b' \implies s = \frac{a'}{b'},~ (a', b') = 1$
+    
+    Пусть $s = \frac{a}{b},~ d = \gcd(a, b) \implies a = d a',~ b = d b' \implies s = \frac{a'}{b'},~ (a', b') = 1$
 
-    $\frac{p}{q} = \frac{p'}{q'}, (p, q) = (p', q') = 1$
-
-    $\begin{cases}
-        p \mid (p'q)\\
+    Если $\frac{p}{q} = \frac{p'}{q'},~ (p, q) = (p', q') = 1$, то $pq' = p'q \implies \begin{cases}
+        p \mid p'q\\
         (p, q) = 1
     \end{cases} \implies p \mid p'$, аналогично $p' \mid p$
 
@@ -99,15 +111,16 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
 \end{proof}
 
 \begin{lemma}
-    Пусть $s \in K(x),~s = \frac{p}{q}, p, q \in K[x]$
+    Пусть $s \in K(x),~s = \frac{p}{q},\quad p, q \in K[x]$
 
-    Тогда $\deg p - \deg q$ --- инвариант $s$.
+    Тогда $\deg p - \deg q$ --- инвариант $s$. (то есть не зависит от выбора представления в виде $p$ и $q$)
 \end{lemma}
 
 \begin{proof}
-    $\frac{p}{q} = \frac{p'}{q'} \implies pq' = p'q \implies \deg p + \deg q' = \deg p' + \deg q \implies \deg p - \deg q = \deg p' - \deg q'$
+    
+    Если $\frac{p}{q} = \frac{p'}{q'}$, то $pq' = p'q$, а значит $\deg p + \deg q' = \deg p' + \deg q \implies \deg p - \deg q = \deg p' - \deg q'$
 
-    $\deg \frac{p}{q} = \deg p - \deg q$
+    Таким образом можно определить степень рациональной дроби $\deg s = \deg \frac{p}{q} = \deg p - \deg q$
 \end{proof}
 
 \begin{defn}
@@ -125,17 +138,20 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
 \end{lemma}
 
 \begin{proof}
-    $s = \frac{p}{q}$
 
-    $p = q \cdot t + r$, где $r = 0$ или $\deg r < \deg q$
+    <<Существование>>:
 
-    $\implies \frac{p}{q} = t + \frac{r}{q},~t \in K[x],~\frac{r}{q}$ --- правильная дробь
+    Пусть $s = \frac{p}{q}$, поделим на $p$ на $q$, получается:
 
-    $t + \frac{r}{q} = t_1 + \frac{r_1}{q_1}, t_1 \in K[x], \frac{r_1}{q_1}$ --- правильная дробь
+    $p = q \cdot t + r$, где $r = 0$ или $\deg r < \deg q \implies \frac{p}{q} = t + \frac{r}{q},~t \in K[x],$ где $\frac{r}{q}$ --- правильная дробь
+
+    <<Единственность>>:
+
+    $t + \frac{r}{q} = t_1 + \frac{r_1}{q_1},~ t_1 \in K[x],$ где $\frac{r_1}{q_1}$ --- правильная дробь
 
     $t - t_1 = \frac{r_1}{q_1} - \frac{r}{q}$ --- правильная дробь
 
-    $t - t_1 = \frac{t - t_1}{1} \implies \deg(t - t_1) < 0 \implies  t - t_1 = 0$
+    $t - t_1 = \frac{t - t_1}{1} = \frac{r_1}{q_1} - \frac{r}{q} \implies \deg(\frac{r_1}{q_1} - \frac{r}{q}) = \deg(t - t_1) < 0 \implies  t - t_1 = 0 = \frac{r_1}{q_1} - \frac{r}{q}$
 \end{proof}
 
 \begin{lemma}
@@ -148,30 +164,27 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
     $\frac{a}{fg} = \frac{a(cd + dg)}{fg} = \frac{acf}{fg} + \frac{adg}{fg} = \frac{ac}{g} + \frac{ad}{f}$
 \end{proof}
 
-\begin{proof}
-    Дробь $s$ называется примарной ($p$-примарной), если $s = \frac{a}{p^n}$, $p$ --- неприводимый многочлен, $n \in \N$
-\end{proof}
+\begin{defn}
+    Дробь $s$ называется \emph{примарной} (\emph{$p$-примарной}), если $s = \frac{a}{p^n},~ p$ --- неприводимый многочлен, $n \in \N$
+\end{defn}
 
 \begin{theorem-non}
-    Любую правильную дробь можно однозначно представить в виде суммы нескольких отличных от $0$ правильных $p$-примарных дробей, где $p$-различные унитарные неприводимые многочлены.
+    Любую правильную дробь можно однозначно представить в виде суммы нескольких отличных от $0$ правильных $p$-примарных дробей, где $p$ --- различные унитарные неприводимые многочлены.
 \end{theorem-non}
 
 \begin{proof}
+    
     <<Существование>>:
 
     Запишем значение $s$ в виде $p_1^{m_1} \ldots p_t^{m_t}$, где $p_i$ --- унитарные неприводимые многочлены
 
-    $p_1^{m_1} \ldots p_t^{m_t} = (p_1^{m_1} \ldots p_{t-1}^{m_{t-1}}) \cdot p_t^{m_t}$ (старшие коэффиценты ушли в числитель)
+    По лемме $s = \frac{\ldots}{p_1^{m_1}} + \frac{\ldots}{p_t^{m_t}} = \frac{a_1}{p_1^{m_1}} + \ldots + \frac{a_t}{p_t^{m_t}}$
+    
+    Перепишем это в виде суммы многочлена и правильных дробей, с тем же знаменателем, получим:
 
-    По лемме
+    $s = f + \frac{b_1}{p_1^{m_1}} + \ldots + \frac{b_t}{p_t^{m_t}},~f \in K[x],~\frac{b_j}{p_j^{m_j}}$ --- правильная дробь
 
-    $s = \frac{\ldots}{p_1^{m_1}} + \frac{\ldots}{p_t^{m_t}} = \frac{a_1}{p_1^{m_1}} + \ldots + \frac{a_t}{p_t^{m_t}}$ (многочлен и правильная дробь, с тем же знаменателем)
-
-    $\implies s = f + \frac{b_1}{p_1^{m_1}} + \ldots + \frac{b_t}{p_t^{m_t}},~f \in K[x],~\frac{b_j}{p_j^{m_j}}$ --- правильная дробь
-
-    $\implies f = s - \frac{b_1}{p_1^{m_1}} - \ldots - \frac{b_t}{p_t^{m_t}}$
-
-    $\implies \frac{f}{1}$ --- правильная дробь
+    $\implies f = s - \frac{b_1}{p_1^{m_1}} - \ldots - \frac{b_t}{p_t^{m_t}}$, где $\frac{f}{1}$ --- правильная дробь
 
     $\implies \deg f < 0 \implies f = 0$
 
@@ -189,13 +202,7 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
 
     $\implies \frac{c_1}{p_1^{n_1}} + \ldots + \frac{c_{l-1}}{p_{l-1}^{n_{l-1}}} = \frac{-c_l}{p_l^{n_l}}$
 
-    Приведем к общему знаменателю и сделаем их сократимыми
-
-    знаменатель будет делиться на $p_1^{n_1} \ldots p_{l-1}^{n_{l-1}}$
-
-    не может быть ассоциированно с $p_l^{n_l}$
-
-    $\frac{b_i}{p_i^{m_i}} - \frac{b_i'}{p_i^{m_i}} = \frac{\ldots}{p_i^{n_i}}$
+    Приведем к общему знаменателю левую часть и сократим дробь, тогда знаменатель полученной дроби будет делить $p_1^{n_1} \ldots p_{l-1}^{n_{l-1}}$ и не будет ассоциирован с $p_l^{n_l}$, так как не может быть делителем $p_l$, противоречие.
 \end{proof}
 
 \begin{defn}
@@ -203,10 +210,11 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
 \end{defn}
 
 \begin{theorem}
-    Любая ненулувая правильная дробь единственным образом представляется в виде суммы нескольких простых дробей с различными знаменателями.
+    Любая ненулувая правильная дробь единственным образом представляется в виде суммы нескольких простейших дробей с различными знаменателями.
 \end{theorem}
 
 \begin{proof}
+
     <<Существование>>:
 
     Достаточно разложить правильную примарную дробь $\frac{a}{p^n}$
@@ -225,7 +233,7 @@ $R \lbl{$\eps$}{\mapsto} Q(R),~ r \mapsto \frac{r}{1}$
 
     $s = C_{p_1} + \ldots + C_{p_t} \implies$ все $C_p$ определены однозначно
     
-    Пусть у $C_p$ есть лва разных разложения в сумму простейших дробей со степенями $p$ в знаменателях.
+    Пусть у $C_p$ есть два разных разложения в сумму простейших дробей со степенями $p$ в знаменателях.
 
     $\frac{r_n}{p_n} + \ldots + \frac{r_1}{p_1} = \frac{s_n}{p_n} + \ldots + \frac{s_1}{p_1}$, где $n$ --- максимальная показатель степени $p$ в знаменателях
 

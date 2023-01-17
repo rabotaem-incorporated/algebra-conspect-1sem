@@ -1,22 +1,22 @@
 \subsection{Факториальность области главных идеалов}
 
 \begin{defn}
-    Пусть $R$ - коммутативное кольцо.
-    Элемент $a$ называется \emph{неприводимым}, если $a \neq 0$, $a \notin R^*$ и $a = bc \implies b \in R:*$ или $c \in R^*$.
+    Пусть $R$ --- коммутативное кольцо.
+    Элемент $a$ называется \emph{неприводимым}, если $a \neq 0$, $a \notin R^*$ и $a = bc \implies b \in R^*$ или $c \in R^*$.
 
     То есть неприводимый элемент --- необратимый элемент, который не раскладывается в произведение двух обратимых. 
 \end{defn}
 
 \begin{defn}
-    \emph{Приводимый элемент} --- не $0$, не обратный, не неприводимый.
+    \emph{Приводимый элемент} --- элемент, который не является ни $0$, ни обратимым, ни неприводимым.
 \end{defn}
 
 \begin{examples}~
 
     \begin{enumerate}
-        \item $R = K[x]$, ($K$ - поле)
+        \item $R = K[x]$, ($K$ --- поле)
         
-        $\deg f = 1 \implies f$ - неприводимый, так как $f = bc, \deg f = \deg b + \deg c = 1 + 0 = 0 + 1 = 1$
+        $\deg f = 1 \implies f$ --- неприводимый, так как $f = bc,~ \deg f = \deg b + \deg c = 1 + 0 = 0 + 1 = 1$
 
         \item $\R[x]$: 
         
@@ -33,18 +33,20 @@
 
 \begin{proof}
 
-    <<$\Longrightarrow$>>:
+    <<$\Rightarrow$>>:
 
-    $a$ - корень $f \lbl{т. Безу}{\implies} (X - a) \mid f$. Рассмотрим разложение $f = (X - a) \cdot g$.
+    $a$ --- корень $f \lbl{т. Безу}{\implies} (X - a) \mid f$. Рассмотрим разложение $f = (X - a) \cdot g$.
     Так как $\deg g = \deg f - 1 \geq 1$, оно нетривиально и $f$ --- приводимый.
 
-    <<$\Longleftarrow$>>:
+    <<$\Leftarrow$>>:
 
     Пусть $f = gh$ и $\deg g,~\deg h \geq 1$, не умаляя общности, $\deg g \geq \deg h$. Тогда:
     \begin{gather*}
         \underbrace{\deg f}_{2\text{ или }3} = \deg g + \deg h
     \end{gather*}
     Есть два стула: $2 = 1 + 1$ и $3 = 2 + 1$ (на какой сам сядешь, на какой друга посадишь?)
+
+    В любом случае:
     \begin{gather*}
         \deg h = 1 \implies h = aX + b \implies h \left( -\frac{b}{a} \right) = 0 \implies f \left( -\frac{b}{a} \right) = 0.
     \end{gather*}
@@ -61,14 +63,12 @@
     \end{example}
 \end{notice}
 
-% new information
-
 \begin{notice}
-    $R$ --- ОГИ
+    Далее считается, что $R$ --- область главных идеалов
 \end{notice}
 
 \begin{lemma}
-    Пусть $p, f \in R$. $p$ - неприводимый элемент. Тогда $p \mid f$ либо $(p, f) = 1$.
+    Пусть $p, f \in R$. $p$ --- неприводимый элемент. Тогда $p \mid f$ либо $(p, f) = 1$.
 \end{lemma}
 
 \begin{proof}
@@ -76,22 +76,22 @@
 \end{proof}
 
 \begin{theorem-non}
-    Пусть $p$ - неприводимый, $p \mid ab \implies p \mid a$ или $p \mid b$.
+    Пусть $p$ --- неприводимый$,~ p \mid ab \implies p \mid a$ или $p \mid b$.
 \end{theorem-non}
 
 \begin{proof}
-    Пусть $p \nmid a, p \nmid b \implies (p, a) = (p, b) = 1 \implies$
+    Пусть $p \nmid a,~ p \nmid b \implies (p, a) = (p, b) = 1 \implies$
 
-    $pm + an = 1, pm' + an' = 1 \lbl{перемножим}{\implies} p(pmm' + mbn' + anm') + abnn' = 1 \implies p \mid 1$
+    $pm + an = 1,~ pm' + bn' = 1 \lbl{перемножим}{\implies} p(pmm' + mbn' + anm') + abnn' = 1 \implies p \mid 1$
 \end{proof}
 
 \begin{defn}
     Область целостности $R$ называют факториальным кольцом, если:
 
     \begin{enumerate}
-        \item Любой $a \in \R$ отличный от $0$ и не являющийся обратимым можно представить в виде $a = p_1 \ldots p_s, s \geq 1$ и $p_1, \ldots, p_s$ - неприводимые элементы.
+        \item Любой $a \in R$ отличный от $0$ и не являющийся обратимым можно представить в виде $a = p_1 \ldots p_s,~ s \geq 1$ и $p_1, \ldots, p_s$ --- неприводимые элементы.
         
-        \item Если $p_1 \ldots p_s = q_1 \ldots q_t$, где все $p_i, q_i$ - неприводимые элементы, то $s = t$ и после перенумерации $q_j$ выполнено $q_1 \sim p_1, \ldots, q_s \sim p_s$.
+        \item Если $p_1 \ldots p_s = q_1 \ldots q_t$, где все $p_i, q_i$ --- неприводимые элементы, то $s = t$ и после перенумерации $q_j$ выполнено $q_1 \sim p_1, \ldots, q_s \sim p_s$.
     \end{enumerate}
 \end{defn}
 
@@ -100,70 +100,63 @@
 \end{theorem}
 
 \begin{proof}
-    Есть элемент $a$, докажем что существует неприводимый $p$ такой, что $p \mid a$.
 
-    Возьмем $a$, если он неприводимый, то доказывать нечего (т.к. $a \mid a$), иначе: $a = a_1 b_1$, где $a_1, b_1 \notin R^*$ (не являются обратимыми)
+    \begin{enumerate}
+        \item <<Существование разложения>>
+        
+        Есть элемент $a$, докажем что существует неприводимый $p$ такой, что $p \mid a$.
 
-    $a_1$ -- неприводимый, следовательно утверждение доказано, иначе $a_1 = a_2 b_2$, где $a_2, b_2 \notin R^*$
-
-    и так далее
-
-    Предположим, утверждение неверно. Обозначим $I = \bigcup\limits_{i = 1}^{\infty} (a_i)$
-
-    $x, y \in I \implies x + y \in I$
-
-    Можно заметить, что  $a_2 \mid a_1, a_3 \mid a_2, \ldots \implies (a_1) \subset (a_2) \subset \ldots$
-
-    $x \in (a_i), y \in (a_j)$, не умаляя общности $i \leq j$
-
-    $x, y \in (a_j) \implies x+y \in (a_j) \subset I$
-
-    $x \in I \implies x \in (a_i)$ для некоторого $i$
-
-    $a \in R \implies ax \in (a_i) \subset I$
-
-    $I = (c), c \in I \implies c \in (a_i)$ для некоторого $i$
-
-    $a_{i+1} \in I \implies c \mid a_{i+1}$
-
-    $a_i \mid c \implies a_i \mid a_{i+1}$
-
-    $a_i = a_{i + 1} \cdot b_{i + 1} \implies b_{i + 1} \in R^*$ 
-
-    Значит любой обратимый элемент делится на неприводимый.
-
-    $a \in R, a \neq 0, a \notin R^*$
-
-    $a$ неприводимый $\implies$ все доказано, иначе $a = p_1 a_1,~p_1 \notin R^*$, $p_1$ -- неприводимый
-
-    $a_1$ неприводимый $\implies$ все доказано, иначе $a_1 = p_2 a_2,~p_2 \notin R^*$, $p_2$ -- неприводимый
-
-    и так далее
-
-    Можно заметить, что  $a_2 \mid a_1, a_3 \mid a_2, \ldots \implies (a_1) \subset (a_2) \subset \ldots$
-
-    Аналогично доказывается, что существуют $a_i \sim a_{i + 1}$ ассоциированные $\implies p_{i + 1} \in R^*$. Противоречие.
-
-    Единственность разложения:
-
-    Пусть $p_1 \ldots p_s = q_1 \ldots q_t$, где все $p_i, q_i$, не умаляя общности $s \leq t$
-
-    Индукция по $S$
-
-    \textsl{База:} $s = 1$ 
-
-    $p_1 = q_1 \ldots q_t$. $p_1$ - неприводимый $\implies t = 1,~q_1 = p_1$.
-
-    \textsl{Переход:} $s > 1$
-
-    $p_s \mid (p_1 \ldots p_s) \implies p_s \mid (q_1 \ldots q_t) \implies \exists j: p_s \mid q_j$
-
-    Перенумеруем, так чтобы $j = t$. $q_t = p_s \cdot \eps$, но $q_t$ неприводим $\implies \eps \in R^*$
+        Возьмем $a$, если он неприводимый, то доказывать нечего (т.к. $a \mid a$), иначе: $a = a_1 b_1$, где $a_1, b_1 \notin R^*$ ($a$ не неприводим $\implies a_1, b_1$ оба обратимы либо оба необратимы, если оба обратимы, то $a$ обратим, а нас такие элементы не интересуют) 
     
-    $p_1 \ldots p_s = q_1 \ldots q_{t - 1} \cdot \eps p_s \implies p_1 \ldots p_{s-1} = q_1 \ldots q_{t - 1} \cdot \eps = \underbrace{(\eps q_1)}_{\text{неприводимый}} \cdot q_2 \ldots q_{t - 1}$
+        $a_1$ -- неприводимый, следовательно утверждение доказано, иначе $a_1 = a_2 b_2$, где $a_2, b_2 \notin R^*$
+    
+        и так далее
+    
+        Предположим, утверждение неверно. Обозначим $I = \bigcup\limits_{i = 1}^{\infty} (a_i)$. 
+    
+        Можно заметить, что  $a_2 \mid a_1,~ a_3 \mid a_2,~ \ldots \implies (a_1) \subset (a_2) \subset \ldots$
+    
+        Покажем, что $I$ --- главный идеал. 
+        \begin{enumerate}
+            \item $x, y \in (a_j) \subset I \implies x+y \in (a_j) \subset I$
+    
+            \item $x \in I \implies x \in (a_i)$ для некоторого $i$, тогда для $a \in R \implies ax \in (a_i) \subset I$
+        \end{enumerate} 
+    
+        Значит $I$ главный идеал, тогда $I = (c)$ для некоторого $c \in I \implies c \in (a_i)$ для некоторого $i$, при этом $a_{i+1} \in I \implies c \mid a_{i+1}$
+    
+        $\begin{cases}
+            a_i \mid c\\
+            c \mid a_{i + 1}
+        \end{cases} \implies a_i \mid a_{i+1} \lbl{$a_{i + 1} \mid a_i$}{\implies} a_i \sim a_{i + 1} \implies$ цепочка когда-то прервется, так как $a_i = a_{i + 1} \cdot b_{i + 1}$, где $a_i = \eps a_{i + 1},~ \eps \in R^* \implies b_{i + 1} = \eps \in R^*$ 
+    
+        Значит любой необратимый элемент делится на неприводимый.
 
-    По индукционному предположению $p_1 \ldots p_{s-1}$ совпадает с $(\eps q_1) \cdot q_2 \ldots q_{t - 1}$ c точностью до порядка и ассоциировнности.
+        \item <<Единственность разложения>>
+
+        Пусть $p_1 \ldots p_s = q_1 \ldots q_t$, где все $p_i, q_i$ --- неприводимы и не умаляя общности $s \leq t$
+    
+        Индукция по $S$
+    
+        <<База>>: $s = 1$ 
+    
+        $p_1 = q_1 \ldots q_t$, где $p_1$ --- неприводимый $\implies t = 1,~q_1 = p_1$.
+    
+        <<Переход>>: $s > 1$
+    
+        $p_s \mid (p_1 \ldots p_s) \implies p_s \mid (q_1 \ldots q_t) \implies \exists j: p_s \mid q_j$
+    
+        Перенумеруем, так чтобы $j = t$, тогда $q_t = p_s \cdot \eps$, но $q_t$ неприводим $\implies \eps \in R^*$
+        
+        $p_1 \ldots p_s = q_1 \ldots q_{t - 1} \cdot \eps p_s \implies p_1 \ldots p_{s-1} = q_1 \ldots q_{t - 1} \cdot \eps = \underbrace{(\eps q_1)}_{\text{неприводимый}} \cdot q_2 \ldots q_{t - 1}$
+    
+        По индукционному предположению $p_1 \ldots p_{s-1}$ совпадает с $(\eps q_1) \cdot q_2 \ldots q_{t - 1}$ c точностью до порядка и ассоциировнности.
+    \end{enumerate}
 \end{proof}
+
+\begin{notice}
+    Евклидова область $\subset$ Область главных идеалов $\subset$ Факториальное кольцо $\subset$ Область целостности
+\end{notice}
 
 \begin{examples}~
 

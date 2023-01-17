@@ -25,9 +25,9 @@
 
      $\implies \Delta \arg f(r(\cos(\phi) + i\sin(\phi))) = 2\pi n$.
 
-     $D = \{z \in \CC \mid |z| \le r\}$
+     $D = \{z \in \CC \mid |z| \leq r\}$
 
-     $\overset{\text{Топология}}{\implies} f(D)$ - односвязная область.
+     $\overset{\text{Топология}}{\implies} f(D)$ --- односвязная область.
 
      $\implies 0 \in f(D) \implies \exists z~f(z) = 0$.
 \end{proof}
@@ -39,61 +39,62 @@
 
     Для $\Q$ это поле алгебраических чисел.
 
-    Алгебраическое число - комплексный корень многочлена над $\Q$.
+    Алгебраическое число --- комплексный корень многочлена над $\Q$.
 \end{notice}
 
 \begin{theorem-non}
-    $K$ - алгебраически замкнутое поле, $f \in K[x]$.
+    $K$ --- алгебраически замкнутое поле, $f \in K[x]$.
 
-    Тогда $f$ - неприводим $\iff \deg f = 1$.
+    Тогда $f$ --- неприводим $\iff \deg f = 1$.
 \end{theorem-non}
 
 \begin{proof}
-    Все многочлены $\deg = 1$ неприводимы.
+    Все многочлены степени $1$ неприводимы.
 
     $\deg f \neq 1 \implies \exists x \in K: f(x) = 0$
 
-    $\overset{\text{Т. Безу}}{\implies} (x - c) \mid f$
+    $\overset{\text{Т. Безу}}{\implies} (x - c) \mid f \implies$ он приводим
 
-    Таким образомб если $f \in K[x], \deg f \ge 1$, то его каноническое разложение имеет вид:
-
-    $f = c_0\prod\limits_{i = 1}^n (x - c_i)^{d_i}$, где $c_i \in K,~d_i \in \Z_+$.
+    Таким образом если $f \in K[x],~ \deg f \geq 1$, то его каноническое разложение имеет вид: \[f = c_0\prod\limits_{i = 1}^n (x - c_i)^{d_i},\] где $c_i \in K,~d_i \in \Z_+$.
 \end{proof}
 
 \begin{theorem-non}
-    $f \in \R[x],~ a \in CC$ - его корень.
+    $f \in \R[x],~ a \in \CC$ --- его корень.
 
-    Тогда $\bar{a}$ - корень $f$ той же кратности.
+    Тогда $\oln{a}$ --- корень $f$ той же кратности.
 \end{theorem-non}
 
-\begin{proof}~
-    $l$ - кратность $a$.
+\begin{proof}
+    
+    Пусть $l$ --- кратность корня $a$.
 
-    В $\CC[x]~f = (x - a)^lg,~ g \in \CC[x],~ g(a) \neq 0$.
+    В $\CC[x]$ имеем $f = (x - a)^lg,\quad g \in \CC[x],~ g(a) \neq 0$.
 
     Пусть $g = b_nx^n + \dots + b_1x + b_0$.
 
-    Рассмотрим $\bar{g} = \bar{b_n}x^n + \dots + \bar{b_1}x + \bar{b_0}$.
+    Рассмотрим $\oln{g} = \oln{b_n}x^n + \dots + \oln{b_1}x + \oln{b_0}$.
 
-    Тогда $f = \bar{f} = \overline{(x - a)^l}\bar{g} = (x - \bar{a})^l\bar{g} \implies f(\bar{a}) = 0$
+    Тогда $f = \oln{f} = \oln{(x - a)^l}\oln{g} = (x - \oln{a})^l\oln{g} \implies f(\oln{a}) = 0$
 
-    $g(a) = \overline{\bar{g}(\bar{a})} \implies x - \bar{a} \nmid \bar{g}$
+    $0 \neq g(a) = \overline{\oln{g}(\oln{a})} \implies (x - \oln{a}) \nmid \oln{g}$
 
-    $\implies \bar{a}$ - корень $f$ кратности $l$
+    $\implies \oln{a}$ --- корень $f$ кратности $l$
 
-    $\implies$ все корни входят парами
+    $\implies$ все корни разбиваются на пары сопряженных, тогда каноническое разложение в $\CC[x]$ имеет вид:
+    \[f = r_0\left(\prod\limits_{i = 1}^n (x - r_i)^{d_i}\right) \cdot \left(\prod\limits_{i = 1}^m ((x - c_i)(x - \oln{c_i}))^{p_i}\right),\]
+    где $r_i \in \R,~d_i \in Z_+,~c_i,\oln{c_i} \in \CC,~p_i \in \Z_+$.
+    \[\iff f = r_0\left(\prod\limits_{i = 1}^n (x - r_i)^{d_i}\right) \cdot \left(\prod\limits_{i = 1}^m B_i^{p_i}\right),\] 
+    $B_i$ --- квадратичные многочлены, неприводимые в $\R$.
 
-    $\implies f = r_0\left(\prod\limits_{i = 1}^n (x - r_i)^{d_i}\right) \cdot \left(\prod\limits_{i = 1}^m ((x - c_i)(x - \bar{c_i}))^{p_i}\right)$, где $r_i \in \R,~d_i \in Z_+,~c_i \in \CC,~p_i \in \Z_+$.
-
-    $\implies f = r_0\left(\prod\limits_{i = 1}^n (x - r_i)^{d_i}\right) \cdot \left(\prod\limits_{i = 1}^m B_i^{p_i}\right),~ B_i$ - квадратичные многочлены, неприводимые в $\R$.
+    $B_i = (x - c_i)(x - \oln{c_i}) = x^2 - (c_i + \oln{c_i})x + c_i \oln{c_i} = x^2 - 2 \Re c_i x + |c_i|^2 \in \R[x]$
 \end{proof}
 
 \begin{theorem-non}
-    Унитарные неприводимые многочлены в $\R$ - это:
+    Унитарные неприводимые многочлены в $\R$ --- это:
 
-    1. $x - a,~ a \in \R$
+    1. $x - a,\quad a \in \R$
 
-    2. $x^2 + ax + b,~ a, b \in \R,~ b^2 - 4ac < 0$
+    2. $x^2 + ax + b,\quad a, b \in \R,~ b^2 - 4ac < 0$
 \end{theorem-non}
 
 \begin{proof}~

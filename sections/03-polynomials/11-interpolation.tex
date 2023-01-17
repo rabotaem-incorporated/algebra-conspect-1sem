@@ -1,14 +1,14 @@
 \subsection{Интерполяция}
 
 \begin{theorem}
-    Пусть $K$ --- поле, $n \in \N$: $x_1, x_2, \ldots, x_n \in K$, различные между собой. $y_1, y_2, \ldots, y_n \in K$. Тогда $\exists! f \in K[x]: \deg f \leq n - 1$ и $f(x_i) = y_i,~i = 1, \ldots, n$.
+    Пусть $K$ --- поле$,~ n \in \N:~ x_1, x_2, \ldots, x_n \in K,$ различные между собой. $y_1, y_2, \ldots, y_n \in K$. Тогда $\exists! f \in K[x]: \deg f \leq n - 1$ и $f(x_i) = y_i,~i = 1, \ldots, n$.
 \end{theorem}
 
 \begin{proof}
 
     <<Единственность>>:
 
-    Предположим, что существует $f, g \in K[x],~\deg \leq n - 1,~\deg g \leq n - 1, f(x_i) = g(x_i) = y_i,~i = 1, \ldots, n$
+    Предположим, что существует два многочлена $f, g \in K[x],~\deg f \leq n - 1,~\deg g \leq n - 1:~ f(x_i) = g(x_i) = y_i,~i = 1, \ldots, n$
 
     $\letus h = f - g,~\deg h \leq n - 1,~h(x_i) = 0,~i = 1, \ldots, n$
 
@@ -18,7 +18,7 @@
 
     \textbf{Формула Лагранжа}
 
-    Решим интерполяционную задачу в специальном случае, когда $y_1 = 1, y_2 = \ldots = y_n = 0$.
+    Решим интерполяционную задачу в специальном случае, когда $y_1 = 1,~ y_2 = \ldots = y_n = 0$.
 
     Найдем соответствующий многочлен $f_1$.
 
@@ -34,7 +34,7 @@
 
     $f_i = \frac{(x - x_1) \ldots \widehat{(x - x_i)} \ldots (x - x_n)}{(x_i - x_1) \ldots \widehat{(x_i - x_i)} \ldots (x_i - x_n)} = \frac{(x - x_1) \ldots \widehat{(x - x_i)} \ldots (x - x_n)}{F'(x_i)}$
 
-    Рассмотрим $f = y_1 f_1 + y_2 f_2 + \ldots + y_n f_n$, $y_1, \ldots, y_n$ теперь произвольные.
+    Рассмотрим $f = y_1 f_1 + y_2 f_2 + \ldots + y_n f_n,\quad y_1, \ldots, y_n$ теперь произвольные.
 
     $\deg \leq \max(\deg f_1, \ldots, \deg f_n) = n - 1$
 

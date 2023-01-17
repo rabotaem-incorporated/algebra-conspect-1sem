@@ -5,13 +5,13 @@
 
     $(X - a) \mid f$ по теореме Безу.
 
-    Наибольший $n$, такой что $(X - a)^n \mid f$, называется кратностью корня $a$. Можно заметить, что $n \leq \deg f$, поэтому он всегда существует.
+    Наибольший $n$, такой что $(X - a)^n \mid f$, называется \emph{кратностью корня} $a$. Можно заметить, что $n \leq \deg f$, поэтому он всегда существует.
 
-    Корни кратности $1$ называются простыми корнями $f$,
+    Корни кратности $1$ называются \emph{простыми корнями} $f$,
 
-    корни кратности $\leq 2$ называются кратными корнями $f$,
+    корни кратности $\leq 2$ называются \emph{кратными корнями} $f$,
 
-    корни кратности $2$ --- двойными, $3$ --- тройными
+    корни кратности $2$ --- \emph{двойными}, $3$ --- \emph{тройными}
 \end{defn}
 
 \begin{theorem}
@@ -25,35 +25,27 @@
 \begin{proof}
     Разложим $f$ на неприводимые множители.
 
-    $X - a_j$ --- неприводимые
+    $f = (X - a_1)^{m_1} \ldots (X - a_s)^{m_s} \cdot g$, где $g \in K[x]$ и $(X - a_j)$ --- неприводимые множители.
 
-    $f = (X - a_1)^{m_1} \ldots (X - a_s)^{m_s} \cdot g,~g \in K[x]$
-
-    $(X - a_1) \neq g, \ldots, (X - a_s) \neq g$
-
-    $m_1 \leq n_1, \ldots, m_s \leq n_s$
-
-    Предположим, при некотором $j$: $n_j > m_j \implies$
+    Заметим, что $(X - a_1) \neq g,~ \ldots,~ (X - a_s) \neq g$.
+    
+    Считаем, что $m_1 \leq n_1,~ \ldots,~ m_s \leq n_s$. Предположим, при некотором $j$: $n_j > m_j \implies$
 
     $(X - a_j)^{m_j + 1} \mid f \implies (X - a_j)^{m_j + 1} \cdot h = (X - a_1)^{m_1} \ldots (X - a_s)^{m_s} \cdot g \implies$
  
     $(X - a_j) \cdot h = (X - a_1)^{m_1} \ldots \widehat{(X - a_j)^{m_j}} \ldots (X - a_s)^{m_s} \cdot g \implies$
 
     $(X - a_j) \mid (X - a_1)^{m_1} \ldots \widehat{(X - a_j)^{m_j}} \ldots (X - a_s)^{m_s} \cdot g \implies$
+    
+    Либо $(X - a_j) \mid (X - a_i),~ i \neq j$ или $(X - a_j) \mid g$, но такого не может быть, значит $m_j = n_j,~ j = 1, \ldots, s$.
 
-    Очевидно, $(X - a_j) \mid (X - a_i)$, ($i \neq j$).
-
-    $(X - a_j) \nmid g$ --- противоречие.
-
-    Т.о. $m_j = n_j, j = 1, \ldots, s$.
-
-    $d = \deg f = m_1 + \ldots + m_s + \underbrace{\deg g}_{\geq 0} \geq n_1 + \ldots + n_s$
+    Тогда $d = \deg f = m_1 + \ldots + m_s + \underbrace{\deg g}_{\geq 0} \geq n_1 + \ldots + n_s$
 \end{proof}
 
 \begin{defn}
     Пусть $f \in K[X]$, $f = a_n X_n + a_{n-1} X_{n-1} + \ldots + a_1 X_1 + a_0$
 
-    Его производной будет называться многочлен $f' \in K[X]$, $f' = n a_n X_{n-1} + (n-1) a_{n-1} X_{n-2} + \ldots + a_1$
+    Его \emph{производной} будет называться многочлен $f' \in K[X]$, $f' = n a_n X_{n-1} + (n-1) a_{n-1} X_{n-2} + \ldots + a_1$
 \end{defn}
 
 \begin{theorem-non}~
@@ -70,58 +62,58 @@
 \begin{proof}~
 
     \begin{enumerate}
-        \item лёгкая непосредственная проверка (сначала очевидно, потом тривиально)
+        \item лёгкая непосредственная проверка (сначала очевидно, потом тривиально, как всегда короче)
         
         \item Пусть $f, g$ --- мономы, то есть $f = a X^n,~g = b X^m$
         
         $(fg)' = (ab X^{n + m})' = (n + m)ab X^{n + m - 1} = n \cdot ab X^{n + m - 1} + m \cdot ab X^{n + m - 1} = $
         \[ \underbrace{naX^{n - 1}}_{f'} \cdot \underbrace{bX^m}_{g} + \underbrace{aX^n}_{f} \cdot \underbrace{mbX^{m - 1}}_{g'} \]
 
-        $f = \sum f_i,~g = \sum g_i, f_i, g_i$ --- мономы
+        $f = \sum f_i,~g = \sum g_i,\quad f_i, g_i$ --- мономы
         
         $(fg)' = \left( \sum\limits_{i, j} f_i g_j \right) = \sum\limits_{i, j} (f_i g_j)' = \sum\limits_{i, j} (f_i' g_j + f_i g_j') = \sum\limits_{i, j} f_i' g_j + \sum\limits_{i, j} f_i g_j' = \sum\limits_{i} f_i' \sum\limits_{j} g_j + \sum\limits_{i} f_i \sum\limits_{j} g_j' = f'g + fg'$
 
         \item Индукция по $n$
         
-        \textsl{База:} $n = 1$
+        <<База>>: $n = 1$
 
         $f' = f'$
 
-        \textsl{Переход:} $n > 1$
+        <<Переход>>: $n > 1$
 
-        $(f^n)' = (f^{n-1} \cdot f)' = (f^{n-1})' \cdot f + f^{n-1} \cdot f' \lbl{ИП}{=} \left( (n-1) \cdot f' \cdot f^{n-2} \right) \cdot f + f^{n-1} \cdot f' = (n - 1) f' \cdot f^{n-1} + f' \cdot f^{n - 1} = n f^{n-1} f'$
+        $(f^n)' = (f^{n-1} \cdot f)' = (f^{n-1})' \cdot f + f^{n-1} \cdot f' \lbl{переход}{=}$ 
+        
+        $\left( (n-1) \cdot f' \cdot f^{n-2} \right) \cdot f + f^{n-1} \cdot f' = (n - 1) f' \cdot f^{n-1} + f' \cdot f^{n - 1} = n f^{n-1} f'$
 
     \end{enumerate}
 \end{proof}
 
 \begin{theorem-non}
-    $K$-поле. $f \in K[X], f \neq 0, a \in K$
+    $K$ --- поле. $f \in K[X],~ f \neq 0,~ a \in K$
 
     Тогда $a$ кратный корень $f \iff f(a) = f'(a) = 0$
 \end{theorem-non}
 
 \begin{proof}
 
-    <<$\Longrightarrow$>>:
+    <<$\Rightarrow$>>:
 
-    $a$ кратный корень $f \implies (X - a)^2 \mid f \implies f = (X - a)^2 \cdot g, g \in K[X]$
+    $a$ кратный корень $f \implies (X - a)^2 \mid f \implies f = (X - a)^2 \cdot g,\quad g \in K[X]$
 
     $f' = \left( (X - a)^2 \right)' \cdot g + (X - a)^2 \cdot g' = 2(X - a) \cdot g + (X - a)^2 \cdot g' \implies f'(a) = 0$
 
-    <<$\Longleftarrow$>>:
+    <<$\Leftarrow$>>:
 
     Пусть $f(a) = f'(a) = 0$.
 
-    $f(a) = 0 \lbl{т.Безу}{\implies} f = (X - a) \cdot g, g \in K[X] \implies$
-
-    $f' = g + (X - a) g'$
+    $f(a) = 0 \lbl{т.Безу}{\implies} f = (X - a) \cdot g,\quad g \in K[X] \implies f' = g + (X - a) g'$
 
     $f'(a) = 0 \implies g(a) = 0 \implies (X - a) \mid g \implies (X - a)^2 \mid f \implies a$ кратный корень $f$
 
 \end{proof}
 
 \begin{follow}
-    $K$-поле. $f \in K[X], f \neq 0, a \in K$
+    $K$ --- поле. $f \in K[X],~ f \neq 0,~ a \in K$
 
     Пусть $D = (f, f')$
 
@@ -132,20 +124,28 @@
     $a$ кратный корень $\iff$ $f(a) = f'(a) = 0 \lbl{т.Безу}{\iff} (X - a) \mid f$ и $(X - a) \mid f' \iff (X - a) \mid D \lbl{т.Безу}{\iff} D(a) = 0$
 \end{proof}
 
-\begin{theorem-non}
-    $K$-поле. Характеристика $0$, то есть $\underbrace{1 + \ldots + 1 \neq 0}_{n}, \forall n \in \N$
+\begin{defn}
+    Для кольца с $1$ \emph{характеристикой} $\Char R$ называется минимальное $n \in \N$ такое, что $\underbrace{1 + \ldots + 1}_{n} = 0$, а если такого $n$ нет, то $\Char R = 0$
+\end{defn}
 
-    $f \in K[X], a \in K$ --- корень $f$ кратности $s \geq 2$.
+\begin{theorem-non}
+    $K$ --- поле c характеристикой $0$, то есть $\underbrace{1 + \ldots + 1}_{n} \neq 0,\quad \forall n \in \N$
+
+    $f \in K[X],~ a \in K$ --- корень $f$ кратности $s \geq 2$.
 
     Тогда $a$ --- корень $f'$ кратности $s - 1$
 \end{theorem-non}
 
 \begin{proof}
-    $f = (X - g)^s g$ 
+    $f = (X - a)^s g$ 
 
     $(X - a) \nmid g \lbl{т.Безу}{\implies} g(a) \neq 0$
 
-    $f' = \left( (X - a)^s \right)' \cdot g + (X - a)^s \cdot g' = s(X - a)^{s - 1} \cdot g + (X - a)^s \cdot g' = (X - a)^{s-1} \cdot h$, где $h = s \cdot g + (X - a) g'$
+    $f' = \left( (X - a)^s \right)' \cdot g + (X - a)^s \cdot g' = $
+    
+    $s(X - a)^{s - 1} \cdot g + (X - a)^s \cdot g' = $
+    
+    $(X - a)^{s-1} \cdot h$, где $h = s \cdot g + (X - a) g'$
 
-    $h(a) = s \cdot g(a) \neq 0 \implies (X - a) \nmid h$
+    $h(a) \lbl{$\Char K = 0$}{=} s \cdot g(a) \neq 0 \implies (X - a) \nmid h$
 \end{proof}

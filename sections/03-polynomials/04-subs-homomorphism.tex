@@ -1,7 +1,7 @@
 \subsection{Гомоморфизм подстановки}
 
 \begin{defn}
-    Пусть $R, S$ -- кольца. Гомоморфизм из кольца $R$ в кольцо $S$ называется отображение $\phi: R \to S$ так что:
+    Пусть $R, S$ --- кольца. Гомоморфизм из кольца $R$ в кольцо $S$ называется отображение $\phi: R \to S$, такое что:
 
     \begin{enumerate}
         \item $\phi(a + b) = \phi(a) + \phi(b)$, $\forall a, b \in R$;
@@ -34,7 +34,7 @@
 \end{proof}
 
 \begin{defn}
-    Пусть $S$-кольцо, $R \subset S$. $R$ называется подкольцом $S$, если:
+    Пусть $S$ --- кольцо, $R \subset S$. $R$ называется подкольцом $S$, если:
 
     \begin{enumerate}
         \item $\forall a, b \in R: a - b \in R$
@@ -68,34 +68,36 @@
 \end{examples}
 
 \begin{theorem}
-    Пусть $B$ - кольцо, $A$ - подкольцо такое что, $\forall a \in A~\forall b \in B: ab = ba$
+    Пусть $B$ --- кольцо, $A$ --- подкольцо такое что, $\forall a \in A~\forall b \in B: ab = ba$
     
-    Зафиксируем $b \in B$. Тогда отображение $\phi_b: A[x] \to B$
+    Зафиксируем $b \in B$. Тогда отображение $\phi_b: A[x] \to A[b]$
 
     $a_n X^n + \ldots + a_1X + a_0 \mapsto a_n b^n + \ldots + a_1 b + a_0$ является гомоморфизмом колец.
+
+    (Смысл этой теоремы в том, что подставить элементы надкольца в сумму/произведение многочленов, это тоже самое, что подставить элементы надкольца в многочлены, а потом сложить/умножить)
 \end{theorem}
 
 \begin{proof}
 
     Если $f = a_n X^n + \ldots + a_1 X + a_0$, то $f(b) = a_n b^n + \ldots + a_1 b + a_0 = \phi_b(f)$
 
-    Нужно проверить: $(f + g)(b) = f(b) + g(b)$
-
-    $(fg)(b) = f(b)g(b)$
+    Нужно проверить: $(f + g)(b) = f(b) + g(b)$ и $(fg)(b) = f(b)g(b)$
 
     $1(b) = 1$ --- тривиально
 
     $(f + g)(b) = f(b) + g(b)$ --- очевидно из определения $f + g$.
 
-    $f = \sum\limits_{i = 0}^n a_i X^i, g = \sum\limits_{i = 0}^m c_i X^i$
+    Осталось проверить, что $(fg)(b) = f(b)g(b)$:
 
-    $fg = \sum\limits_{k = 0}^{n + m} d_k X^k, d_k = \sum\limits_{i + j = k} a_i c_j$
+    $f = \sum\limits_{i = 0}^n a_i X^i,~ g = \sum\limits_{i = 0}^m c_i X^i$
+
+    $fg = \sum\limits_{k = 0}^{n + m} d_k X^k,~ d_k = \sum\limits_{i + j = k} a_i c_j$
 
     $(fg)(b) = \sum\limits_{k=0}^{n + m} d_k b^k$
 
     $f(b) g(b) = \left( \sum\limits_{i = 0}^n a_i b^i \right) \left( \sum\limits_{j = 0}^m c_j b^j \right) = \sum\limits_{i = 0}^n \sum\limits_{j = 0}^m a_i b^i c_j b^j \overset{\text{коммут.}}{=}$ 
     
-    $\sum\limits_{i = 0}^n \sum\limits_{j = 0}^m a_i c_j b^{i + j} = \sum\limits_{k = 0}^{n + m} \underbrace{\left( \sum\limits_{i, j \geq 0, i + j = k} (a_i c_j) \right)}_{d_k} b^k = (fg)(b)$
+    $\sum\limits_{i = 0}^n \sum\limits_{j = 0}^m a_i c_j b^{i + j} = \sum\limits_{k = 0}^{n + m} \underbrace{\left( \sum\limits_{i, j \geq 0,~ i + j = k} (a_i c_j) \right)}_{d_k} b^k = (fg)(b)$
 \end{proof}
 
 \begin{examples}~
@@ -104,7 +106,7 @@
         \item 
         $A$ --- любое коммутативное кольцо, $B = A[x]$
         
-        $A$ - подкольцо в $B = A[x] \implies$ можно рассмотреть $f(g)$, где $f, g \in A[x]$
+        $A$ --- подкольцо в $B = A[x] \implies$ можно рассмотреть $f(g)$, где $f, g \in A[x]$
 
         \item $\R[x] \overset{\phi}{\lto} \R[x]$, $f \mapsto f(5)$
         
@@ -130,9 +132,9 @@
     \end{enumerate}
 \end{exerc}
 
-\begin{theorem} [Безу]
+\begin{theorem}[Безу]
 
-    Пусть $f \in R[X],~c \in R$. Тогдаа остаток при делении $f$ на $X - c$ есть $f(c)$.    
+    Пусть $f \in R[X],~ c \in R$. Тогда остаток при делении $f$ на $X - c$ есть $f(c)$.    
 \end{theorem}
 
 \begin{proof}
@@ -165,7 +167,7 @@
 \end{examples}
 
 \begin{theorem-non}
-    Пусть $R$ -- область целостности, $f \in R[x]$, $\deg f = d \geq 0$. Тогда число корней $f$ в $R$ не превосходит $d$.
+    Пусть $R$ -- область целостности, $f \in R[x],~ \deg f = d \geq 0$. Тогда число корней $f$ в $R$ не превосходит $d$.
 \end{theorem-non}
 
 \begin{proof}
@@ -210,11 +212,9 @@
     \end{gather*}
 \end{example}
 
-\begin{theorem-non} [формальное и функциональное равенство многочленов]~
+\begin{theorem-non}[формальное и функциональное равенство многочленов]~
 
-    Пусть $R$ -- бесконечная область: $f, g \in R[x]$
-
-    таковы, что $\forall a \in R: f(a) = g(a)$
+    Пусть $R$ --- бесконечная область: $f, g \in R[x]$ таковы, что $\forall a \in R: f(a) = g(a)$
 
     Тогда $f = g$
 \end{theorem-non}
@@ -223,7 +223,7 @@
 
     $h = f - g$, предположим, что $h \neq 0 \implies \deg h = d \geq 0 \implies$ у $h$ есть $\leq d$ корней.
 
-    Но $\forall a \in R: h(a) = f(a) - g(a) = 0$, $R$ - бесконечная область, противоречие. Так как их не больше чем $d$, но $R$ бесконечно.
+    Но $\forall a \in R: h(a) = f(a) - g(a) = 0$, $R$ --- бесконечная область, противоречие. Так как их не больше чем $d$, но $R$ бесконечно.
 \end{proof}
 
 \begin{example}

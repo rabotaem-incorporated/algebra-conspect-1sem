@@ -15,14 +15,14 @@
 \begin{examples}~
 
     \begin{enumerate}
-        \item $R = K[x]$, ($K$ - поле), где $\nu(P) = \deg P$
+        \item $R = K[x]$, ($K$ --- поле), где $\nu(P) = \deg P$
 
         \item $R = \Z$, где $\nu(a) = |a|$
         
         \item $R = \Z[i] = \{ a + bi \mid a,b \in \Z \}$, где $\nu(a + bi) = a^2 + b^2$ 
         (подробнее в книжке Аейрленд, Роузен - <<Классическое введение в современную теорию чисел>>)
         
-        \item $R = K[[x]]$, ($K$ - поле)
+        \item $R = K[[x]]$, ($K$ --- поле)
         
         $R^* = \{ a_0 + a_1 x + a_2 x + \ldots \mid a_0 \neq 0 \}$
 
@@ -43,12 +43,12 @@
 \end{examples}
 
 \begin{lemma}
-    Пусть $R$ - область целостности, $a, b \in R$. Тогда $a \sim b \iff a = \eps b,~\eps \in R^*$
+    Пусть $R$ --- область целостности, $a, b \in R$. Тогда $a \sim b \iff a = \eps b,~\eps \in R^*$
 \end{lemma}
 
 \begin{proof}
 
-    <<$\Longleftarrow$>>:
+    <<$\Leftarrow$>>:
 
     Пусть $a = \eps b \implies b$. Так как $\eps$ --- обратим, $b = \eps^{-1} a$. 
     \begin{gather*}
@@ -57,7 +57,7 @@
             b = \eps^{-1} a \implies b \mid a &
         \end{rcases} \iff a \sim b        
     \end{gather*}
-    <<$\Longrightarrow$>>: 
+    <<$\Rightarrow$>>: 
     \begin{gather*}
         a \sim b \implies \begin{cases}
             a \mid b\\
@@ -96,7 +96,7 @@
     Пусть $R$ --- коммутативное кольцо, $r \in R$.
     Из свойств кольца очевидно, что $\langle r \rangle \rightleftharpoons  (r) \rightleftharpoons \{ rs \mid s \in R \}$ --- идеал в $R$.
 
-    Тогда $(r)$ называется \emph{главным идеалом} порожденный элементом $r$.
+    Тогда $(r)$ называется \emph{главным идеалом} порожденным элементом $r$.
 \end{defn}
 
 \begin{notice}
@@ -108,6 +108,7 @@
     \begin{gather*}
         R = \Z[X],~I = \{ f : 2 \mid f(0) \}
     \end{gather*}
+    Это множество всех многочленов, у которых свободный член четный.
 \end{example}
 
 \begin{theorem-non}
@@ -115,11 +116,11 @@
 \end{theorem-non}
 
 \begin{proof}
-    Пусть $I$ - идеал в области целостности $R$.
+    Пусть $I$ --- идеал в евклидовой области $R$.
 
     Случай $I = \{0\}$ --- тривиален, тогда $I = (0)$. Пусть $I \neq \{0\}$.
 
-    Зафиксируем норму $\nu$ и рассмотрим $c \in I$ с минимальной нормой. Докажем, что $I = (с)$.
+    Зафиксируем норму $\nu$ и рассмотрим $c \in I$ с минимальной нормой. Докажем, что $I = (c)$.
 
     <<$\supset$>>:
     
@@ -147,7 +148,7 @@
     \begin{enumerate}
         \item $a, b \in R \implies$ у $a$ и $b$ существует наибольший общий делитель
         
-        \item Если $d$ - наибольший общий делитель $a$ и $b$, то $d = am + bn,~m, n \in R$
+        \item Если $d$ --- наибольший общий делитель $a$ и $b$, то $d = am + bn,~m, n \in R$
     \end{enumerate}
 \end{theorem-non}
 
@@ -156,7 +157,7 @@
     Можно считать $a \neq 0$ или $b \neq 0$, если $a = b = 0$, то $d = 0$ подходит, $d \neq 0$ не подходит.
 
     \begin{enumerate}
-        \item Рассмотрим множество $I = \{ am + bn \mid m, n \in R \}$ --- идеал в $R$. Тогда можно записать $I = (d)$. 
+        \item Рассмотрим множество $I = \{ am + bn \mid m, n \in R \}$ --- идеал в $R$. Тогда можно записать $I = (d)$, так как $I$ --- область главных идеалов. 
         
         Заметим, что $d$ --- общий делитель $a$ и $b$. 
         \begin{gather*}
@@ -168,7 +169,7 @@
                 d \mid b
             \end{cases}
         \end{gather*}
-        Покажем, что $d$ - наибольший общий делитель $a$ и $b$.
+        Покажем, что $d$ --- наибольший общий делитель $a$ и $b$.
         То есть, что 
         \begin{gather*}
             \begin{cases}
@@ -188,7 +189,7 @@
         \end{gather*}
         Что и требовалось доказать.
 
-        \item Если $d'$ - наибольший общий делитель $a$ и $b$, то:
+        \item Если $d'$ --- наибольший общий делитель $a$ и $b$, то:
         \begin{gather*}
             d' \sim d \in I \implies d' \in I \implies d' = am + bn,~m, n \in R.
         \end{gather*}
@@ -208,7 +209,10 @@
 \end{theorem-non}
 
 \begin{proof}
-    <<$\Longrightarrow$>>: Из предыдущего предложения
 
-    <<$\Longleftarrow$>>: $d = (a, b) \implies d \mid a, d \mid b \implies d = 1 \implies d \sim 1$
+    <<$\Rightarrow$>>: Из предыдущего предложения
+
+    <<$\Leftarrow$>>: $\exists m,n \in R: am + bn = 1$ 
+    
+    $\letus d = (a, b) \implies d \mid a, d \mid b \implies d \mid (am + bn) \implies d \mid 1 \implies d \sim 1 \implies (a, b) = 1$
 \end{proof}
