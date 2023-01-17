@@ -23,16 +23,25 @@
 \end{notice}
 
 \begin{defn}
-    Матрица $A \in M_{m, n}(k)$ называется ступенчатой, если существует $0 \leq r \leq m$ и числа $j_1, \ldots, j_r: 1 \leq j_1 < \ldots < j_r \leq n$ такие, что:
+    Матрица $A \in M_{m, n}(K)$ называется ступенчатой, если существует $0 \leq r \leq m$ и числа $j_1, \ldots, j_r: 1 \leq j_1 < \ldots < j_r \leq n$ такие, что:
     
     \begin{enumerate}
         \item $a_{kj_k} \neq 0,~k = 1, \ldots, r$
         
         \item $a_{kj} = 0,~k = 1, \ldots, r,~j < j_k$
         
-        \item $a_{kj} = 0,~k > r$
+        \item $a_{kj} = 0,~\forall j, k:~ k > r$
     \end{enumerate}
 \end{defn} 
+
+\begin{example}
+    $\begin{pmatrix}
+        1 & 1 & 1 & 1 & 1 & 1 \\
+        0 & 0 & 1 & 1 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{pmatrix}$
+\end{example}
 
 \begin{theorem-non}
     Любую матрицу можно превратить в ступенчатую с помощью преобразования строк $1$ и $2$ типа.
@@ -80,19 +89,36 @@
 \end{defn}
 
 \begin{theorem}
-    Пусть $A \in M_{m, n}(k)$. Тогда ее можно преобразовать в окаемленную единичную с помощью преобразования строк и столбцов.
+    Пусть $A \in M_{m, n}(K)$. Тогда ее можно преобразовать в окаймленную единичную матрицу с помощью преобразования строк и столбцов.
 \end{theorem}
 
 \begin{proof}
     
     Сделаем $A$ ступенчатой.
 
+    С помощью третьего преобразования сделаем все ведущие элементы равными $1$.
+
     Превратим ступеньки разной длины в единичные. (меняя столбцы)
 
     Применим $D_1(a_{11}^{-1}), \ldots, D_r(a_{rr}^{-1})$. 
 
-    Потом будем от верхней строки к нижней превращать их в строки с одной $1$ и нулями. (вычитая строки)
+    Потом будем от верхней строки к нижней превращать их в строки с одной $1$ и нулями. (вычитая строки и столбцы)
 \end{proof}
+
+\begin{example}
+    $\begin{pmatrix}
+        1 & 1 \\
+        1 & 1
+    \end{pmatrix} \to 
+    \begin{pmatrix}
+        1 & 1 \\
+        0 & 0
+    \end{pmatrix} \lbl{вычесть столбцы}{\to} 
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 0 
+    \end{pmatrix}$
+\end{example}
 
 \begin{defn} Элементарная матрица:
     
@@ -101,8 +127,7 @@
     Пусть $1 \leq i, j \leq n, i \neq j, \lambda \in K$
 
 
-    $T_{ij}(\lambda)$ --- матрица вида:
-    $ \begin{pmatrix}
+    $T_{ij}(\lambda) = \begin{pmatrix}
         1 & 0 & \ldots & 0 & \ldots & 0 \\
         0 & 1 & \ldots & 0 & \ldots & \lambda \\
         \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
@@ -113,23 +138,80 @@
 
     <<Второго типа>>:
 
-    $S_{ij} = E_n - e_{ii} - e_{jj} + e_{ij} + e_{ji}$
+    $S_{ij} = \begin{pmatrix}
+        1 & 0 & \ldots & 0 & \ldots & 0 \\
+        0 & 0 & \ldots & 1 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & 1 & \ldots & 0 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 0 & \ldots & 1
+    \end{pmatrix} = E_n - e_{ii} - e_{jj} + e_{ij} + e_{ji}$
 
     <<Третьего типа>>:
 
-    $D_i(\lambda) = E_n + (\lambda - 1) e_{ii}$
-
+    $D_i(\lambda) = \begin{pmatrix}
+        1 & 0 & \ldots & 0 & \ldots & 0 \\
+        0 & 1 & \ldots & 0 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \lambda & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 0 & \ldots & 1
+    \end{pmatrix} = E_n + (\lambda - 1) e_{ii}$
 \end{defn}
 
 \begin{theorem-non}
-    Пусть $A \in M_{m, n}(k)$. Тогда при элементарных преобразованиях строк $T_{ij}(\lambda), S_{ij}, D_i(\lambda)$ из $A$ получаются матрицы $T_{ij} A, S_{ij} A, D_i A$.
+    Пусть $A \in M_{m, n}(K)$. Тогда при элементарных преобразованиях строк матрицы $A$ получаются матрицы $T_{ij} A, S_{ij} A, D_i A$.
 \end{theorem-non}
 
 \begin{proof}
 
-    $T_{ij} A = $ \TODO{умножить}
+    \begin{enumerate}
+        \item <<Первого типа>>:
+        
+        Поскольку матрица $T_{ij}(\lambda)$ отличается от $E_n$ только в $i$-ой строке, то произведение тоже. В $i$-ой строке $T_{ij}(\lambda)$ только две позиции отличаются от нуля, это $i$ и $j$. При умножении получаем следующее:
 
-    $S_{ij}, D_i(\lambda)$ --- аналогично.
+        \[ \begin{pmatrix}
+            0 & \ldots & 1 & \ldots & \lambda & \ldots & 0
+        \end{pmatrix} \cdot \begin{pmatrix}
+            a_{1k} \\
+            \vdots \\
+            a_{ik} \\
+            \vdots \\
+            a_{jk} \\
+            \vdots \\
+            a_{nk}
+        \end{pmatrix} = a_{ik} + \lambda a_{jk} \]
+
+        Такое происходит в каждом столбце матрицы, поэтому получаем, что $i$ строка матрицы $T_{ij} A$ равна $\begin{pmatrix}
+            a_{i1} + \lambda a_{j1} & \ldots & a_{ik} + \lambda a_{jk} & \ldots & a_{in} + \lambda a_{jn}
+        \end{pmatrix}$
+        
+        \item <<Второго типа>>:
+        
+        Поскольку матрица $S_{ij}$ отличается от $E_n$ только в $i$-ой и $j$-ой строках, то произведение тоже. $i$-ая строка равна произведению $\begin{pmatrix}
+            0 & \ldots & 1 & \ldots & 0
+        \end{pmatrix}$ на матрицу $A$, то есть на её $j$-тую строку. Аналогично с $j$-ой строкой. 
+
+        \item <<Третьего типа>>:
+        
+        Поскольку матрица $D_i(\lambda)$ отличается от $E_n$ только в $i$-ой строке, то произведение тоже. $i$-ая строка равна произведению $\begin{pmatrix}
+            1 & \ldots & \lambda & \ldots & 1
+        \end{pmatrix}$ на матрицу $A$, то есть на её $i$-тую строку. Что равно произведению $i$-ой строки на $\lambda$.
+    \end{enumerate} 
+\end{proof}
+
+\begin{follow}
+    Аналогично, преобразования столбцов можно записать в виде $A T_{ji}(\lambda),~ A S_{ji},~ A D_j(\lambda)$.
+\end{follow}
+
+\begin{proof}
+    $A \longrightarrow A'$ --- результат прибавления к $i$ столбцу $j$-го с коэффицентом $\lambda$.
+
+    $\implies (A')^T = T_{ij}(\lambda) A^T$
+
+    $\implies A' = (T_{ij}(\lambda) A^T)^T = (A^T)^T (T_{ij}(\lambda))^T = A T_{ji}(\lambda)$
+
+    Аналогично: элементарные преобразования столбцов $2$ и $3$ типов сводятся к умножению справа на $S_{ij}$ и $D_i(\lambda)$ соответственно.
 \end{proof}
 
 \begin{follow}~
@@ -144,20 +226,8 @@
 \end{follow}
 
 \begin{follow}
-    $T_{ij}(\lambda), S_{ij}, D_i(\lambda) \in GL_n(k)$ --- все они обратимы.
+    $T_{ij}(\lambda),~ S_{ij},~ D_i(\lambda) \in GL_n(k)$ --- все они обратимы.
 \end{follow}
-
-\begin{proof}
-    % к чему относится это доказательство?
-    
-    $A \longrightarrow A'$ --- результат прибавления к $i$ столбцу $j$-го с коэффицентом $\lambda$.
-
-    $\implies (A')^T = T_{ij}(\lambda) A^T$
-
-    $\implies A' = (T_{ij}(\lambda) A^T)^T = (A^T)^T (T_{ij}(\lambda))^T = A T_{ji}(\lambda)$
-
-    Аналогично: элементарные преобразования столбцов $2$ и $3$ типов сводятся к умножению справа на $S_{ij}$ и $D_i(\lambda)$ соответственно.
-\end{proof}
 
 \begin{theorem-non} ($PDQ$ --- разложение матриц)
 
@@ -167,32 +237,33 @@
 \begin{proof}
     Существуют элементарные преобразования строк и столбцов, превращающие $A$ в окаймленную единичную матрицу $D$.
 
-    $\implies D = \underbrace{u_k \ldots u_1}_{\text{обратимы}} A \underbrace{v_1 \ldots v_l}_{\text{обратимы}}$, где $u_1, \ldots, u_k, v_1, \ldots, v_l$ --- элементарные матрицы
+    $\implies D = \underbrace{u_k \ldots u_1}_{\text{обратимы}} A \underbrace{v_1 \ldots v_l}_{\text{обратимы}}$, где $u_1, \ldots, u_k,~ v_1, \ldots, v_l$ --- элементарные матрицы
 
     $\implies A = u_1^{-1} \ldots u_k^{-1} D v_l^{-1} \ldots v_1^{-1}$
 \end{proof}
 
 \begin{follow}
-    Пусть $A \in M_n(k)$? Тогда условия эквивалентны:
+    Пусть $A \in M_n(K)$? Тогда условия эквивалентны:
 
     \begin{enumerate}
-        \item $A \in GL_n(k)$
+        \item $A \in GL_n(K)$
         
         \item $A = P_1 \ldots P_m$, где $P_1, \ldots, P_m$ --- элементарные матрицы
     \end{enumerate}
 \end{follow}
 
 \begin{proof}
+
     <<$2 \implies 1$>>: так как все $P_i \in GL_n(k)$
 
     <<$1 \implies 2$>>: 
 
-    $A = P_1 \ldots P_k D Q_1 \ldots Q_l, D = \begin{pmatrix}
+    $A = P_1 \ldots P_k D Q_1 \ldots Q_l,~ D = \begin{pmatrix}
         E_n & 0 \\
         0 & 0
     \end{pmatrix}$
 
-    $\implies D = P_k^{-1} \ldots P_1^{-1} A Q_l^{-1} \ldots Q_1^{-1} \implies D \in GL_n(k)$
+    $\implies D = P_k^{-1} \ldots P_1^{-1} A Q_l^{-1} \ldots Q_1^{-1} \implies D \in GL_n(K)$
 
-    В $D$ есть нулевая строка $\implies \forall C \in M_n(k)$: в $DC$ есть нулевая строка $\implies DC \neq E_n \implies D = E_n \implies A = P_1 \ldots P_k D Q_1 \ldots Q_l$
+    В $D$ есть нулевая строка, значит $\forall C \in M_n(k)$: в $DC$ есть нулевая строка $\implies DC \neq E_n$, но ведь $D \in GL_n(K)$, значит $D = E_n \implies A = P_1 \ldots P_k Q_1 \ldots Q_l$, где все матрицы элементарны.
 \end{proof}
