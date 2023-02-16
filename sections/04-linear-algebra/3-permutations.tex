@@ -49,3 +49,77 @@
 \begin{theorem-non}
     Любая перестановка является произведением нескольких попарно независимых циклов.
 \end{theorem-non}
+
+\begin{proof}
+    $i, \sigma(i), \sigma(\sigma(i)), \ldots$ все различны, так как $\sigma$ - биекция, значит это - независимый цикл.
+\end{proof}
+
+\begin{defn}
+    Цикл длины 2 называется транспозицией
+\end{defn}
+
+\begin{defn}
+    Транспозиция $(i, i + 1)$ назывется элементарной
+\end{defn}
+
+\begin{theorem-non}
+    Либой цикл $(i_1, i_2, \ldots, i_n)$ раскладывается в произведение транспозиций $(i_1, i_2) \cdot (i_2, i_3) \cdot \ldots \cdot (i_{n-1}, i_n)$
+\end{theorem-non}
+
+\begin{follow}
+    Любая перестановка раскладывается в произведение элементраных транспозиций - Упражнение.
+\end{follow}
+
+\begin{defn}
+    $(i, j), ~i < j$ - инверсия, если $\sigma(i) > \sigma(j)$
+
+    $Inv(\sigma)$ - число инверсий перестановки $\sigma$
+\end{defn}
+
+\begin{defn}
+    Четность перестановки - четность числа инверсий в ней.
+
+    Знак перестановки -  $\sgn(\sigma) = \begin{cases}
+        1, ~\text{ если перестановка четная} \\
+        -1, ~\text{ если перестановка нечетная}\\
+    \end{cases}$
+\end{defn}
+
+\begin{lemma}
+    Если перестановку умножить справа на транспозицию, то ее знак поменяется на противоположный
+\end{lemma}
+
+\begin{proof}
+    Доказывается пристальным рассмотрением того, что происходит, когда в перестановке два элемента меняются местами.
+\end{proof}
+
+\begin{follow}
+    Четность перестановки равна четности количества транспозиций в ее разложении
+\end{follow}
+
+\begin{follow}~
+
+    $\sgn(\sigma \tau) = \sgn(\sigma) \sgn(\tau)$
+
+    $\sgn(\sigma ^{-1}) = \sgn(\sigma)$
+\end{follow}
+
+$A_n = \{\sigma \in S_n \mid \sgn(\sigma) = 1\}$ - подгруппа $S_n$
+
+\begin{theorem-non}
+    Пусть $n \ge 2$, тогда $|A_n| = \frac{n!}{2}$ 
+\end{theorem-non}
+
+\begin{proof}
+    Рассмотрим 
+
+    $\varphi: A_n \mapsto S_n \setminus A_n$
+    
+    $\sigma \to \sigma(1 ~2)$
+
+    $\psi: S_n \setminus A_n \mapsto A_n$
+
+    $\sigma \to \sigma(1 ~2)$
+
+    $\varphi = \psi^-1 \implies \varphi$ - биекция $\implies |A_n| = |S_n \setminus A_n| = \frac{n!}{2}$
+\end{proof}
