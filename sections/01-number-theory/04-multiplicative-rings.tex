@@ -44,7 +44,7 @@
 \end{proof}
 
 \begin{follow}
-    Теорема о делениии с остатком
+    Теорема о делении с остатком
     
     Пусть $a \in \Z,~b \in \N$. Тогда 
     \begin{gather*}
@@ -54,17 +54,17 @@
 
 \begin{proof}
 
-    \textsl{Существование:}
+    <<Существование>>:
 
     В $\Z/b\Z$ рассмотрим $\oln{a} \in \{\oln{0}, \oln{1}, \ldots, \oln{b-1}\}$, тогда по теореме выше найдется $0 \leq r < b$ для которого $\oln{a} = \oln{r}$:
     \begin{gather*}
         a \equivm{b} r \iff a = bq + r, \quad q \in \Z.
     \end{gather*}
 
-    \textsl{Единственность:}
-    Пусть нашлось два таких $q, q' \in \Z$ и $r, r' \in \Z$ для которых $a = bq + r, a = bq' + r'$. Тогда
+    <<Единственность>>:
+    Пусть нашлось два таких $q, q' \in \Z$ и $r, r' \in \Z$ для которых $a = bq + r,~ a = bq' + r'$. Тогда
     \begin{gather*}
-        bq+r \equivm{b} bq'+r' \iff r \equivm{b} r' \lbl{$0 \ge r, r' < b$}\iff r = r' \implies bq = bq' \iff q = q'.
+        bq+r \equivm{b} bq'+r' \iff r \equivm{b} r' \lbl{$0 \leq r, r' < b$}\iff r = r' \implies bq = bq' \iff q = q'.
     \end{gather*}
     Напомню, что вторая равносильнось выполняется благодаря единственности класса вычетов $\oln{r}$.
 \end{proof}
