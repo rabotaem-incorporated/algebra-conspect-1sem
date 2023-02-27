@@ -1,7 +1,7 @@
 \subsection{Перестановки}
 
 \begin{defn}
-    $M$ --- множество. Перестановкой $M$ называется биекция на себя.
+    $M$ --- множество. \emph{Перестановкой} $M$ называется биекция на себя.
 
     $S(M) = \{ \text{перестановка } M \}$
 
@@ -25,7 +25,7 @@
 \end{proof}
 
 \begin{defn}
-    $S_n$ --- симметрическая группа степени $n$ (группа перестановок $n$-элементного множества)
+    $S_n$ --- симметрическая группа степени $n$ (\emph{группа перестановок $n$-элементного множества})
 \end{defn}
 
 \begin{notice}
@@ -37,13 +37,13 @@
 \end{example}
 
 \begin{defn}
-    Циклом $(i_1, i_2, \ldots, i_k)$ называется $\sigma \in S_n$ такая что $\sigma(i_1) = i_2, \sigma(i_2) = i_3, \ldots, \sigma(i_{k - 1}) = i_k, \sigma(i_k) = i_1$, а так же $\sigma(i_j) = i_j$ для всех $j \notin \{ 1, 2, \ldots, k \}$.
+    \emph{Циклом} $(i_1, i_2, \ldots, i_k)$ называется $\sigma \in S_n$ такая что $$\sigma(i_1) = i_2, \sigma(i_2) = i_3, \ldots, \sigma(i_{k - 1}) = i_k, \sigma(i_k) = i_1,$$ а так же $\sigma(i_j) = i_j$ для всех $j \notin \{ 1, 2, \ldots, k \}$.
 
-    $k \geq 2$ --- длина цикла.
+    $k \geq 2$ --- \emph{длина цикла}.
 \end{defn}
 
 \begin{defn}
-    Циклы $(i_1, i_2, \ldots, i_k)$ и $(j_1, j_2, \ldots, j_l)$ называются независимыми, если $i_r \neq j_s \forall r,s$
+    Циклы $(i_1, i_2, \ldots, i_k)$ и $(j_1, j_2, \ldots, j_l)$ называются \emph{независимыми}, если $\forall r,s : i_r \neq j_s$
 \end{defn}
 
 \begin{theorem-non}
@@ -51,75 +51,86 @@
 \end{theorem-non}
 
 \begin{proof}
-    $i, \sigma(i), \sigma(\sigma(i)), \ldots$ все различны, так как $\sigma$ - биекция, значит это - независимый цикл.
+    $i, \sigma(i), \sigma(\sigma(i)), \ldots$ все различны, так как $\sigma$ --- биекция, значит это --- независимый цикл.
 \end{proof}
 
 \begin{defn}
-    Цикл длины 2 называется транспозицией
+    Цикл длины $2$ называется \emph{транспозицией}.
 \end{defn}
 
 \begin{defn}
-    Транспозиция $(i, i + 1)$ назывется элементарной
+    Транспозиция $(i, i + 1)$ назывется \emph{элементарной транспозицией}.
 \end{defn}
 
 \begin{theorem-non}
-    Либой цикл $(i_1, i_2, \ldots, i_n)$ раскладывается в произведение транспозиций $(i_1, i_2) \cdot (i_2, i_3) \cdot \ldots \cdot (i_{n-1}, i_n)$
+    Любой цикл $(i_1, i_2, \ldots, i_n)$ раскладывается в произведение транспозиций $(i_1, i_2) \cdot (i_2, i_3) \cdot \ldots \cdot (i_{n-1}, i_n)$
 \end{theorem-non}
 
-\begin{follow}
-    Любая перестановка раскладывается в произведение элементраных транспозиций - Упражнение.
-\end{follow}
+\begin{exerc}
+    Любая перестановка раскладывается в произведение элементраных транспозиций.
+\end{exerc}
 
 \begin{defn}
-    $(i, j), ~i < j$ - инверсия, если $\sigma(i) > \sigma(j)$
-
-    $Inv(\sigma)$ - число инверсий перестановки $\sigma$
+    $(i, j), ~i < j$ --- \emph{инверсия}, если $\sigma(i) > \sigma(j)$
 \end{defn}
 
 \begin{defn}
-    Четность перестановки - четность числа инверсий в ней.
+    $\Inv(\sigma)$ --- \emph{число инверсий} перестановки $\sigma$
+\end{defn}
 
-    Знак перестановки -  $\sgn(\sigma) = \begin{cases}
+\begin{defn}
+    \emph{Четность перестановки} --- четность числа инверсий в ней.
+\end{defn}
+
+\begin{defn}
+    \emph{Знак перестановки} ---  $\sgn(\sigma) = \begin{cases}
         1, ~\text{ если перестановка четная} \\
         -1, ~\text{ если перестановка нечетная}\\
     \end{cases}$
 \end{defn}
 
 \begin{lemma}
-    Если перестановку умножить справа на транспозицию, то ее знак поменяется на противоположный
+    Если перестановку умножить справа на транспозицию, то ее знак поменяется на противоположный, то есть $\sgn(\sigma \circ (i, j)) = -\sgn(\sigma)$.
 \end{lemma}
 
 \begin{proof}
-    Доказывается пристальным рассмотрением того, что происходит, когда в перестановке два элемента меняются местами.
+    Четность числа инверсий с участием $\sigma(i)$ и $\sigma(j)$ не изменится, так как все элементы между $i$ и $j$ поменяют число инверсий четное число раз. Соответственно, изменится лишь инверсия между $i$ и $j$.
 \end{proof}
 
 \begin{follow}
-    Четность перестановки равна четности количества транспозиций в ее разложении
+    Четность перестановки равна четности количества транспозиций в ее разложении.
 \end{follow}
 
-\begin{follow}~
+\begin{proof}
+    $\sgn((i_1, j_1) (i_2, j_2) \ldots (i_k, j_k)) = (-1)^k$
+\end{proof}
+
+\begin{follow} 
+    Пусть $\sigma, \tau \in S_n$, тогда:
 
     $\sgn(\sigma \tau) = \sgn(\sigma) \sgn(\tau)$
 
     $\sgn(\sigma ^{-1}) = \sgn(\sigma)$
 \end{follow}
 
-$A_n = \{\sigma \in S_n \mid \sgn(\sigma) = 1\}$ - подгруппа $S_n$
+\begin{defn}
+    \emph{Множество четных перестановок} $A_n = \{\sigma \in S_n \mid \sgn(\sigma) = 1\}$ --- подгруппа $S_n$
+\end{defn}
 
 \begin{theorem-non}
-    Пусть $n \ge 2$, тогда $|A_n| = \frac{n!}{2}$ 
+    Пусть $n \geq 2$, тогда $|A_n| = \frac{n!}{2}$ 
 \end{theorem-non}
 
 \begin{proof}
     Рассмотрим 
 
-    $\varphi: A_n \mapsto S_n \setminus A_n$
+    $\varphi: A_n \to S_n \setminus A_n$
     
-    $\sigma \to \sigma(1 ~2)$
+    $\sigma \mapsto \sigma \circ (1, 2)$ --- из четной перестановки получаем нечетную
 
-    $\psi: S_n \setminus A_n \mapsto A_n$
+    $\psi: S_n \setminus A_n \to A_n$
 
-    $\sigma \to \sigma(1 ~2)$
+    $\sigma \mapsto \sigma \circ (1, 2)$ --- из нечетной перестановки получаем четную
 
-    $\varphi = \psi^-1 \implies \varphi$ - биекция $\implies |A_n| = |S_n \setminus A_n| = \frac{n!}{2}$
+    $\varphi = \psi^{-1} \implies \varphi$ --- биекция $\implies |A_n| = |S_n \setminus A_n| = \frac{n!}{2}$
 \end{proof}
