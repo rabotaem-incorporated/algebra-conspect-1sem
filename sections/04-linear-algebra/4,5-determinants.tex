@@ -1,0 +1,218 @@
+\subsection{Определители}
+
+Мы знаем, что матрицы тесно связаны с системами линейных уравнений и мы хотим знать, когда системы разрешимы единственным образом, когда не имеют решений, и когда имеют бесконечно много решений.
+
+\begin{defn}
+    Системы линейных уравнений подразделяются на:
+
+    \begin{itemize}
+        \item \emph{Несовместные} --- не имеют решений.
+        \item \emph{Совместные} --- имеют решения.
+        \begin{itemize}
+            \item \emph{Определенные} --- имеют единственное решение.
+            \item \emph{Неопределенные} --- имеют бесконечно много решений.
+        \end{itemize}
+    \end{itemize}
+\end{defn}
+
+\begin{defn}
+    $A \in M_n(R),~ R$ --- коммутативное кольцо. 
+    
+    \emph{Определителем} матрицы $A$ называется: 
+    $$\det(A) = |A| = \sum\limits_{\sigma \in S_n} \sgn(\sigma)\prod\limits_{i = 1}^n a_{i\sigma(i)}$$
+\end{defn}
+
+
+\begin{prop}~
+
+    1. $\det(A) = \det(A^T)$
+
+    2. $A = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_i' + A_i'' \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $\det(A) = \begin{vmatrix}
+        A_1 \\
+        \vdots \\
+        A_i' \\
+        \vdots \\
+        A_n
+    \end{vmatrix} + \begin{vmatrix}
+        A_1 \\
+        \vdots \\
+        A_i'' \\
+        \vdots \\
+        A_n
+    \end{vmatrix}$
+
+    3. $A = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        \alpha A_i \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $\det(A) = \alpha \begin{vmatrix}
+        A_1 \\
+        \vdots \\
+        A_i \\
+        \vdots \\
+        A_n
+    \end{vmatrix}$
+
+    4. $\det(\alpha A) = \alpha^n \det(A)$
+
+    5. $A = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $A_i = A_j \implies \det(A) = 0$
+
+    6. $A = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_i \\
+        \vdots \\
+        A_j \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $B = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_j \\
+        \vdots \\
+        A_i \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $\det(A) = -\det(B)$
+
+    7. $A = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_i \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $B = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_i + \alpha A_j \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$,~ $\det(A) = \det(B)$
+\end{prop}
+
+\begin{proof}~
+
+    1. \begin{gather*}
+        |A^T| = \sum\limits_{\sigma \in S_n} \sgn \sigma \cdot \prod\limits_{i = 1}^n a_{\sigma(i)i} = \\
+        \sum\limits_{\sigma \in S_n} \sgn \sigma \cdot \prod\limits_{i = 1}^n a_{i\sigma^{-1}(i)} = \\
+        \sum\limits_{\sigma \in S_n} \sgn \sigma^{-1} \cdot \prod\limits_{i = 1}^n a_{i\sigma^{-1}(i)} = \\
+        \sum\limits_{\sigma \in S_n} \sgn \sigma \cdot \prod\limits_{i = 1}^n a_{i\sigma(i)} = |A|
+    \end{gather*}
+
+    \TODO[Дописать]
+\end{proof}
+
+\subsection{Дальнейшие свойства определителя}
+
+\begin{prop}~
+
+    $A = \begin{bmatrix}
+        X & Y \\
+        0 & Z
+    \end{bmatrix}$,~ $\det(A) = \det(X) \det(Z)$
+\end{prop}
+
+\begin{proof}~
+
+    $\det(A) = \sum_{\sigma \in S_n} \sgn(\sigma) \prod_i a_{i, \sigma(i)} = \sum_{\sigma \in S_n} A_{\sigma}$
+    
+    $A_{\sigma} $ не включает элементов из нижней левой нулевой матрицы, значит $\sigma(\{n + 1, n + 2, \ldots, m\}) = \{n + 1, n + 2, \ldots, m\}$ и $\sigma(\{1, 2, \ldots, n\}) = \{1, 2, \ldots, n\}$
+
+    А тогда $\sigma = \gamma \delta, ~ \gamma \in S_n, ~ \delta \in S_m, ~ A_{\sigma} = \sgn(\gamma) X_{\gamma} \sgn(\delta) Z_\delta$
+\end{proof}
+
+\begin{prop}~
+
+    $A, B \in M_{n \times n}(K), ~ \det(AB) = \det(A) \det(B)$
+\end{prop}
+
+\begin{proof}
+    Элементарными преобразованиями можно и $A$ и $B$ привести к диагональному виду и тогда определители посчитаются легко
+\end{proof}
+
+\begin{defn}
+    Минором $M_{ij}$ матрицы $A$ порядка $1$ называется определитель $A_{kl}$, где $i \neq k, j \neq l$.
+
+    Алгебраическим дополнением $A_{ij}$ называется $(-1)^{i + j} M_{ij}$.
+\end{defn}
+
+\begin{lemma}
+    Об определители квадратной матрицы с почти нулевой строкой.
+
+    $A \in M_{n \times n}(K) ~ 1 \le i_0, j_0 \le n, ~ a_{i_0j} = 0$ при $j \neq j_0$
+
+    Тогда $\det(A) = a_{i_0j_0}\det(A_{i_0j_0})$
+\end{lemma}
+
+\begin{proof}
+    $\sigma(i_0) = j_0$ и потом посмотреть просто как знак перестановки меняется
+\end{proof}
+
+\begin{theorem}
+    Разложение определителя по $k$-ой строке
+
+    $A \in M_{n \times n}(K),~ \det(A) = \sum_{i = 1}^n a_{ki}A_{ki}$
+
+    Тогда $\det(A) = \prod\limits_{i = 1}^n a_{ii}$
+\end{theorem}
+
+\begin{proof}
+    Разложим $k$-ую строку в сумму строк вида $\begin{bmatrix}
+        0 & \ldots & 0 & a_{ki} & 0 & \ldots & 0
+    \end{bmatrix}$ и применим лемму
+\end{proof}
+
+\begin{follow}
+    Разложение по столбцу ничем не отличается
+\end{follow}
+
+\begin{follow}
+    Матрица обратима $\iff$ $\det(A) \neq 0$
+\end{follow}
+
+\begin{lemma}
+    Пусть $1 \le i \neq j \le n$
+
+    Тогда $\sum\limits_{k = 1}^n a_{ik}A_{jk} = 0$
+\end{lemma}
+
+\begin{proof}
+    Это выражение это определитель матрицы $A' = \begin{bmatrix}
+        A_1 \\
+        \vdots \\
+        A_j \\
+        \vdots \\
+        A_j \\
+        \vdots \\
+        A_n
+    \end{bmatrix}$
+\end{proof}
+
+\begin{follow}~
+    
+    $\sum\limits_{k = 1}^n a_{ik}A_{jk} = \begin{cases}
+        \det(A), ~ i = j \\
+        0, ~ i \neq j
+    \end{cases}$
+    
+\end{follow}
+
+\begin{defn}
+    Взаимная матрица $\tilde{A}$ это матрица $(A_{ij})_{i,j}^T$
+\end{defn}
+
+\begin{follow}
+    $A\tilde{A} = \tilde{A} = \det(A) I_n$
+\end{follow}
