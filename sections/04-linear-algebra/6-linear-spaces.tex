@@ -1,0 +1,192 @@
+\subsection{Линейные пространства}
+
+\subsubsection{Основные определения}
+
+\begin{defn}~
+    
+    Пусть $K$ - поле. Говорят, что задано линейное пространство над полем $K$, если заданы
+
+    \begin{enumerate}
+        \item множество $V$ 
+        \item операция $V \times V \to V$ - сложение 
+        \item операция $K \times V \to V$ - умножение на скаляр 
+    \end{enumerate}
+
+    Такие что выполняются следующие аксиомы:
+
+    Пусть $a, b \in K, ~ A, B \in V$, тогда
+
+    $(V, +)$ - абелева группа
+    \begin{enumerate}
+        \item $a(A + B) = aA + aB$
+        \item $(a + b)A = aA + bA$
+        \item $(ab)A = a(bA)$
+        \item $1A = A$
+    \end{enumerate}
+
+\end{defn}
+
+\begin{example}~
+
+    \begin{enumerate}
+        \item $K^n = M(n, 1, K)$ - арифметическое $n$-мерное пространство над полем $K$.
+        \item $V = \left\{\begin{bmatrix}
+            a \\
+            b \\
+            c
+        \end{bmatrix} ~ \middle| ~ a + b + c = 0\right\}$
+        \item $V = K[x]$
+        \item $V = C[0, 1]$
+        \item $K = \R, ~ V = \R_+$
+
+        $\bigoplus: ~ v_1 \bigoplus v_2 = v_1v_2$
+    
+        $\bigotimes: ~ a \bigotimes v = v^a$
+        \item $K = \F_2 = \{0, 1\}, ~ M - $ множество, $V = 2^M$
+
+        $\bigoplus: ~ v_1 \bigoplus v_2 = v_1\triangle v_2$
+    
+        $\bigotimes: ~ a \bigotimes v = \begin{cases}
+            1 \bigotimes v = v \\
+            0 \bigotimes v = \emptyset
+        \end{cases}$
+    \end{enumerate}
+    
+\end{example}
+
+\begin{lemma}~
+
+    $0 \cdot v = 0$
+
+    $a \cdot 0 = 0$
+
+    $av = 0 \iff a = 0 \lor v = 0$
+
+    $(-1) \cdot v = -v$
+\end{lemma}
+
+\begin{proof}~
+
+    $0 \cdot v = (0 + 0) \cdot v = 0 \cdot v + 0 \cdot v \implies 0 \cdot v = 0$
+
+    $a \cdot 0 = a \cdot (0 + 0) = a \cdot 0 + a \cdot 0 \implies a \cdot 0 = 0$
+
+    $a \neq 0 \implies a^{-1}av = v = 0 \implies v = 0$
+
+    $v + (-1) \cdot v = 1 \cdot v + (-1) \cdot v = 0 \cdot v = 0 = v + -v \implies (-1) \cdot v = -v$
+\end{proof}
+
+\subsubsection*{Системы образующих. Линейные подпространства}
+
+\begin{defn}~
+
+    $a_1, a_2, \ldots, a_n \in K, ~ v_1, v_2, \ldots, v_n \in V$, тогда
+
+    $a_1v_1 + a_2v_2 + \ldots + a_nv_n$ - линейная комбинация векторов $v_1, v_2, \ldots, v_n$ с коэффициентами $a_1, a_2, \ldots, a_n$.
+
+    $Lin(v_1, v_2, \ldots, v_n) = \langle v_1, v_2, \ldots, v_n \rangle = \left\{a_1v_1 + a_2v_2 + \ldots + a_nv_n ~ \middle| ~ a_1, a_2, \ldots, a_n \in K\right\}$ - линефная оболочка $v_1, v_2, \ldots, v_n$.
+
+    Пусть $M \subset V$
+    
+    $\langle M \rangle = V$, говорят, что $M$ - система/семейство образующих/порождающих пространства $V$.
+\end{defn}
+
+\begin{theorem-non}~
+    
+    $M = \{v_1, v_2, \ldots, v_n\}$
+    
+    Пусть $v_n$ представляется в виде линейной комбинации $v_1, v_2, \ldots, v_{n-1}$, тогда
+
+    $\langle M \rangle = \langle M \setminus v_n \rangle$
+\end{theorem-non}
+
+\begin{proof}~
+
+    $v_n = a_1v_1 + a_2v_2 + \ldots + a_{n-1}v_{n-1}$
+
+    $\forall w \in \langle M \rangle~ w = b_1v_1 + b_2v_2 + \ldots + b_{n-1}v_{n-1} + b_nv_n = (b_1 + b_na_1) v_1 + (b_2 + b_na_2) v_2 + \ldots + (b_{n-1} + b_na_{n-1}) v_{n-1} \in \langle M \setminus v_n \rangle$
+
+    Обратное включение очевидно.
+\end{proof}
+
+\begin{defn}
+    Пространство $V$ называется конечномерным, если у него есть конечная система образующих.
+\end{defn}
+
+\begin{example}~
+
+    \begin{enumerate}
+        \item $M(n, m, K) = \langle e_{ij} \rangle$ - пространство размерности $nm$
+        \item $R_+$ - пространство размерности 1
+        \item $K[x] = \langle x^i \rangle, 0 \le i$ - пространство бесконечномерное 
+    \end{enumerate}
+\end{example}
+
+\begin{defn}
+    $V' \subseteq V$ называется линейным подпространством пространства $V$, если
+    \begin{enumerate}
+        \item $0 \in V'$
+        \item $\forall v_1, v_2 \in V'~ v_1 + v_2 \in V'$
+        \item $\forall a \in K, ~ v \in V'~ av \in V'$
+    \end{enumerate}
+\end{defn}
+
+\begin{theorem}~
+
+    Пусть $V'$ - линейное подпространство пространства $V$, тогда $V'$ - линейное пространство.
+\end{theorem}
+
+\begin{proof}~
+
+    Из неочевидного только третья аксиома Абелевой группы.
+
+    $v \in V' \implies -v \in V'$ - верно в силу $(-1)v = -v$
+\end{proof}
+
+\begin{defn}
+    $V' < V$ - обозначает, что $V'$ - линейное подпространство пространства $V$.
+\end{defn}
+
+\begin{lemma}~
+
+    Пусть $V' < V$ и $M \subseteq V'$, тогда $\langle M \rangle \subseteq V'$.
+\end{lemma}
+
+\begin{proof}
+    Очев.
+\end{proof}
+
+\subsubsection*{Линейная зависимость и независимость}
+
+\begin{defn}~
+
+    $v_1, v_2, \ldots, v_n \in V$ называются линейно независимыми семейством (ЛНС), если 
+    
+    $a_1v_1 + a_2v_2 + \ldots + a_nv_n = 0 \implies a_1 = a_2 = \ldots = a_n = 0$.
+
+    $v_1, v_2, \ldots, v_n \in V$ называются линейно зависимыми семейством (ЛЗС), если существует 
+    
+    $a_1, a_2, \ldots, a_n \in K$ такие, что $a_1^2 + a_2^2 + \ldots + a_n^2 > 0$ и $a_1v_1 + a_2v_2 + \ldots + a_nv_n = 0$.
+    
+\end{defn}
+
+\begin{theorem} ~
+
+    $v_1, v_2, \ldots, v_n \in V$, тогда эквивалентны следующие утверждения:
+
+    \begin{enumerate}
+        \item $v_1, v_2, \ldots, v_n$ - ЛЗС
+        \item $\forall j v_j \in \langle v_1, v_2, \ldots, \widehat{v_{j-1}}, v_j, \ldots, v_n \rangle$
+        \item $\exists j v_j \in \langle v_1, v_2, \ldots, v_{j-1} \rangle$
+    \end{enumerate}
+    
+\end{theorem}
+\begin{proof}~
+
+    $3) \implies 2)$ - очевидно
+
+    $2) \implies 1)$ - $v_j = a_1v_1 + a_2v_2+\ldots \implies 0 = a_1v_1 + a_2v_2 + \ldots + (-1)v_j + \ldots$
+    
+    $1) \implies 3)$ - $0 = a_1v_1 + a_2v_2 + \ldots \implies 0 = a_1v_1 + a_2v_2 + \ldots + a_jv_j \implies v_j = \frac{-a_1}{a_j}v_1 + \ldots \in \langle v_1, v_2, \ldots, v_{j-1} \rangle$
+    
+\end{proof}
