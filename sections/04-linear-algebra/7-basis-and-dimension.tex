@@ -1,0 +1,129 @@
+\subsection{Базис и размерность}
+
+\begin{defn}
+    $e_1, e_2, \ldots, e_n \in V$ - базис пространства $V$, если $\forall v \in V \exists! a \in F^n ~ a^Te = v$.
+\end{defn}
+
+
+\begin{theorem}~
+    
+
+    Следующие утверждения эквивалентны:
+    \begin{enumerate}
+        \item $e_1, e_2, \ldots, e_n$ - базис пространства $V$
+        \item $V = \langle e_1, e_2, \ldots, e_n \rangle$ и $e_1, e_2, \ldots, e_n$ - ЛНС.
+        \item $e_1, e_2, \ldots, e_n$ - максимальная по включению ЛНС.
+        \item $e_1, e_2, \ldots, e_n$ - минимальная по включению порождающая система.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+
+    $e \in V^n$ - базис $V$, $a, b \in F^n$ - ненулевые столбцы скаляров.
+    \begin{enumerate}
+        
+
+        \item $1 \implies 2: ~ a^T e = 0 = 0^T e$ - противоречие с определением базиса. 
+        \item $2 \implies 1: ~ a^T e = b^T e \implies (a-b)^Te = 0 \implies a = b$
+        \item $2 \implies 3: ~ \forall v \in V ~ e, v$ - ЛЗС,  т. к. $v \in \langle e \rangle$
+        \item $3 \implies 2: ~ v \bcancel{\in} \langle e \rangle \implies e, v$ - ЛНС, противиречит максимальности.
+        \item $2 \implies 4: ~ e \setminus e_1$ - порождающий набор $\implies e_1 \in \langle e \setminus e_1 \rangle$
+        \item $4 \implies 2: ~ e$ - ЛЗС $\implies \exists e_j \in \langle e_1, \ldots, e_{j-1} \rangle \implies e \setminus e_j$ - порождающий набор, противоречит минимальности.
+    \end{enumerate}
+\end{proof}
+
+\begin{follow}
+    В любом конечномерном пространстве суцествует базис
+\end{follow}
+
+\begin{notice}
+    В бесконечномерном пространстве тоже есть базис, но линейные комбинации берутся финитные.
+\end{notice}
+
+\begin{follow}
+    Любые 2 базиса содержат одинаковое число векторов.
+\end{follow}
+
+\begin{defn}
+    $\dim{V}$ - Размерность пространства $V$ - число векторов в базисе (мощность базиса в бесконечномерном случае) $V$.
+\end{defn}
+
+\begin{example}~
+
+    \begin{enumerate}
+        \item $\dim{F^n} = n$
+        \item $\dim{M(n, m, F) = nm}$
+    \end{enumerate}
+\end{example}
+
+\begin{theorem-non}~
+
+
+    $\dim V = n$
+    $v \in V^m$ - ЛНС
+    \begin{enumerate}
+        \item $m \le n$
+        \item $\langle v \rangle = V \implies m \ge n$
+        \item $v(1:n,1)$ - ЛНС $\implies v(1:n,1)$ - базис.
+        \item $\langle v(1:n,1) \rangle = V \implies v(n:1)$ - базис.
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}~
+    
+    $e \in V^n$ - базис $V$
+    \begin{enumerate}
+        \item $v \in \langle e \rangle \implies m \le n$ по минимальности
+        \item Из порождающей системы можно выбрать базис
+        \item $\letus v(1:n,1)$ - не базис, тогда $\exists w ~ v(1:n,1), w$ - ЛНС, противоречит 1.
+        \item Можно выбрать базис, а значит $v(1:n,1)$ - базис. 
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem-non}~
+
+    Пусть $\dim V = n, ~ W \le V$, тогда
+
+    \begin{enumerate}
+        \item $\dim W \le n$
+        \item $\dim W = n \implies W = V$
+    \end{enumerate}
+\end{theorem-non}
+
+\begin{proof}~
+
+    $e \in V^n$ - базис $V$
+    \begin{enumerate}
+        \item $W \in \langle e \rangle \implies \dim W \le n$
+        \item $W = \langle e \rangle \implies \dim W = n$
+    \end{enumerate}
+\end{proof}
+
+\subsection{Координаты}
+
+\begin{defn}~
+
+    Пусть $\dim V = n,~ e$ - базис $V$, $v \in V, ~ a \in F^n ~ v = a^Te$, тогда
+
+    $a$ - столбец координат вектора $v$ в базисе $E$.
+\end{defn}
+
+\begin{defn}~
+
+    Пусть $e, f$ - базисы $V$, тогда
+
+    $M_{e \to f} = ([f_i]_e)_{1 \le i \le n}$ - матрица перехода из базиса $e$ в базис $f$.
+\end{defn}
+
+\begin{theorem-non}~
+
+    \begin{enumerate}
+        \item $M_{e \to f} \in GL_n(F) \implies M_{e \to f} = M_{f \to e}^{-1}$
+        \item $e, f, g$ - три базиса, тогда $M_{e \to g} = M_{e \to f}M_{f \to g}$
+    \end{enumerate}
+    
+\end{theorem-non}
+
+\begin{proof}
+    Очев
+\end{proof}

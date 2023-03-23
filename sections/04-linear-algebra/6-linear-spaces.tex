@@ -190,3 +190,22 @@
     $1) \implies 3)$ - $0 = a_1v_1 + a_2v_2 + \ldots \implies 0 = a_1v_1 + a_2v_2 + \ldots + a_jv_j \implies v_j = \frac{-a_1}{a_j}v_1 + \ldots \in \langle v_1, v_2, \ldots, v_{j-1} \rangle$
     
 \end{proof}
+
+\begin{theorem-non}
+    $v_1, v_2, \ldots, v_n$ - ЛЗС $\implies v_1, v_2, \ldots, v_n, v$ - ЛЗС 
+\end{theorem-non}
+
+\begin{follow}
+    $v_1 = 0 \implies v_1, v_2, \ldots, v_n$ - ЛЗС
+\end{follow}
+
+\begin{theorem}~
+
+    $V = v_1, v_2, \ldots v_n, ~ W = w_1, w_2, \ldots, w_m \in \langle V \rangle, ~ m > n \implies W$ - ЛЗС
+\end{theorem}
+
+\begin{proof}
+    $W = A V, ~ A \in M(m, n)$
+
+    $m > n \implies$ элементарными преобразованиями строк над расширенной матрицей системы можно обнулить последнюю строку, а значит один из векторов $w_i$ представляется в виде линейной комбинации других.
+\end{proof}
